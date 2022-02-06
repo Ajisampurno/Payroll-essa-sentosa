@@ -15,12 +15,13 @@ class ProfilesImport implements ToModel
     public function model(array $row)
     {
         return new Profile([
-            'nama_ktp'=>$row[1],
-            'nama_absen' =>$row[2],
-            'nip' => $row[3],
-            'pin' => $row[4],
-            'no_ktp' => $row[5],
-            'ttl' => $row[6],
+            'id'=>$row[0],
+            'nama_ktp' =>$row[1],
+            'nama_absen' => $row[2],
+            'pin' => $row[3],
+            'no_ktp' => "'".$row[4],
+            'alamat_ktp' => $row[5],
+            'tgl_lahir' => $row[6],
             'agama' => $row[7],
             'alamat' => $row[8],
             'referensi' => $row[9],

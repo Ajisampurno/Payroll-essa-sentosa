@@ -4,25 +4,43 @@
 <main class="main users chart-page" id="skip-target">
     <div class="container">
       <h2 class="main-title text-center">Data karyawan</h2>
-
-      <!-- BUTTON EXPORT IMPORT -->
-      <button class="btn btn-success" >
-        <a href="/export_profiles">Export</a>
-      </button>
-      <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Import
-      </button>
-
       <div class="row justify-content-center">
         <div class="col-sm-7">
+                          
+          @if (session()->has('success'))
+          <div class="alert alert-success" role="alert">
+            {{ session('success') }}
+          </div>
+          @endif
+
+          
+          <form action="/data_karyawan" method="GET">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control shadow-sm bg-body rounded" placeholder="Cari data..." name="search" value="{{ request('search') }}">
+              <button class="btn btn-primary shadow-sm rounded" type="submit">Cari</button>
+            </div>
+          </form>
+
           <div class="card">
-            <!-- INPUT SEARC -->
             <div class="card-header d-inline-block">
-              <div class="search-wrapper">
-                <i data-feather="search" aria-hidden="true"></i>
-                <input type="text" placeholder="Enter keywords ..." required>
-              </div>
+              
+
+               <!-- BUTTON EXPORT IMPORT -->                
+               <a href="/export_profiles">
+                <button class="btn btn-success" >
+                    Export
+                </button>
+              </a>
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Import
+              </button>
+              <!-- Tambah data -->
+              <a href="/tambah_karyawan">
+                <button type="button" class="btn btn-info">
+                  Add
+                </button>
+              </a>
             </div>
               <!-- BADAN TABLE -->
               <div class="card-body">
@@ -45,23 +63,25 @@
                               {{ $no++ }}
                           </td>
                           <td>
-                              {{ $profile->nip }}
+                              {{ $profile->id }}
                           </td>
                           <td>
                               {{ $profile->nama_ktp }}
                           </td>
                           <td>
-                          <span class="p-relative">
-                              <button class="dropdown-btn transparent-btn" type="button" title="More info">
-                              <div class="sr-only">More info</div>
-                              <i data-feather="more-horizontal" aria-hidden="true"></i>
-                              </button>
-                              <ul class="users-item-dropdown dropdown">
-                              <li><a href="/show_profiles/{{ $profile->id }}">Show</a></li>
-                              <li><a href="##">Edit</a></li>
-                              <li><a href="##">Trash</a></li>
-                              </ul>
-                          </span>
+                            <span class="p-relative">
+                                <button class="dropdown-btn transparent-btn" type="button" title="More info">
+                                <div class="sr-only">More info</div>
+                                <i data-feather="more-horizontal" aria-hidden="true"></i>
+                                </button>
+                                <ul class="users-item-dropdown dropdown">
+                                <li><a href="/show_profiles/{{ $profile->id }}">Show</a></li>
+                                <li><a href="/update_datakaryawan/{{ $profile->id }}">Edit</a></li>
+                                <li>
+                                  <a href="/data_karyawan/hapus/{{ $profile->id }}" class="" onclick="return confirm('Yakin ingin menghapus data?')">Trash</a>
+                                </li>
+                                </ul>
+                            </span>
                           </td>
                       </tr>
                       @endforeach

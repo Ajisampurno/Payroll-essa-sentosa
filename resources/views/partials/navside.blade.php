@@ -22,41 +22,54 @@
           </div>
           <div class="sidebar-body">
               <ul class="sidebar-body-menu">
-                  <li>
-                      <a class="active" href="/dashboard"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
+                <li>
+                    <a class="active" href="/dashboard"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
+                </li>
+                <li>
+                    <a class="show-cat-btn" href="/sampling">
+                        <span class="icon document" aria-hidden="true"></span>Jadwal
+                    </a>
+                </li>
+                <li>
+                  <a class="show-cat-btn" href="##">
+                      <span class="icon folder" aria-hidden="true"></span>Report and form
+                      <span class="category__btn transparent-btn" title="Open list">
+                          <span class="sr-only">Open list</span>
+                          <span class="icon arrow-down" aria-hidden="true"></span>
+                      </span>
+                  </a>
+                  <ul class="cat-sub-menu">
+                    <li>
+                        <a href="/attendance">Attendance</a>
+                    </li>
+                    <li>
+                        <a href="/data_karyawan">Data karyawan</a>
+                    </li>
+                    <li>
+                      <a href="/upah_potongan">Salery report</a>
                   </li>
-                  <li>
-                      <a class="show-cat-btn" href="/sampling">
-                          <span class="icon document" aria-hidden="true"></span>Jadwal
-                      </a>
-                  </li>
-                  <li>
-                      <a class="show-cat-btn" href="##">
-                          <span class="icon folder" aria-hidden="true"></span>Report and form
-                          <span class="category__btn transparent-btn" title="Open list">
-                              <span class="sr-only">Open list</span>
-                              <span class="icon arrow-down" aria-hidden="true"></span>
-                          </span>
-                      </a>
-                      <ul class="cat-sub-menu">
-                        <li>
-                            <a href="/attendance">Attendance</a>
-                        </li>
-                        <li>
-                            <a href="/data_karyawan">Data karyawan</a>
-                        </li>
-                        <li>
-                          <a href="/">Slip gaji</a>
-                      </li>
-                      </ul>
-                  </li>
-                  <li>
-                      
+                    <li>
+                      <a href="/">Slip gaji</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
               <span class="system-menu__title">system</span>
               <ul class="sidebar-body-menu">
-                  <li>
-                      <a href="##"><span class="icon setting" aria-hidden="true"></span>Settings</a>
-                  </li>
+                <li>
+                  <a class="show-cat-btn" href="##">
+                      <span class="icon setting" aria-hidden="true"></span>Settings
+                      <span class="category__btn transparent-btn" title="Open list">
+                          <span class="sr-only">Open list</span>
+                          <span class="icon arrow-down" aria-hidden="true"></span>
+                      </span>
+                  </a>
+                  <ul class="cat-sub-menu">
+                    <li>
+                        <a href="/setting_upah">Setting Salery</a>
+                    </li>
+                  </ul>
+                </li>                
               </ul>
           </div>
       </div>
@@ -94,7 +107,7 @@
             <i data-feather="settings" aria-hidden="true"></i>
             <span>Account settings</span>
           </a></li>
-        <li><a class="danger" href="##">
+        <li><a class="danger" href="/logout">
             <i data-feather="log-out" aria-hidden="true"></i>
             <span>Log out</span>
           </a></li>

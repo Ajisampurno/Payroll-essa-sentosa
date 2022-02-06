@@ -17,14 +17,14 @@ class CreateProfilesTable extends Migration
             $table->id();
             $table->text('nama_ktp');
             $table->text('nama_absen');
-            $table->integer('nip')->unique();
             $table->integer('pin')->unique();
-            $table->bigInteger('no_ktp')->unique();
-            $table->date('ttl');
+            $table->text('no_ktp');
+            $table->text('alamat_ktp');
+            $table->text('tgl_lahir');
             $table->text('agama');
             $table->text('alamat');
             $table->text('referensi');
-            $table->date('aktiv_mulai');
+            $table->text('aktiv_mulai');
             $table->timestamps();
         });
     }

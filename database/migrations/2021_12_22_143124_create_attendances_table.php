@@ -15,10 +15,9 @@ class CreateAttendancesTable extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
-            $table->integer('nip');
-            $table->text('nama_absen');
             $table->time('in');
             $table->time('out');
+            $table->text('keterangan')->nullable();
             $table->timestamps();
         });
     }

@@ -7,13 +7,15 @@ use App\Models\Profile;
 use App\Exports\ProfilesExport;
 use App\Imports\ProfilesImport;
 use Maatwebsite\Excel\Facades\Excel;
+
 use App\Http\Controllers\Controller;
 
-use App\Http\Requests\StoreProfileRequest;
-use App\Http\Requests\UpdateProfileRequest;
+//use App\Http\Requests\StoreProfileRequest;
+//use App\Http\Requests\UpdateProfileRequest;
+use Illuminate\Auth\Events\Validated;
 //use GuzzleHttp\Psr7\Request;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
+//use Illuminate\Support\Facades\Redirect;
 
 
 class ProfileController extends Controller
@@ -25,9 +27,24 @@ class ProfileController extends Controller
      */
     public function index()
     {
+
+    $profile = Profile::latest();
+
+    if (request('search')) {
+       $profile->where('id','like','%'.request('search').'%')
+                ->orwhere('nama_ktp','like','%'.request('search').'%');
+    }
+
         return view('data_karyawan',[
             "title" => "Data karyawan",
-            "profiles" => Profile::all()
+            "profiles" => $profile->get()
+        ]);
+    }
+
+    public function tambah()
+    {
+        return view('tambah_karyawan',[
+            "title" => "Tambah data"
         ]);
     }
 
@@ -36,6 +53,8 @@ class ProfileController extends Controller
     }
 
     public function ProfilesImport(Request $request){
+
+        Profile::truncate();
 
         $file = $request->file('file');
         $nama_file = $file->getClientOriginalName();
@@ -62,9 +81,24 @@ class ProfileController extends Controller
      * @param  \App\Http\Requests\StoreProfileRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProfileRequest $request)
+    public function store(Request $request)
     {
-        //
+        $ValidateData = $request->validate([
+            'id' => 'required|max:6|unique:profiles',
+            'nama_ktp' => 'required',
+            'nama_absen' => 'required',
+            'pin' => 'required|max:6|unique:profiles',
+            'no_ktp' => 'required|max:16|unique:profiles',
+            'alamat_ktp' => 'required',
+            'tgl_lahir' => 'required',
+            'agama' => 'required',
+            'alamat' => 'required',
+            'referensi'=> 'required',
+            'aktiv_mulai' => 'required',
+        ]);
+
+        Profile::create($ValidateData);
+        return redirect('/data_karyawan')->with('success', 'Data berhasil di tambah kan');
     }
 
     /**
@@ -76,10 +110,11 @@ class ProfileController extends Controller
     public function show($id)
     {
         return view('show_profiles',[
-            "title" => "Lihat data",
+            "title" => "show profile",
             "profiles" => Profile::find($id)
         ]);
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -87,9 +122,13 @@ class ProfileController extends Controller
      * @param  \App\Models\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function edit(Profile $profile)
+    public function edit($id)
     {
-        //
+        return view('update_datakaryawan',[
+            "title"=>"ubah",
+            "profile" => Profile::find($id)
+        ]);
+        
     }
 
     /**
@@ -99,9 +138,44 @@ class ProfileController extends Controller
      * @param  \App\Models\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateProfileRequest $request, Profile $profile)
+
+   public function update(Request $request, $id)
     {
-        //
+        $profile = Profile::find($id);
+
+        $rules = [
+             'nama_ktp' => 'required',
+             'nama_absen' => 'required',
+             'alamat_ktp' => 'required',
+             'tgl_lahir' => 'required',
+             'agama' => 'required',
+             'alamat' => 'required',
+             'referensi'=> 'required',
+             'aktiv_mulai' => 'required',
+         ];
+
+        if ($request->id != $id) {
+                $rules['id'] = 'required|max:6|unique:profiles';
+            }
+        if ($request->pin != $profile->pin) {
+            $rules['pin'] = 'required|max:6|unique:profiles';
+        }
+        if ($request->no_ktp != $profile->no_ktp) {
+            $rules['no_ktp'] = 'required|max:16|unique:profiles';
+        }
+
+         $ValidateData = $request->validate($rules);
+
+        Profile::find($id)->update($ValidateData); 
+            
+        return redirect('/data_karyawan')->with('success','Data berhasil di ubah');
+    }
+
+
+    public function hapus($id){
+        $data = Profile::find($id);
+        $data->delete();
+        return redirect('/data_karyawan')->with('success', 'Data berhasil di hapus');
     }
 
     /**
@@ -112,6 +186,7 @@ class ProfileController extends Controller
      */
     public function destroy(Profile $profile)
     {
-        //
+        Profile::destroy($profile->id);
+        return redirect('/data_karyawan')->with('success', 'Data berhasil di hapus');
     }
 }
