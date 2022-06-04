@@ -9,7 +9,10 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\PenilaiankaryawanController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -67,7 +70,7 @@ Route::get('/logout',function(){
     //TAMPILAN SLIP
     Route::get('/cetak_slip_gaji/{id}', [UpotController::class,'CetakSlip'])->middleware('auth');
 
-//HALAMAN SETTING
+//HALAMAN PAYROLL
     //TAMPILAN SETTING UPAH
     Route::get('/upah_potongan',[UpotController::class,'index'])->middleware('auth');
     //FUNCTION EXPORT KE EXCEL
@@ -76,3 +79,17 @@ Route::get('/logout',function(){
     Route::post('/import_upot', [UpotController::class,'UpotImport'])->middleware('auth');
     //FUNCTION EXPORT KE EXCEL
     Route::get('/hapus_semua', [UpotController::class,'hapus'])->middleware('auth');
+
+//HALAMAN PENGAJUAN KARYAWAN
+    //TAMPIL HALAMAN
+    Route::get('/pengajuan',[PengajuanController::class,'index'])->middleware('auth');
+    //FUNGSI TAMBAH DATA PENGAJUAN
+    Route::post('pengajuan/store', [PengajuanController::class,'store']);
+    //SHOW PENGAJUAN
+    Route::get('/show_pengajuan/{id}', [PengajuanController::class,'show'])->middleware('auth');
+
+//HALAMAN PENILAIAN KARYAWAN
+    //TAMPILASN DASHBOARD PENILAIAN KARYAWAN
+    Route::get('/dashboardPK',[PenilaiankaryawanController::class,'index'])->middleware('auth');
+    //TAMPILASN FORM PENILAIAN PEGAWAI
+    Route::get('/formPK',[PenilaiankaryawanController::class,'create'])->middleware('auth');

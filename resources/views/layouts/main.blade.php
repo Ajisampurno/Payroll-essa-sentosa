@@ -12,6 +12,9 @@
     <!-- Custom styles -->
     <link rel="stylesheet" href="/css/style.min.css">
     <title>ES | {{ $title }}</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
   </head>
   <body>
 

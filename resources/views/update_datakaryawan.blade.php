@@ -37,15 +37,6 @@
                             @enderror
                         </div>
                         <div class="form-floating mt-2">
-                            <input class="form-control shadow-sm bg-body rounded @error('pin') is-invalid  @enderror" value="{{ old('pin',$profile->pin) }}" type="text" name="pin" id="pin" placeholder="pin">
-                            <label for="pin">PIN</label>
-                            @error('pin')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>   
-                            @enderror
-                        </div>
-                        <div class="form-floating mt-2">
                             <input class="form-control shadow-sm bg-body rounded @error('no_ktp') is-invalid  @enderror" value="{{ old('no_ktp',$profile->no_ktp) }}" type="text" id="no_ktp" placeholder="No KTP" name="no_ktp">
                             <label >No KTP</label>
                             @error('no_ktp')
@@ -85,6 +76,15 @@
                             <input class="form-control shadow-sm bg-body rounded @error('alamat') is-invalid  @enderror" value="{{ old('alamat',$profile->alamat) }}" type="text" id="alamat" placeholder="Alamat Sekarang" name="alamat">
                             <label >Alamat Sekarang</label>
                             @error('alamat')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>   
+                            @enderror
+                        </div>
+                        <div class="form-floating mt-2">
+                            <input class="form-control shadow-sm bg-body rounded @error('bagian') is-invalid  @enderror" value="{{ old('bagian',$profile->bagian) }}" type="text" id="bagian" placeholder="Bagian/divisi" name="bagian">
+                            <label >Divisi</label>
+                            @error('bagian')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>   

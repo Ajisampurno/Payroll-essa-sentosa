@@ -27,8 +27,8 @@
                                     <tbody>
                                         @foreach ($attendances as $attendance)
                                         <tr>
-                                            <td class="text-center">{{ $attendance->nip }}</td>
-                                            <td>{{ $attendance->nama_absen }}</td>
+                                            <td class="text-center">{{ $attendance->id }}</td>
+                                            <td>{{ $attendance->profile->nama_absen }}</td>
                                             <td class="text-center">{{ $attendance->in }}</td>
                                             <td class="text-center">{{ $attendance->out }}</td>
                                         </tr>

@@ -32,12 +32,13 @@ class ProfileController extends Controller
 
     if (request('search')) {
        $profile->where('id','like','%'.request('search').'%')
+                ->orwhere('bagian','like','%'.request('search').'%')
                 ->orwhere('nama_ktp','like','%'.request('search').'%');
     }
 
         return view('data_karyawan',[
             "title" => "Data karyawan",
-            "profiles" => $profile->get()
+            "profiles" => $profile->get()->sortBy('id')
         ]);
     }
 
@@ -93,6 +94,7 @@ class ProfileController extends Controller
             'tgl_lahir' => 'required',
             'agama' => 'required',
             'alamat' => 'required',
+            'bagian' => 'required',
             'referensi'=> 'required',
             'aktiv_mulai' => 'required',
         ]);
@@ -150,6 +152,7 @@ class ProfileController extends Controller
              'tgl_lahir' => 'required',
              'agama' => 'required',
              'alamat' => 'required',
+             'bagian' => 'required',
              'referensi'=> 'required',
              'aktiv_mulai' => 'required',
          ];

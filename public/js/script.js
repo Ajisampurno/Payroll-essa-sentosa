@@ -326,17 +326,17 @@ document.addEventListener('DOMContentLoaded', function () {
     /* Visitors chart */
 
 
-    var ctx = document.getElementById('myChart');
+    var ctx = document.getElementById('myChart_ori');
 
     if (ctx) {
       var myCanvas = ctx.getContext('2d');
       var myChart = new Chart(myCanvas, {
-        type: 'line',
+        type: 'bar',
         data: {
-          labels: ['Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+          labels: ['P1', 'P2', 'P3', 'P4', 'P5', 'P6', 'P7', 'P8', 'P9', 'P10'],
           datasets: [{
             label: 'Last 6 months',
-            data: [35, 27, 40, 15, 30, 25, 45],
+            data: [35, 27, 40, 15, 30, 25, 45, 30, 25, 45],
             cubicInterpolationMode: 'monotone',
             tension: 0.4,
             backgroundColor: ['rgba(95, 46, 234, 1)'],

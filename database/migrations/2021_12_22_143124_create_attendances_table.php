@@ -15,6 +15,7 @@ class CreateAttendancesTable extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('profiles_id');
             $table->time('in');
             $table->time('out');
             $table->text('keterangan')->nullable();

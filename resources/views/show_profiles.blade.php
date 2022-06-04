@@ -12,7 +12,6 @@
                     <li class="list-group-item">Nama KTP : {{ $profiles->nama_ktp}}</li>
                     <li class="list-group-item">Nama absen : {{ $profiles->nama_absen }}</li>
                     <li class="list-group-item">NIP : {{ $profiles->id }}</li>
-                    <li class="list-group-item">PIN : {{ $profiles->pin }}</li>
                     <li class="list-group-item">NO KTP : {{ $profiles->no_ktp }}</li>
                     <li class="list-group-item">TTL : {{ $profiles->alamat_ktp }},{{ $profiles->tgl_lahir }}</li>
                     <li class="list-group-item">Agama : {{ $profiles->agama }}</li>

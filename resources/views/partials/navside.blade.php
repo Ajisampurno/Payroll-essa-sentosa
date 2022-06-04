@@ -6,9 +6,9 @@
   <aside class="sidebar">
       <div class="sidebar-start">
           <div class="sidebar-head">
-              <a href="/" class="logo-wrapper" title="Home">
+              <a href="/dashboard" class="logo-wrapper" title="Home">
                   <span class="sr-only">Home</span>
-                  <span class="icon logo" aria-hidden="true"></span>
+                  <img class="rounded" src="/img/logo.png" alt="">
                   <div class="logo-text">
                       <span class="logo-title">Essa sentosa</span>
                       <span class="logo-subtitle">Dashboard</span>
@@ -22,7 +22,7 @@
           </div>
           <div class="sidebar-body">
               <ul class="sidebar-body-menu">
-                <li>
+<!--                <li>
                     <a class="active" href="/dashboard"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
                 </li>
                 <li>
@@ -47,14 +47,31 @@
                     </li>
                     <li>
                       <a href="/upah_potongan">Salery report</a>
-                  </li>
+                    </li>
                     <li>
                       <a href="/">Slip gaji</a>
                     </li>
+                    <li>
+                      <a href="/Penilaian_karyawan">Penilaian Karyawan</a>
+                    </li>
+                    <li>
+                      <a href="/pengajuan">Pengajuan</a>
+                    </li>
                   </ul>
                 </li>
-              </ul>
-              <span class="system-menu__title">system</span>
+                --> 
+                    <li>
+                      <a href="/dashboardPK">Dashboard</a>
+                    </li>              
+                    
+                    <li>
+                      <a href="/formPK">Form penilaian</a>
+                    </li>
+              
+                    <li>
+                      <a href="/dashboardPK">Ranking Board</a>
+                    </li>
+<!--              <span class="system-menu__title">system</span>
               <ul class="sidebar-body-menu">
                 <li>
                   <a class="show-cat-btn" href="##">
@@ -71,6 +88,7 @@
                   </ul>
                 </li>                
               </ul>
+            -->
           </div>
       </div>
   </aside>
