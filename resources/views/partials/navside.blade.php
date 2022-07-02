@@ -10,15 +10,15 @@
                   <span class="sr-only">Home</span>
                   <img class="rounded" src="/img/logo.png" alt="">
                   <div class="logo-text">
-                      <span class="logo-title">Essa sentosa</span>
-                      <span class="logo-subtitle">Dashboard</span>
+                      <span class="logo-title">Essa Sentosa</span>
+                    <!--  <span class="logo-subtitle">Dashboard</span> -->
                   </div>
 
               </a>
-              <button class="sidebar-toggle transparent-btn" title="Menu" type="button">
+<!--              <button class="sidebar-toggle transparent-btn" title="Menu" type="button">
                   <span class="sr-only">Toggle menu</span>
                   <span class="icon menu-toggle" aria-hidden="true"></span>
-              </button>
+              </button> -->
           </div>
           <div class="sidebar-body">
               <ul class="sidebar-body-menu">
@@ -59,17 +59,16 @@
                     </li>
                   </ul>
                 </li>
-                --> 
                     <li>
                       <a href="/dashboardPK">Dashboard</a>
                     </li>              
-                    
+-->                     
                     <li>
-                      <a href="/formPK">Form penilaian</a>
+                      <a href="/data_karyawan">Form penilaian</a>
                     </li>
               
                     <li>
-                      <a href="/dashboardPK">Ranking Board</a>
+                      <a href="/rangkingboard">Ranking Board</a>
                     </li>
 <!--              <span class="system-menu__title">system</span>
               <ul class="sidebar-body-menu">
@@ -109,7 +108,7 @@
       <i class="sun-icon" data-feather="sun" aria-hidden="true"></i>
       <i class="moon-icon" data-feather="moon" aria-hidden="true"></i>
     </button>
-    <div class="nav-user-wrapper">
+<!--    <div class="nav-user-wrapper">
       <button href="##" class="nav-user-btn dropdown-btn" title="My profile" type="button">
         <span class="sr-only">My profile</span>
         <span class="nav-user-img">
@@ -130,7 +129,12 @@
             <span>Log out</span>
           </a></li>
       </ul>
-    </div>
+    </div> -->
+    <a href="/logout">
+      <button class="btn btn-danger">
+        Logout
+      </button>
+    </a>
   </div>
 </div>
 </nav>

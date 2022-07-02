@@ -9,7 +9,4 @@ class Attendance extends Model
 {
     use HasFactory;
 
-    public function profile(){
-        return $this->belongsTo(Profile::class,'user_id');
-    }
 }

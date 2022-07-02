@@ -3,11 +3,8 @@
 
     <div class="container pt-5">
         <div class="row justify-content-center pb-5">
-            <div class="col-md-3">
-                <img class="img-thumbnail" src="/img/gambar.png" alt="">
-            </div>
             <div class="col-md-6">
-                <div class="card" style="width: 18rem;">
+                <div class="card">
                     <ul class="list-group list-group-flush">
                     <li class="list-group-item">Nama KTP : {{ $profiles->nama_ktp}}</li>
                     <li class="list-group-item">Nama absen : {{ $profiles->nama_absen }}</li>
@@ -18,13 +15,11 @@
                     <li class="list-group-item">Alamat : {{ $profiles->alamat }}</li>
                     <li class="list-group-item">Referensi : {{ $profiles->referensi }}</li>
                     <li class="list-group-item">Aktif mulai : {{ $profiles->aktif_mulai }}</li>
-                    <li class="list-group-item">Email : -</li>
-                    <li class="list-group-item">No telp -:</li>
-                    <li class="list-group-item">
+                    <!--<li class="list-group-item">
                         <button type="button" class="btn btn-warning">
                             <a href="/cetak_slip_gaji/{{ $profiles->id }}">Cetak slip gaji</a>
-                        </button>
-                    </li>
+                        </button> 
+                    </li>-->
                     </ul>
                 </div>
             </div>

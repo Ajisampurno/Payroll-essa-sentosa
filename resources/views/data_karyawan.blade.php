@@ -75,10 +75,11 @@
                                 <i data-feather="more-horizontal" aria-hidden="true"></i>
                                 </button>
                                 <ul class="users-item-dropdown dropdown">
-                                <li><a href="/show_profiles/{{ $profile->id }}">Show</a></li>
+                                <li><a href="/show_profiles/{{ $profile->id }}">Detail</a></li>
+                                <li><a href="/formPK/{{ $profile->id }}">Penilaian</a></li>
                                 <li><a href="/update_datakaryawan/{{ $profile->id }}">Edit</a></li>
                                 <li>
-                                  <a href="/data_karyawan/hapus/{{ $profile->id }}" class="" onclick="return confirm('Yakin ingin menghapus data?')">Trash</a>
+                                  <a href="/data_karyawan/hapus/{{ $profile->id }}" class="" onclick="return confirm('Yakin ingin menghapus data?')">Hapus</a>
                                 </li>
                                 </ul>
                             </span>
@@ -119,20 +120,6 @@
       </div>
     </div>
   </div>
-  <!-- ! Footer -->
-  <footer class="footer">
-<div class="container footer--flex">
-  <div class="footer-start">
-    <p>2021 © Elegant Dashboard - <a href="elegant-dashboard.com" target="_blank"
-        rel="noopener noreferrer">elegant-dashboard.com</a></p>
-  </div>
-  <ul class="footer-end">
-    <li><a href="##">About</a></li>
-    <li><a href="##">Support</a></li>
-    <li><a href="##">Puchase</a></li>
-  </ul>
-</div>
-</footer>
 </div>
 </div>
 

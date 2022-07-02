@@ -15,21 +15,20 @@ class CreatePenilaiansTable extends Migration
     {
         Schema::create('penilaians', function (Blueprint $table) {
             $table->id();
+            $table->integer('nip');
             $table->text('nama_ktp');
-            $table->text('bagian');
-            $table->integer('p1');
-            $table->integer('p2');
-            $table->integer('p3');
-            $table->integer('p4');
-            $table->integer('p5');
-            $table->integer('p6');
-            $table->integer('p7');
-            $table->integer('p8');
-            $table->integer('p9');
-            $table->integer('p10');
-            $table->integer('terlambat');
-            $table->integer('izin');
-            $table->integer('bolos');
+            $table->integer('s1')->required();
+            $table->integer('s2')->required();
+            $table->integer('s3')->required();
+            $table->integer('s4')->required();
+            $table->integer('s5')->required();
+            $table->integer('s6')->required();
+            $table->integer('s7')->required();
+            $table->integer('s8')->required();
+            $table->integer('s9')->required();
+            $table->integer('s10')->required();
+            $table->integer('s11')->required();
+            $table->integer('s12')->required();
             $table->timestamps();
         });
     }

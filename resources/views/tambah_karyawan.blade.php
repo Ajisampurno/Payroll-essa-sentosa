@@ -5,8 +5,8 @@
             <div class="col-md-5">
                 <div class="card-body">
                     <h3 class="text-center mb-4">TAMBAH DATA KARYAWAN</h3>
-                    <form action="tambah_data/store" method="post">
-                        
+
+                    <form action="/tambah_data/store" method="post">                        
                         @csrf
 
                         <div class="form-floating mt-2">
@@ -31,15 +31,6 @@
                             <input class="form-control shadow-sm bg-body rounded @error('nama_absen') is-invalid  @enderror" value="{{ old('nama_Absen') }}" type="text" name="nama_absen" id="nama_absen" placeholder="Nama Absen">
                             <label for="nama_absen">Nama Absen</label>
                             @error('nama_absen')
-                                <div class="invalid-feedback">
-                                    {{ $message }}
-                                </div>   
-                            @enderror
-                        </div>
-                        <div class="form-floating mt-2">
-                            <input class="form-control shadow-sm bg-body rounded @error('pin') is-invalid  @enderror" value="{{ old('pin') }}" type="text" name="pin" id="pin" placeholder="pin">
-                            <label for="pin">PIN</label>
-                            @error('pin')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>   
@@ -91,6 +82,15 @@
                             @enderror
                         </div>
                         <div class="form-floating mt-2">
+                            <input class="form-control shadow-sm bg-body rounded @error('bagian') is-invalid  @enderror" value="{{ old('bagian') }}" type="text" id="bagian" placeholder="Bagian" name="bagian">
+                            <label >Bagian</label>
+                            @error('bagian')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>   
+                            @enderror
+                        </div>
+                        <div class="form-floating mt-2">
                             <input class="form-control shadow-sm bg-body rounded @error('referensi') is-invalid  @enderror" value="{{ old('referensi') }}" type="text" id="referensi" placeholder="Referensi" name="referensi">
                             <label >Referensi</label>
                             @error('referensi')
@@ -112,6 +112,7 @@
                             <button class="btn btn-success " type="submit">Simpan</button>
                         </div>
                     </form>
+
                 </div>    
             </div>           
         </div>

@@ -2,15 +2,20 @@
 @section('container')
     <!-- ! Main -->
     <main class="main users chart-page" id="skip-target">
+      <div class="row justify-content-center">
+        
+      </div>
       <div class="container">
       <h2 class="main-title">Dashboard</h2>
         <div class="row stat-cards">
           
           <div class="col-md-6 col-xl-3">
             <article class="stat-cards-item">
-              <div class="stat-cards-icon primary">
-                <i data-feather="users" aria-hidden="true"></i>
-              </div>
+              <a href="/data_karyawan">
+                <div class="stat-cards-icon primary">
+                  <i data-feather="users" aria-hidden="true"></i>
+                </div>
+              </a>
               <div class="stat-cards-info">
                 <p class="stat-cards-info__title">Jumlah karyawan</p>
                 <p class="stat-cards-info__num">175</p>
@@ -18,7 +23,44 @@
             </article>
           </div>
 
-          <div class="col-md-6 col-xl-3">
+          <div class="col-md-4">
+            <canvas id="myChart"></canvas>
+        </div>
+
+          <script>
+            const labels = [
+            'Bulan 1',   
+            'Bulan 2',
+            'Bulan 3',
+            'Bulan 4',
+            'Bulan 5',
+            'Bulan 6',
+            ];
+        
+            const data = {
+                labels: labels,
+                datasets: [{
+                    label: 'Peningkatan kinerja',
+                    backgroundColor: [
+                        'rgb(181, 48, 252)'
+                        ],
+                    data: [3, 2, 2, 2, 4, 3, 4],
+                }]
+            };
+        
+            const config = {
+                type: 'line',
+                data: data,
+                options: {}
+            };
+    
+            const myChart = new Chart(
+                document.getElementById('myChart'),
+                config
+            );
+        </script>
+    
+<!--          <div class="col-md-6 col-xl-3">
             <article class="stat-cards-item">
               <div class="stat-cards-icon warning">
                 <i data-feather="user-check" aria-hidden="true"></i>
@@ -58,7 +100,7 @@
 
       <h2 class="main-title">Notif</h2>
       <!-- BADAN TABLE -->
-      <div class="card-body">
+<!--      <div class="card-body">
         <table class="table table-light table-hover">
           <thead>
           <tr class="users-table-info">
@@ -121,7 +163,7 @@
               </tr>
               @endforeach
           </tbody>
-        </table>
+        </table> -->
       </div>      
     </main>
 

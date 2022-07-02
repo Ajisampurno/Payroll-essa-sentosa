@@ -26,7 +26,7 @@ use App\Http\Controllers\PenilaiankaryawanController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome',["title" => "welcome"]);
 });
 
 Auth::routes();
@@ -56,7 +56,7 @@ Route::get('/logout',function(){
     //HALAMAN HAPUS DATA KARYAWAN
     Route::get('/data_karyawan/hapus/{id}', [ProfileController::class,'hapus'])->middleware('auth');
     //HALAMAN TAMBAH DATA KARYAWAN
-    Route::post('tambah_data/store', [ProfileController::class,'store']);
+    Route::post('/tambah_data/store', [ProfileController::class,'store']);
     //FUNCTION EXPORT KE EXCEL
     Route::get('/export_profiles', [ProfileController::class,'profilesexport'])->middleware('auth');
     //FUNCTION IMPORT EXCEL
@@ -90,6 +90,10 @@ Route::get('/logout',function(){
 
 //HALAMAN PENILAIAN KARYAWAN
     //TAMPILASN DASHBOARD PENILAIAN KARYAWAN
-    Route::get('/dashboardPK',[PenilaiankaryawanController::class,'index'])->middleware('auth');
+    Route::get('/raport',[PenilaiankaryawanController::class,'index'])->middleware('auth');
     //TAMPILASN FORM PENILAIAN PEGAWAI
-    Route::get('/formPK',[PenilaiankaryawanController::class,'create'])->middleware('auth');
+    Route::get('/formPK/{id}',[PenilaiankaryawanController::class,'show'])->middleware('auth');
+    //FUNGSI INPUT NILAI
+    Route::post('/input_nilai/store', [PenilaiankaryawanController::class,'store']);
+    //TAMPILASN DASHBOARD PENILAIAN KARYAWAN
+    Route::get('/rangkingboard',[PenilaiankaryawanController::class,'rangkingboard'])->middleware('auth');

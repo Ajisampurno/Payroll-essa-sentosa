@@ -84,11 +84,10 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        $ValidateData = $request->validate([
+       $ValidateData = $request->validate([
             'id' => 'required|max:6|unique:profiles',
             'nama_ktp' => 'required',
             'nama_absen' => 'required',
-            'pin' => 'required|max:6|unique:profiles',
             'no_ktp' => 'required|max:16|unique:profiles',
             'alamat_ktp' => 'required',
             'tgl_lahir' => 'required',
@@ -160,9 +159,6 @@ class ProfileController extends Controller
         if ($request->id != $id) {
                 $rules['id'] = 'required|max:6|unique:profiles';
             }
-        if ($request->pin != $profile->pin) {
-            $rules['pin'] = 'required|max:6|unique:profiles';
-        }
         if ($request->no_ktp != $profile->no_ktp) {
             $rules['no_ktp'] = 'required|max:16|unique:profiles';
         }

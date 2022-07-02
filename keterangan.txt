@@ -1,0 +1,3 @@
+Laravel v8.76.2 (PHP v7.4.19)
+di buat untuk skripsi
+sebagisan di coment tdnya untuk website slip gaji

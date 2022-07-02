@@ -7,6 +7,7 @@
             <div class="card" ">
                 <div class="card-body">
                     <table class="table table-bordered">
+                        
                         <tr>
                             <td>Nama</td>
                             <td>Aji sampurno</td>    
