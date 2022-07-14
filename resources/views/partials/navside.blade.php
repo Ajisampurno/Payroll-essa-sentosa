@@ -15,79 +15,61 @@
                   </div>
 
               </a>
-<!--              <button class="sidebar-toggle transparent-btn" title="Menu" type="button">
+              <button class="sidebar-toggle transparent-btn" title="Menu" type="button">
                   <span class="sr-only">Toggle menu</span>
                   <span class="icon menu-toggle" aria-hidden="true"></span>
-              </button> -->
+              </button>
+
           </div>
           <div class="sidebar-body">
               <ul class="sidebar-body-menu">
-<!--                <li>
-                    <a class="active" href="/dashboard"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
+                <li>
+                    <a class="{{ ($title === "Dashboard")?'active':'' }}" href="/dashboard"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
                 </li>
                 <li>
-                    <a class="show-cat-btn" href="/sampling">
-                        <span class="icon document" aria-hidden="true"></span>Jadwal
+                  <a class="" href="/cetak_slip_gaji/{{ auth()->user()->nip }}"><span class="icon document" aria-hidden="true"></span>Pay slip</a>
+                </li>
+                <li>
+                  <a class="{{ ($title === "Pengajuan")?'active':'' }} " href="/pengajuan"> <span class="icon document" aria-hidden="true"></span> Pengajuan</a>
+                </li>
+
+                @if (auth()->user()->ceklevel=="admin")
+                  <li>
+                    <a class="show-cat-btn" href="##">
+                        <span class="icon folder" aria-hidden="true"></span>Penilaian
+                        <span class="category__btn transparent-btn" title="Open list">
+                            <span class="sr-only">Open list</span>
+                            <span class="icon arrow-down" aria-hidden="true"></span>
+                        </span>
                     </a>
-                </li>
-                <li>
-                  <a class="show-cat-btn" href="##">
-                      <span class="icon folder" aria-hidden="true"></span>Report and form
-                      <span class="category__btn transparent-btn" title="Open list">
-                          <span class="sr-only">Open list</span>
-                          <span class="icon arrow-down" aria-hidden="true"></span>
-                      </span>
-                  </a>
-                  <ul class="cat-sub-menu">
-                    <li>
-                        <a href="/attendance">Attendance</a>
-                    </li>
-                    <li>
-                        <a href="/data_karyawan">Data karyawan</a>
-                    </li>
-                    <li>
-                      <a href="/upah_potongan">Salery report</a>
-                    </li>
-                    <li>
-                      <a href="/">Slip gaji</a>
-                    </li>
-                    <li>
-                      <a href="/Penilaian_karyawan">Penilaian Karyawan</a>
-                    </li>
-                    <li>
-                      <a href="/pengajuan">Pengajuan</a>
-                    </li>
-                  </ul>
-                </li>
-                    <li>
-                      <a href="/dashboardPK">Dashboard</a>
-                    </li>              
--->                     
-                    <li>
-                      <a href="/data_karyawan">Form penilaian</a>
-                    </li>
-              
-                    <li>
-                      <a href="/rangkingboard">Ranking Board</a>
-                    </li>
-<!--              <span class="system-menu__title">system</span>
-              <ul class="sidebar-body-menu">
-                <li>
-                  <a class="show-cat-btn" href="##">
-                      <span class="icon setting" aria-hidden="true"></span>Settings
-                      <span class="category__btn transparent-btn" title="Open list">
-                          <span class="sr-only">Open list</span>
-                          <span class="icon arrow-down" aria-hidden="true"></span>
-                      </span>
-                  </a>
-                  <ul class="cat-sub-menu">
-                    <li>
-                        <a href="/setting_upah">Setting Salery</a>
-                    </li>
-                  </ul>
-                </li>                
-              </ul>
-            -->
+                    <ul class="cat-sub-menu">                                   
+                      <li>
+                        <a class="{{ ($title === "Data karyawan")?'active':'' }}" href="/data_karyawan">Form penilaian</a>
+                      </li>
+                      <li>
+                        <a class="{{ ($title === "Rangking Board")?'active':'' }}" href="/rangkingboard">Ranking Board</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a class="show-cat-btn" href="##">
+                        <span class="icon folder" aria-hidden="true"></span>Admin
+                        <span class="category__btn transparent-btn" title="Open list">
+                            <span class="sr-only">Open list</span>
+                            <span class="icon arrow-down" aria-hidden="true"></span>
+                        </span>
+                    </a>
+                    <ul class="cat-sub-menu">
+                      <li>
+                          <a href="/data_karyawan">Data karyawan</a>
+                      </li>
+                      <li>
+                        <a href="/upah_potongan">Salery report</a>
+                      </li>
+                    </ul>
+                  </li>    
+                @endif
+              </ul>  
           </div>
       </div>
   </aside>
@@ -108,28 +90,6 @@
       <i class="sun-icon" data-feather="sun" aria-hidden="true"></i>
       <i class="moon-icon" data-feather="moon" aria-hidden="true"></i>
     </button>
-<!--    <div class="nav-user-wrapper">
-      <button href="##" class="nav-user-btn dropdown-btn" title="My profile" type="button">
-        <span class="sr-only">My profile</span>
-        <span class="nav-user-img">
-          <picture><source srcset="./img/avatar/avatar-illustrated-02.webp" type="image/webp"><img src="./img/avatar/avatar-illustrated-02.png" alt="User name"></picture>
-        </span>
-      </button>
-      <ul class="users-item-dropdown nav-user-dropdown dropdown">
-        <li><a href="##">
-            <i data-feather="user" aria-hidden="true"></i>
-            <span>Profile</span>
-          </a></li>
-        <li><a href="##">
-            <i data-feather="settings" aria-hidden="true"></i>
-            <span>Account settings</span>
-          </a></li>
-        <li><a class="danger" href="/logout">
-            <i data-feather="log-out" aria-hidden="true"></i>
-            <span>Log out</span>
-          </a></li>
-      </ul>
-    </div> -->
     <a href="/logout">
       <button class="btn btn-danger">
         Logout

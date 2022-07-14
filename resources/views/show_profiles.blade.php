@@ -15,11 +15,11 @@
                     <li class="list-group-item">Alamat : {{ $profiles->alamat }}</li>
                     <li class="list-group-item">Referensi : {{ $profiles->referensi }}</li>
                     <li class="list-group-item">Aktif mulai : {{ $profiles->aktif_mulai }}</li>
-                    <!--<li class="list-group-item">
+                    <li class="list-group-item">
                         <button type="button" class="btn btn-warning">
                             <a href="/cetak_slip_gaji/{{ $profiles->id }}">Cetak slip gaji</a>
                         </button> 
-                    </li>-->
+                    </li>
                     </ul>
                 </div>
             </div>

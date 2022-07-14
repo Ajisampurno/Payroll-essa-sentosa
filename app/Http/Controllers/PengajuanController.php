@@ -1,18 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Pengajuan;
 use Illuminate\Http\Request;
 
 class PengajuanController extends Controller
 {
-    public function index(){
-        return view('/pengajuan',[
-            'title' => 'pengajuan'
+    public function index()
+    {
+        return view('/pengajuan', [
+            'title' => 'Pengajuan'
         ]);
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
 
 
         $ValidateData = $request->validate([
@@ -22,7 +25,7 @@ class PengajuanController extends Controller
             'tgl_sampai' => 'required',
             'alasan' => 'required',
             'foto' => 'image|file|max:2048',
-            'status'=>'nullable'
+            'status' => 'nullable'
         ]);
 
         if ($request->file('foto')) {
@@ -31,16 +34,14 @@ class PengajuanController extends Controller
 
         Pengajuan::create($ValidateData);
 
-        return redirect('pengajuan')->with('success','pengajuan telah selesai di simpan dan menunggu aproval');
+        return redirect('pengajuan')->with('success', 'pengajuan telah selesai di simpan dan menunggu aproval');
     }
 
     public function show($id)
     {
-        return view('show_pengajuan',[
+        return view('show_pengajuan', [
             "title" => "show pengajuan",
             "pengajuan" => Pengajuan::find($id)
         ]);
     }
-
-
 }

@@ -18,7 +18,7 @@
                         @csrf
 
                         <div class="form-floating mt-2">
-                            <input class="form-control shadow-sm bg-body rounded @error('nip') is-invalid  @enderror" value="{{ old('nip') }}" type="text" name="nip" id="nip" placeholder="NIP">
+                            <input class="form-control shadow-sm bg-body rounded @error('nip') is-invalid  @enderror" value=" {{ auth()->user()->nip }}{{ old('nip') }}" type="text" name="nip" id="nip" placeholder="NIP">
                             <label for="nip">NIP</label>
                             @error('nip')
                                 <div class="invalid-feedback">
@@ -27,7 +27,7 @@
                             @enderror
                         </div>
                         <div class="form-floating mt-2">
-                            <input class="form-control shadow-sm bg-body rounded @error('nama_ktp') is-invalid  @enderror" value="{{ old('nama_ktp') }}" type="text" name="nama_ktp" placeholder="Nama KTP">
+                            <input class="form-control shadow-sm bg-body rounded @error('nama_ktp') is-invalid  @enderror" value="{{ auth()->user()->name }}{{ old('nama_ktp') }}" type="text" name="nama_ktp" placeholder="Nama KTP">
                             <label for="nama_ktp">Nama</label>
                             @error('nama_ktp')
                                 <div class="invalid-feedback">

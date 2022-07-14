@@ -1,10 +1,11 @@
 @extends('layouts.main')
 @section('container')
-
     <div class="container pt-5">
         <div class="row justify-content-center pb-5">
+            <img src="{{ asset('storage/foto-pengajuan/'.$pengajuan->foto) }}" alt="">
             <div class="col-md-3">
-                <img class="img-thumbnail" src="/storage/{{ $pengajuan->foto }} " alt="{{ $pengajuan->foto }}">
+                
+                <img src="{{ asset('storage/'.$pengajuan->foto) }}" alt="{{ $pengajuan->foto }}">
             </div>
             <div class="col-md-6">
                 <div class="card" style="width: 18rem;">

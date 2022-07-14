@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
       for (_iterator.s(); !(_step = _iterator.n()).done;) {
         var sidebarBtn = _step.value;
 
-        if (sidebarBtn && catSubMenu && sidebarBtn) {
+        if (sidebarBtn /* && catSubMenu && sidebarBtn */) {
           sidebarBtn.addEventListener('click', function () {
             var _iterator2 = _createForOfIteratorHelper(sidebarBtns),
                 _step2;

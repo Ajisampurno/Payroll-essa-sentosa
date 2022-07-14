@@ -18,8 +18,8 @@
     </head>
     <body>
         <div class="row justify-content-center m-5">
-            <div class="col-md-6 m-5">
-                <div class="card m-5 ">
+            <div class="col-md-7 m-5">
+                <div class="card ">
                     
                         <img class="rounded mx-auto d-block w-50 mt-5" src="/img/logo/logo.png" alt="">
                         @if (Route::has('login'))

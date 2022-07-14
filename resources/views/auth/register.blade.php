@@ -31,7 +31,7 @@
                             <div class="col-md-6">
                                 <input id="nip" type="text" class="form-control border @error('nip') is-invalid @enderror" name="nip" value="{{ old('nip') }}" required autocomplete="nip" autofocus>
 
-                                @error('name')
+                                @error('nip')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

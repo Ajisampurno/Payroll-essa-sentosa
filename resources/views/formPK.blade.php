@@ -56,7 +56,7 @@
                                     Penilaian Tentang
                                 </th>
                                 <th>
-                                    1
+                                    
                                 </th>
                                 <th>
                                     2

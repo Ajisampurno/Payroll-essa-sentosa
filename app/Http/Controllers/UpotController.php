@@ -10,6 +10,7 @@ use App\Exports\UpotExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use App\Models\Profile;
+use Dompdf\Adapter\PDFLib;
 use Illuminate\Http\Request;
 //sambungkan ke library PDF
 use PDF;

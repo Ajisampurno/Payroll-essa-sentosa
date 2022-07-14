@@ -26,74 +26,78 @@ use App\Http\Controllers\PenilaiankaryawanController;
 */
 
 Route::get('/', function () {
-    return view('welcome',["title" => "welcome"]);
+    return view('welcome', ["title" => "welcome"]);
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/logout',function(){
+Route::get('/logout', function () {
     Auth::logout();
     return redirect('/');
 });
 
-//HALAMAN DASHBOARD
+
+
+Route::group(['middleware' => ['auth', 'ceklevel:user,admin']], function () {
+
+    //HALAMAN DASHBOARD
     //TAMPILAN DASHBOARD
-    Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard')->middleware('auth');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-// HALAMAN DATA KARYAWAN
-    //TAMPILAN DATA KARYAWAN
-    Route::get('/data_karyawan', [ProfileController::class,'index'])->name('data_karyawan')->middleware('auth');
-    //SHOW DATA KARYAWAM
-    Route::get('/show_profiles/{id}', [ProfileController::class,'show'])->middleware('auth');
-    //HALAMAN TAMBAH DATA KARYAWAN
-    Route::get('/tambah_karyawan', [ProfileController::class,'tambah'])->name('tambah')->middleware('auth');
-    //HALAMAN UPDATE DATA KARYAWAN
-    Route::get('/update_datakaryawan/{id}', [ProfileController::class,'edit'])->middleware('auth');
-    //HFUNGSI UPDATE DATA KAEYAWAN
-    Route::post('/update_datakaryawan/update/{id}', [ProfileController::class,'update'])->middleware('auth');
-    //HALAMAN HAPUS DATA KARYAWAN
-    Route::get('/data_karyawan/hapus/{id}', [ProfileController::class,'hapus'])->middleware('auth');
-    //HALAMAN TAMBAH DATA KARYAWAN
-    Route::post('/tambah_data/store', [ProfileController::class,'store']);
-    //FUNCTION EXPORT KE EXCEL
-    Route::get('/export_profiles', [ProfileController::class,'profilesexport'])->middleware('auth');
-    //FUNCTION IMPORT EXCEL
-    Route::post('/import_profiles', [ProfileController::class,'ProfilesImport'])->middleware('auth');
-
-//HALAMAN ATTENDANCE
-    //TAMPILAN ATTENDANCE
-    Route::get('/attendance',[AttendanceController::class,'index'])->middleware('auth');
-
-//HALAMAN CETAK SLIP GAJI
+    //HALAMAN CETAK SLIP GAJI
     //TAMPILAN SLIP
-    Route::get('/cetak_slip_gaji/{id}', [UpotController::class,'CetakSlip'])->middleware('auth');
+    Route::get('/cetak_slip_gaji/{id}', [UpotController::class, 'CetakSlip']);
 
-//HALAMAN PAYROLL
-    //TAMPILAN SETTING UPAH
-    Route::get('/upah_potongan',[UpotController::class,'index'])->middleware('auth');
-    //FUNCTION EXPORT KE EXCEL
-    Route::get('/export_upot', [UpotController::class,'upotsexport'])->middleware('auth');
-    //FUNCTION IMPORT EXCEL
-    Route::post('/import_upot', [UpotController::class,'UpotImport'])->middleware('auth');
-    //FUNCTION EXPORT KE EXCEL
-    Route::get('/hapus_semua', [UpotController::class,'hapus'])->middleware('auth');
-
-//HALAMAN PENGAJUAN KARYAWAN
+    //HALAMAN PENGAJUAN KARYAWAN
     //TAMPIL HALAMAN
-    Route::get('/pengajuan',[PengajuanController::class,'index'])->middleware('auth');
+    Route::get('/pengajuan', [PengajuanController::class, 'index']);
     //FUNGSI TAMBAH DATA PENGAJUAN
-    Route::post('pengajuan/store', [PengajuanController::class,'store']);
+    Route::post('pengajuan/store', [PengajuanController::class, 'store']);
     //SHOW PENGAJUAN
-    Route::get('/show_pengajuan/{id}', [PengajuanController::class,'show'])->middleware('auth');
+    Route::get('/show_pengajuan/{id}', [PengajuanController::class, 'show']);
+});
 
-//HALAMAN PENILAIAN KARYAWAN
+Route::group(['middleware' => ['auth', 'ceklevel:admin']], function () {
+
+    // HALAMAN DATA KARYAWAN
+    //TAMPILAN DATA KARYAWAN
+    Route::get('/data_karyawan', [ProfileController::class, 'index'])->name('data_karyawan');
+    //SHOW DATA KARYAWAM
+    Route::get('/show_profiles/{id}', [ProfileController::class, 'show']);
+    //HALAMAN TAMBAH DATA KARYAWAN
+    Route::get('/tambah_karyawan', [ProfileController::class, 'tambah'])->name('tambah');
+    //HALAMAN UPDATE DATA KARYAWAN
+    Route::get('/update_datakaryawan/{id}', [ProfileController::class, 'edit']);
+    //HFUNGSI UPDATE DATA KAEYAWAN
+    Route::post('/update_datakaryawan/update/{id}', [ProfileController::class, 'update']);
+    //HALAMAN HAPUS DATA KARYAWAN
+    Route::get('/data_karyawan/hapus/{id}', [ProfileController::class, 'hapus']);
+    //HALAMAN TAMBAH DATA KARYAWAN
+    Route::post('/tambah_data/store', [ProfileController::class, 'store']);
+    //FUNCTION EXPORT KE EXCEL
+    Route::get('/export_profiles', [ProfileController::class, 'profilesexport']);
+    //FUNCTION IMPORT EXCEL
+    Route::post('/import_profiles', [ProfileController::class, 'ProfilesImport']);
+
+    //HALAMAN PAYROLL
+    //TAMPILAN SETTING UPAH
+    Route::get('/upah_potongan', [UpotController::class, 'index']);
+    //FUNCTION EXPORT KE EXCEL
+    Route::get('/export_upot', [UpotController::class, 'upotsexport']);
+    //FUNCTION IMPORT EXCEL
+    Route::post('/import_upot', [UpotController::class, 'UpotImport']);
+    //FUNCTION EXPORT KE EXCEL
+    Route::get('/hapus_semua', [UpotController::class, 'hapus']);
+
+    //HALAMAN PENILAIAN KARYAWAN
     //TAMPILASN DASHBOARD PENILAIAN KARYAWAN
-    Route::get('/raport',[PenilaiankaryawanController::class,'index'])->middleware('auth');
+    Route::get('/raport', [PenilaiankaryawanController::class, 'index']);
     //TAMPILASN FORM PENILAIAN PEGAWAI
-    Route::get('/formPK/{id}',[PenilaiankaryawanController::class,'show'])->middleware('auth');
+    Route::get('/formPK/{id}', [PenilaiankaryawanController::class, 'show']);
     //FUNGSI INPUT NILAI
-    Route::post('/input_nilai/store', [PenilaiankaryawanController::class,'store']);
+    Route::post('/input_nilai/store', [PenilaiankaryawanController::class, 'store']);
     //TAMPILASN DASHBOARD PENILAIAN KARYAWAN
-    Route::get('/rangkingboard',[PenilaiankaryawanController::class,'rangkingboard'])->middleware('auth');
+    Route::get('/rangkingboard', [PenilaiankaryawanController::class, 'rangkingboard']);
+});
