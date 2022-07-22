@@ -17,44 +17,44 @@
                         
                         @csrf
 
-                        <div class="form-floating mt-2">
-                            <input class="form-control shadow-sm bg-body rounded @error('nip') is-invalid  @enderror" value=" {{ auth()->user()->nip }}{{ old('nip') }}" type="text" name="nip" id="nip" placeholder="NIP">
-                            <label for="nip">NIP</label>
+                        <label for="nip"><small class="text-muted m-4">NIP</small> </label>
+                        <div class=" m-2">
+                            <input class="form-control shadow-sm rounded @error('nip') is-invalid  @enderror" value=" {{ auth()->user()->nip }}" type="text" name="nip" id="nip">
                             @error('nip')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>   
                             @enderror
                         </div>
-                        <div class="form-floating mt-2">
-                            <input class="form-control shadow-sm bg-body rounded @error('nama_ktp') is-invalid  @enderror" value="{{ auth()->user()->name }}{{ old('nama_ktp') }}" type="text" name="nama_ktp" placeholder="Nama KTP">
-                            <label for="nama_ktp">Nama</label>
+                        <label for="nama"><small class="text-muted m-4">Nama:</small> </label>
+                        <div class=" m-2">
+                            <input class="form-control shadow-sm rounded @error('nama_ktp') is-invalid  @enderror" value="{{ auth()->user()->name }}" type="text" name="nama_ktp">
                             @error('nama_ktp')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>   
                             @enderror
                         </div>
-                        <div class="form-floating mt-2">
+                        <label for="tgl_mulai"><small class="text-muted m-4">Tgl mulai cuti:</small> </label>
+                        <div class=" m-2">
                             <input class="form-control shadow-sm bg-body rounded @error('tgl_mulai') is-invalid  @enderror" value="{{ old('tgl_mulai') }}" type="date" id="tgl_mulai" placeholder="Tgl Mulai Cuti" name="tgl_mulai">
-                            <label >Tgl Mulai Cuti</label>
                             @error('tgl_mulai')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>   
                             @enderror
                         </div>
-                        <div class="form-floating mt-2">
+                        <label for="tgl_sampai"><small class="text-muted m-4">Tgl sampai cuti:</small> </label>
+                        <div class=" m-2">
                             <input class="form-control shadow-sm bg-body rounded @error('tgl_sampai') is-invalid  @enderror" value="{{ old('tgl_sampai') }}" type="date" id="tgl_sampai" placeholder="Tgl Sampai Cuti" name="tgl_sampai">
-                            <label >Tgl Sampai Cuti</label>
                             @error('tgl_sampai')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>   
                             @enderror
                         </div>
-                        <div class="input-group mt-2 shadow-sm">
-                            <label class="input-group-text" for="alasan">Alasan Cuti</label>
+                        <label for="alasan"><small class="text-muted m-4">Alasan cuti:</small> </label>
+                        <div class="m-2 shadow-sm">
                             <select class="form-select" value="{{ old('alasan') }}" name="alasan" id="alasan">
                               <option selected>Pilih Alasan</option>
                               <option value="Cuti Menikah">Cuti Menikah</option>
@@ -68,8 +68,8 @@
                                 </div>   
                             @enderror
                         </div>
-                        <p class="fst-italic mt-5">Lampirkan foto surat dokter apabila beralasan sakit</p>
-                        <div class="border shadow-sm mt-2">
+                        <p class="fst-italic text-muted m-4">Lampirkan foto surat dokter apabila beralasan sakit</p>
+                        <div class="border shadow-sm m-2">
                             <input class="form-control @error('foto') is-invalid  @enderror" value="{{ old('foto') }}" type="file" name="foto" id="foto">
                             @error('foto')
                                 <div class="invalid-feedback">
@@ -77,7 +77,7 @@
                                 </div>   
                             @enderror
                         </div>
-                        <div class="form-floating mt-2">
+                        <div class=" m-2">
                             <button class="btn btn-success " type="submit">Simpan</button>
                         </div>
                     </form>

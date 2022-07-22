@@ -13,7 +13,6 @@
                       <span class="logo-title">Essa Sentosa</span>
                     <!--  <span class="logo-subtitle">Dashboard</span> -->
                   </div>
-
               </a>
               <button class="sidebar-toggle transparent-btn" title="Menu" type="button">
                   <span class="sr-only">Toggle menu</span>
@@ -30,8 +29,22 @@
                   <a class="" href="/cetak_slip_gaji/{{ auth()->user()->nip }}"><span class="icon document" aria-hidden="true"></span>Pay slip</a>
                 </li>
                 <li>
-                  <a class="{{ ($title === "Pengajuan")?'active':'' }} " href="/pengajuan"> <span class="icon document" aria-hidden="true"></span> Pengajuan</a>
-                </li>
+                    <a class="show-cat-btn" href="##">
+                        <span class="icon folder" aria-hidden="true"></span>Pengajuan
+                        <span class="category__btn transparent-btn" title="Open list">
+                            <span class="sr-only">Open list</span>
+                            <span class="icon arrow-down" aria-hidden="true"></span>
+                        </span>
+                    </a>
+                    <ul class="cat-sub-menu">
+                      <li>
+                          <a href="/pengajuan">Mengajukan</a>
+                      </li>
+                      <li>
+                        <a href="/show_pengajuan">Pengajuan Saya</a>
+                      </li>
+                    </ul>
+                  </li>
 
                 @if (auth()->user()->ceklevel=="admin")
                   <li>
@@ -65,6 +78,9 @@
                       </li>
                       <li>
                         <a href="/upah_potongan">Salery report</a>
+                      </li>
+                      <li>
+                        <a href="/request_karyawan">Request karyawan</a>
                       </li>
                     </ul>
                   </li>    

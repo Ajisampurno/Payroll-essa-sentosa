@@ -56,12 +56,19 @@ Route::group(['middleware' => ['auth', 'ceklevel:user,admin']], function () {
     //FUNGSI TAMBAH DATA PENGAJUAN
     Route::post('pengajuan/store', [PengajuanController::class, 'store']);
     //SHOW PENGAJUAN
-    Route::get('/show_pengajuan/{id}', [PengajuanController::class, 'show']);
+    Route::get('/show_pengajuan', [PengajuanController::class, 'pengajuansaya']);
+    //FUNGSI UPDATE APPROVE 
+    Route::post('/cancel/update/{id}', [PengajuanController::class, 'cancel']);
+    Route::post('/approve/update/{id}', [PengajuanController::class, 'approve']);
 });
 
 Route::group(['middleware' => ['auth', 'ceklevel:admin']], function () {
 
-    // HALAMAN DATA KARYAWAN
+    //GROUP PENGAJUAN
+    //REQUEST PENGAJUAN
+    Route::get('/request_karyawan', [PengajuanController::class, 'request_karyawan']);
+
+    // GROUP DATA KARYAWAN
     //TAMPILAN DATA KARYAWAN
     Route::get('/data_karyawan', [ProfileController::class, 'index'])->name('data_karyawan');
     //SHOW DATA KARYAWAM
@@ -81,7 +88,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin']], function () {
     //FUNCTION IMPORT EXCEL
     Route::post('/import_profiles', [ProfileController::class, 'ProfilesImport']);
 
-    //HALAMAN PAYROLL
+    //GROUP PAYROLL
     //TAMPILAN SETTING UPAH
     Route::get('/upah_potongan', [UpotController::class, 'index']);
     //FUNCTION EXPORT KE EXCEL
@@ -91,7 +98,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin']], function () {
     //FUNCTION EXPORT KE EXCEL
     Route::get('/hapus_semua', [UpotController::class, 'hapus']);
 
-    //HALAMAN PENILAIAN KARYAWAN
+    //GROUP PENILAIAN KARYAWAN
     //TAMPILASN DASHBOARD PENILAIAN KARYAWAN
     Route::get('/raport', [PenilaiankaryawanController::class, 'index']);
     //TAMPILASN FORM PENILAIAN PEGAWAI

@@ -1,6 +1,8 @@
 @extends('layouts.main')
 @section('container')
-    <!-- ! Main -->
+    
+
+  <!-- ! Main -->
     <main class="main users chart-page" id="skip-target">
         <div class="container">
           <h1 class="main-title">Hallo {{ auth()->user()->name }},</h1>

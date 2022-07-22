@@ -28,15 +28,15 @@ class ProfileController extends Controller
     public function index()
     {
 
-    $profile = Profile::latest();
+        $profile = Profile::latest();
 
-    if (request('search')) {
-       $profile->where('id','like','%'.request('search').'%')
-                ->orwhere('bagian','like','%'.request('search').'%')
-                ->orwhere('nama_ktp','like','%'.request('search').'%');
-    }
+        if (request('search')) {
+            $profile->where('id', 'like', '%' . request('search') . '%')
+                ->orwhere('bagian', 'like', '%' . request('search') . '%')
+                ->orwhere('nama_ktp', 'like', '%' . request('search') . '%');
+        }
 
-        return view('data_karyawan',[
+        return view('data_karyawan', [
             "title" => "Data karyawan",
             "profiles" => $profile->get()->sortBy('id')
         ]);
@@ -44,24 +44,26 @@ class ProfileController extends Controller
 
     public function tambah()
     {
-        return view('tambah_karyawan',[
+        return view('tambah_karyawan', [
             "title" => "Tambah data"
         ]);
     }
 
-    public function profilesexport(){
-        return Excel::download(new ProfilesExport,'profiles.xls');
+    public function profilesexport()
+    {
+        return Excel::download(new ProfilesExport, 'profiles.xls');
     }
 
-    public function ProfilesImport(Request $request){
+    public function ProfilesImport(Request $request)
+    {
 
         Profile::truncate();
 
         $file = $request->file('file');
         $nama_file = $file->getClientOriginalName();
-        $file->move('DataKaryawan',$nama_file);
+        $file->move('DataKaryawan', $nama_file);
 
-        Excel::import(new ProfilesImport, public_path('/DataKaryawan/'.$nama_file));
+        Excel::import(new ProfilesImport, public_path('/DataKaryawan/' . $nama_file));
         return redirect('/data_karyawan');
     }
 
@@ -84,7 +86,7 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-       $ValidateData = $request->validate([
+        $ValidateData = $request->validate([
             'id' => 'required|max:6|unique:profiles',
             'nama_ktp' => 'required',
             'nama_absen' => 'required',
@@ -94,7 +96,7 @@ class ProfileController extends Controller
             'agama' => 'required',
             'alamat' => 'required',
             'bagian' => 'required',
-            'referensi'=> 'required',
+            'referensi' => 'required',
             'aktiv_mulai' => 'required',
         ]);
 
@@ -110,7 +112,7 @@ class ProfileController extends Controller
      */
     public function show($id)
     {
-        return view('show_profiles',[
+        return view('show_profiles', [
             "title" => "show profile",
             "profiles" => Profile::find($id)
         ]);
@@ -125,11 +127,10 @@ class ProfileController extends Controller
      */
     public function edit($id)
     {
-        return view('update_datakaryawan',[
-            "title"=>"ubah",
+        return view('update_datakaryawan', [
+            "title" => "ubah",
             "profile" => Profile::find($id)
         ]);
-        
     }
 
     /**
@@ -140,38 +141,39 @@ class ProfileController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-   public function update(Request $request, $id)
+    public function update(Request $request, $id)
     {
         $profile = Profile::find($id);
 
         $rules = [
-             'nama_ktp' => 'required',
-             'nama_absen' => 'required',
-             'alamat_ktp' => 'required',
-             'tgl_lahir' => 'required',
-             'agama' => 'required',
-             'alamat' => 'required',
-             'bagian' => 'required',
-             'referensi'=> 'required',
-             'aktiv_mulai' => 'required',
-         ];
+            'nama_ktp' => 'required',
+            'nama_absen' => 'required',
+            'alamat_ktp' => 'required',
+            'tgl_lahir' => 'required',
+            'agama' => 'required',
+            'alamat' => 'required',
+            'bagian' => 'required',
+            'referensi' => 'required',
+            'aktiv_mulai' => 'required',
+        ];
 
         if ($request->id != $id) {
-                $rules['id'] = 'required|max:6|unique:profiles';
-            }
+            $rules['id'] = 'required|max:6|unique:profiles';
+        }
         if ($request->no_ktp != $profile->no_ktp) {
             $rules['no_ktp'] = 'required|max:16|unique:profiles';
         }
 
-         $ValidateData = $request->validate($rules);
+        $ValidateData = $request->validate($rules);
 
-        Profile::find($id)->update($ValidateData); 
-            
-        return redirect('/data_karyawan')->with('success','Data berhasil di ubah');
+        Profile::find($id)->update($ValidateData);
+
+        return redirect('/data_karyawan')->with('success', 'Data berhasil di ubah');
     }
 
 
-    public function hapus($id){
+    public function hapus($id)
+    {
         $data = Profile::find($id);
         $data->delete();
         return redirect('/data_karyawan')->with('success', 'Data berhasil di hapus');
