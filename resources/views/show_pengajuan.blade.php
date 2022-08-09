@@ -19,7 +19,7 @@
                 <div class="card mb-3 p-3" style="max-width: 700px;">
                     <div   div class="row g-0">
                             <div class="col-md-4">
-                                <img src="/storage/{{ $item->foto }}" class="img-fluid rounded-start m-2" alt="...">
+                                <img src="{{ asset('storage/'.$item->foto) }}" class="img-fluid rounded-start m-2" alt="...">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">

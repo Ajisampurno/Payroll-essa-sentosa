@@ -15,7 +15,7 @@ class PenilaiankaryawanController extends Controller
      */
     public function index()
     {
-        return view('/raport',[
+        return view('/raport', [
             "title" => "Data karyawan"
         ]);
     }
@@ -39,32 +39,34 @@ class PenilaiankaryawanController extends Controller
 
         $penilaian = $penilaians->get();
 
-        foreach($penilaian as $key => $nilai){
-            $total[$key] =  $nilai->s1/$m1*1+ 
-                                $nilai->s2/$m2*1+
-                                $nilai->s3/$m3*1+
-                                $nilai->s4/$m4*1+
-                                $nilai->s5/$m5*1+
-                                $nilai->s6/$m6*1+
-                                $nilai->s7/$m7*1+
-                                $nilai->s8/$m8*1+
-                                $nilai->s9/$m9*0.5+
-                                $nilai->s10/$m10*0.5+
-                                $nilai->s11/$m11*0.5+
-                                $nilai->s12/$m12*0.5;
+        foreach ($penilaian as $key => $nilai) {
+            $total[$key] =  $nilai->s1 / $m1 * 1 +
+                $nilai->s2 / $m2 * 1 +
+                $nilai->s3 / $m3 * 1 +
+                $nilai->s4 / $m4 * 1 +
+                $nilai->s5 / $m5 * 1 +
+                $nilai->s6 / $m6 * 1 +
+                $nilai->s7 / $m7 * 1 +
+                $nilai->s8 / $m8 * 1 +
+                $nilai->s9 / $m9 * 0.5 +
+                $nilai->s10 / $m10 * 0.5 +
+                $nilai->s11 / $m11 * 0.5 +
+                $nilai->s12 / $m12 * 0.5;
         }
 
-        foreach($total as $key => $item){
-            $fixnilai[$key] = ['nip' => $penilaian[$key]->nip,
-                                'nama_ktp' => $penilaian[$key]->nama_ktp,
-                                'skor' => $item];
+        foreach ($total as $key => $item) {
+            $fixnilai[$key] = [
+                'nip' => $penilaian[$key]->nip,
+                'nama_ktp' => $penilaian[$key]->nama_ktp,
+                'skor' => $item
+            ];
         }
 
-        usort($fixnilai, function ($a, $b){
+        usort($fixnilai, function ($a, $b) {
             return $a['skor'] < $b['skor'];
         });
 
-        return view('rangkingboard',[
+        return view('rangkingboard', [
             "title" => "Rangking Board",
             "fixnilai" => $fixnilai
         ]);
@@ -77,9 +79,8 @@ class PenilaiankaryawanController extends Controller
      */
     public function create()
     {
-        
     }
-    
+
     /**
      * Store a newly created resource in storage.
      *
@@ -90,7 +91,7 @@ class PenilaiankaryawanController extends Controller
     {
 
 
-        $ValidateData =$request->validate([
+        $ValidateData = $request->validate([
             'id',
             'nip' => 'required',
             'nama_ktp' => 'required',
@@ -121,7 +122,7 @@ class PenilaiankaryawanController extends Controller
      */
     public function show($id)
     {
-        return view('FormPK',[
+        return view('formPK', [
             "title" => "Form penilaian",
             "profiles" => Profile::find($id)
         ]);

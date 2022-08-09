@@ -22,6 +22,7 @@ class User extends Authenticatable
         'nip',
         'ceklevel',
         'email',
+        'foto',
         'password',
     ];
 

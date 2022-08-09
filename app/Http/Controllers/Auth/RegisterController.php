@@ -49,10 +49,12 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'nip' => ['required', 'integer', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'foto' => ['image', 'file', 'max:5000000'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -65,12 +67,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+        if ($data['foto']) {
+            $validasi['foto'] = $data['foto']->store('foto-profil');
+        }
         $level = 'user';
         return User::create([
             'name' => $data['name'],
             'nip'   => $data['nip'],
             'ceklevel' => $level,
             'email' => $data['email'],
+            'foto' => $validasi['foto'],
             'password' => Hash::make($data['password']),
         ]);
     }

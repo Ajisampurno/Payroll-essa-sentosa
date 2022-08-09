@@ -31,8 +31,6 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Route::get('/logout', function () {
     Auth::logout();
     return redirect('/');
@@ -47,8 +45,10 @@ Route::group(['middleware' => ['auth', 'ceklevel:user,admin']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     //HALAMAN CETAK SLIP GAJI
-    //TAMPILAN SLIP
-    Route::get('/cetak_slip_gaji/{id}', [UpotController::class, 'CetakSlip']);
+    //TAMPIL SLIP
+    Route::get('/cetak_slip_gaji/{id}', [UpotController::class, 'cetakslip']);
+    //TAMPIL SLIP 2
+    Route::post('/cetak_slip_gaji/pdf', [UpotController::class, 'cetakslip2']);
 
     //HALAMAN PENGAJUAN KARYAWAN
     //TAMPIL HALAMAN

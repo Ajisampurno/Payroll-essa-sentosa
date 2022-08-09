@@ -26,7 +26,7 @@
                             <div class="d-flex justify-content-center pt-5 pb-5">
                                 <button class="btn btn-primary m-2">
                                     @auth
-                                        <a href="{{ url('/home') }}">Home</a>
+                                        <a href="{{ url('/dashboard') }}">Home</a>
                                     @else
                                         <a href="{{ route('login') }}">Log in</a>
                                 </button>
@@ -38,10 +38,8 @@
                                 </button>
                             </div>
                         @endif
-                    
                 </div>
             </div>
         </div>
-
     </body>
 </html>

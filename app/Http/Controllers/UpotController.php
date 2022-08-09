@@ -17,38 +17,52 @@ use PDF;
 
 class UpotController extends Controller
 {
-    public function index(){
-        return view('upah_potongan',[
+    public function index()
+    {
+        return view('upah_potongan', [
             "title" => "Upah dan potongan",
             "upots" => Upot::all()
         ]);
     }
 
-    public function CetakSlip($id)
+    public function cetakslip($id)
     {
-        $data = ["title" => "Slip gaji",
-                "upots" => Upot::find($id)];
+        $data = [
+            "title" => "Slip gaji",
+            "upots" => Upot::find($id)
+        ];
 
         $pdf = PDF::loadView('cetak_slip_gaji', $data);
         return $pdf->stream('slip_gaji.pdf');
     }
 
-    public function upotsexport(){
-        return Excel::download(new UpotExport,'Upah_potongan.xls');
+    public function cetakslip2(Request $request)
+    {
+        $nip = $request->nip;
+        $data = [
+            "title" => "Slip gaji",
+            "upots" => Upot::find($nip)
+        ];
+
+        $pdf = PDF::loadView('cetak_slip_gaji', $data);
+        return $pdf->stream('slip_gaji.pdf');
     }
 
-    public function UpotImport(Request $request){
-        
+    public function upotsexport()
+    {
+        return Excel::download(new UpotExport, 'Upah_potongan.xls');
+    }
+
+    public function UpotImport(Request $request)
+    {
+
         Upot::truncate();
 
         $file = $request->file('file');
         $nama_file = $file->getClientOriginalName();
-        $file->move('DataUpot',$nama_file);
+        $file->move('DataUpot', $nama_file);
 
-        Excel::import(new UpotImport, public_path('/DataUpot/'.$nama_file));
+        Excel::import(new UpotImport, public_path('/DataUpot/' . $nama_file));
         return redirect('/data_karyawan');
     }
-
-
-
 }

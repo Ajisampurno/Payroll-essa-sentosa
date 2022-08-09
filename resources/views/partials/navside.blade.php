@@ -6,27 +6,23 @@
   <aside class="sidebar">
       <div class="sidebar-start">
           <div class="sidebar-head">
-              <a href="/dashboard" class="logo-wrapper" title="Home">
-                  <span class="sr-only">Home</span>
-                  <img class="rounded" src="/img/logo.png" alt="">
-                  <div class="logo-text">
-                      <span class="logo-title">Essa Sentosa</span>
-                    <!--  <span class="logo-subtitle">Dashboard</span> -->
-                  </div>
-              </a>
-              <button class="sidebar-toggle transparent-btn" title="Menu" type="button">
-                  <span class="sr-only">Toggle menu</span>
-                  <span class="icon menu-toggle" aria-hidden="true"></span>
-              </button>
-
+            <a href="/dashboard" class="logo-wrapper" title="Home">
+                <span class="sr-only">Home</span>
+                <img src="/storage/{{ auth()->user()->foto }}" class="rounded mx-auto d-block" height="200" width="150" alt="">
+                <div class="logo-text">
+                    <span class="logo-title text-center">Essa Sentosa</span>
+                  <!--  <span class="logo-subtitle">Dashboard</span> -->
+                </div>
+            </a>
+            <button class="sidebar-toggle transparent-btn" title="Menu" type="button">
+                <span class="sr-only">Toggle menu</span>
+                <span class="icon menu-toggle" aria-hidden="true"></span>
+            </button>
           </div>
           <div class="sidebar-body">
               <ul class="sidebar-body-menu">
                 <li>
                     <a class="{{ ($title === "Dashboard")?'active':'' }}" href="/dashboard"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
-                </li>
-                <li>
-                  <a class="" href="/cetak_slip_gaji/{{ auth()->user()->nip }}"><span class="icon document" aria-hidden="true"></span>Pay slip</a>
                 </li>
                 <li>
                     <a class="show-cat-btn" href="##">
@@ -44,6 +40,15 @@
                         <a href="/show_pengajuan">Pengajuan Saya</a>
                       </li>
                     </ul>
+                  </li>
+                  <li>
+                    <form action="/cetak_slip_gaji/pdf" method="post">
+                      @csrf
+                      <input type="hidden" name="nip" value="{{ auth()->user()->nip }}">
+                      <a>
+                        <button class="btn btn-primary-outline p-0 " style="color:white" type="submit"><span class="icon document me-2" aria-hidden="true"></span>Pay slip</button>
+                      </a>                    
+                    </form>
                   </li>
 
                 @if (auth()->user()->ceklevel=="admin")

@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('ceklevel')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('foto')->required();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
