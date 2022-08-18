@@ -47,6 +47,7 @@
 
                         <input type="hidden" id="nip" name="nip" value="{{ $input_nip }}">
                         <input type="hidden" id="nama_ktp" name="nama_ktp" value="{{ $input_nama }}">
+                        
                         <div class="table-responsive-md">
                             <table class="table table-bordered table-fixed m-1">
                                 <thead>
@@ -79,19 +80,27 @@
                                         <td>
                                             <p class="card-text p-2">Presensi</p>
                                         </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s1" id="s1p1" value="1">
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s1" id="s1p2" value="2">
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s1" id="s1p3" value="3">                                
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s1" id="s1p4" value="4">
-                                        </td>
+                                        <div class="@error('s1') is-invalid  @enderror">
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s1" id="s1p1" value="1">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s1" id="s1p2" value="2">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s1" id="s1p3" value="3">                                
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s1" id="s1p4" value="4">
+                                            </td>
+                                            @error('s1')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>   
+                                            @enderror
+                                        </div>
                                     </tr>
+
                                     <tr>
                                         <td>
                                             <p class="card-text p-2 text-center">2</p>
@@ -99,18 +108,25 @@
                                         <td>
                                             <p class="card-text p-2">Kualitas Pekerjaan</p>
                                         </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s2" id="s2p1" value="1">
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s2" id="s2p2" value="2">
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s2" id="s2p3" value="3">
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s2" id="s2p4" value="4">
-                                        </td>
+                                        <div class="@error('s2') is-invalid  @enderror">
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s2" id="s2p1" value="1">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s2" id="s2p2" value="2">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s2" id="s2p3" value="3">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s2" id="s2p4" value="4">
+                                            </td>
+                                            @error('s2')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>   
+                                            @enderror
+                                        </div>
                                     </tr>
                                     <tr>
                                         <td>
@@ -119,18 +135,25 @@
                                         <td>
                                             <p class="card-text p-2">Kuantitas Hasil</p>
                                         </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s3" id="s3p1" value="1">
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s3" id="s3p2" value="2">
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s3" id="s3p3" value="3">
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s3" id="s3p4" value="4">
-                                        </td>
+                                        <div class="@error('s3') is-invalid @enderror">
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s3" id="s3p1" value="1">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s3" id="s3p2" value="2">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s3" id="s3p3" value="3">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s3" id="s3p4" value="4">
+                                            </td>
+                                            @error('s3')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>   
+                                            @enderror
+                                        </div>
                                     </tr>
                                     <tr>
                                         <td>
@@ -139,18 +162,25 @@
                                         <td>
                                             <p class="card-text p-2">Ketepatan Waktu Dan Kecepatan</p>
                                         </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s4" id="s4p1" value="1">
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s4" id="s4p2" value="2">
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s4" id="s4p3" value="3">
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s4" id="s4p4" value="4">
-                                        </td>
+                                        <div class="@error('s4') is-invalid @enderror">
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s4" id="s4p1" value="1">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s4" id="s4p2" value="2">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s4" id="s4p3" value="3">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s4" id="s4p4" value="4">
+                                            </td>
+                                            @error('s4')
+                                                <div class="invalid-feedback">
+                                                    {{ $massage }}
+                                                </div>
+                                            @enderror
+                                        </div>
                                     </tr>
                                     <tr>
                                         <td>
@@ -159,18 +189,25 @@
                                         <td>
                                             <p class="card-text p-2">Kerja Sama Tim</p>
                                         </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s5" id="s5p1" value="1">
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s5" id="s5p2" value="2">
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s5" id="s5p3" value="3">
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s5" id="s5p4" value="4">
-                                        </td>
+                                        <div class="@error('s5') is-invalid @enderror">
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s5" id="s5p1" value="1">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s5" id="s5p2" value="2">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s5" id="s5p3" value="3">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s5" id="s5p4" value="4">
+                                            </td>
+                                            @error('s5')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
                                     </tr>
                                     <tr>
                                         <td>
@@ -179,18 +216,25 @@
                                         <td>
                                             <p class="card-text p-2">Kemampuan Adaptasi</p>
                                         </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s6" id="s6p1" value="1">
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s6" id="s6p2" value="2">
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s6" id="s6p3" value="3">
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s6" id="s6p4" value="4">
-                                        </td>
+                                        <div class="@error('s6') is-invalid @enderror">
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s6" id="s6p1" value="1">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s6" id="s6p2" value="2">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s6" id="s6p3" value="3">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s6" id="s6p4" value="4">
+                                            </td>
+                                            @error('s6')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
                                     </tr>
                                     <tr>
                                         <td>
@@ -199,18 +243,25 @@
                                         <td>
                                             <p class="card-text p-2">Kepemimpinan</p>
                                         </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s7" id="s7p1" value="1">
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s7" id="s7p2" value="2">
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s7" id="s7p3" value="3">
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s7" id="s7p4" value="4">
-                                        </td>
+                                        <div class="@error('s7') is-invalid @enderror">
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s7" id="s7p1" value="1">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s7" id="s7p2" value="2">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s7" id="s7p3" value="3">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s7" id="s7p4" value="4">
+                                            </td>
+                                            @error('s7')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
                                     </tr>
                                     <tr>
                                         <td>
@@ -219,18 +270,25 @@
                                         <td>
                                             <p class="card-text p-2">Tanggung jawab</p>
                                         </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s8" id="s8p1" value="1">
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s8" id="s8p2" value="2">
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s8" id="s8p3" value="3">
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s8" id="s8p4" value="4">
-                                        </td>
+                                        <div class="@error('s8') is-invalid @enderror">
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s8" id="s8p1" value="1">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s8" id="s8p2" value="2">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s8" id="s8p3" value="3">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s8" id="s8p4" value="4">
+                                            </td>
+                                            @error('s8')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
                                     </tr>
                                     <tr>
                                         <td>
@@ -239,18 +297,25 @@
                                         <td>
                                             <p class="card-text p-2">Sikap</p>
                                         </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s9" id="s9p1" value="1"
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s9" id="s9p2" value="2">
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s9" id="s9p3" value="3">
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s9" id="s9p4" value="4">
-                                        </td>
+                                        <div class="@error('s9') is-invalid @enderror">
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s9" id="s9p1" value="1">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s9" id="s9p2" value="2">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s9" id="s9p3" value="3">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s9" id="s9p4" value="4">
+                                            </td>
+                                            @error('s9')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
                                     </tr>
                                     <tr>
                                         <td>
@@ -259,18 +324,25 @@
                                         <td>
                                             <p class="card-text p-2">Komunikasi</p>
                                         </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s10" id="s10p1" value="1">
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s10" id="s10p2" value="2">
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s10" id="s10p3" value="3">
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s10" id="s10p4" value="4">
-                                        </td>
+                                        <div class="@error('s10') is-invalid @enderror">
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s10" id="s10p1" value="1">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s10" id="s10p2" value="2">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s10" id="s10p3" value="3">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s10" id="s10p4" value="4">
+                                            </td>
+                                            @error('s10')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
                                     </tr>
                                     <tr>
                                         <td>
@@ -279,18 +351,25 @@
                                         <td>
                                             <p class="card-text p-2">Loyalitas</p>
                                         </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s11" id="s11p1" value="1">
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s11" id="s11p2" value="2">
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s11" id="s11p3" value="3">
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s11" id="s11p4" value="4">
-                                        </td>
+                                        <div class="@error('s11') is-invalid @enderror">
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s11" id="s11p1" value="1">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s11" id="s11p2" value="2">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s11" id="s11p3" value="3">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s11" id="s11p4" value="4">
+                                            </td>
+                                            @error('s11')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
                                     </tr>
                                     <tr>
                                         <td>
@@ -299,18 +378,25 @@
                                         <td>
                                             <p class="card-text p-2">Pengalaman</p>
                                         </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s12" id="s12p1" value="1">
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s12" id="s12p2" value="2">
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s12" id="s12p3" value="3">
-                                        </td>
-                                        <td class="text-center">
-                                            <input class="m-2" type="radio" name="s12" id="s12p4" value="4">
-                                        </td>
+                                        <div class="@error('s12') is-invalid @enderror">
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s12" id="s12p1" value="1">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s12" id="s12p2" value="2">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s12" id="s12p3" value="3">
+                                            </td>
+                                            <td class="text-center">
+                                                <input class="m-2" type="radio" name="s12" id="s12p4" value="4">
+                                            </td>
+                                            @error('s12')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
                                     </tr>
                                 </tbody>
                             </table>

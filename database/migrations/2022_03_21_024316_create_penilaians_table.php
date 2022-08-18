@@ -15,7 +15,7 @@ class CreatePenilaiansTable extends Migration
     {
         Schema::create('penilaians', function (Blueprint $table) {
             $table->id();
-            $table->integer('nip');
+            $table->integer('nip')->unique();
             $table->text('nama_ktp');
             $table->integer('s1')->required();
             $table->integer('s2')->required();

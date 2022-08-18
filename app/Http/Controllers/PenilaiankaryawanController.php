@@ -93,7 +93,7 @@ class PenilaiankaryawanController extends Controller
 
         $ValidateData = $request->validate([
             'id',
-            'nip' => 'required',
+            'nip' => 'unique:penilaians,nip',
             'nama_ktp' => 'required',
             's1' => 'required',
             's2' => 'required',

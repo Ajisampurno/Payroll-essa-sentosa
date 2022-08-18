@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Profile;
+use App\Models\Penilaian;
 
 use App\Exports\ProfilesExport;
 use App\Imports\ProfilesImport;
