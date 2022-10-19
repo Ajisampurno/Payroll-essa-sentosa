@@ -33,8 +33,8 @@ class ProfileController extends Controller
 
         if (request('search')) {
             $profile->where('id', 'like', '%' . request('search') . '%')
-                ->orwhere('bagian', 'like', '%' . request('search') . '%')
-                ->orwhere('nama_ktp', 'like', '%' . request('search') . '%');
+                ->orwhere('nama_ktp', 'like', '%' . request('search') . '%')
+                ->orwhere('bagian', 'like', '%' . request('search') . '%');
         }
 
         return view('data_karyawan', [

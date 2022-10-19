@@ -7,9 +7,12 @@
           {{ session('success') }}
         </div>
         @endif
-
-        <div class="col-md-4">
-            <div class="card">
+        @php
+            $input_nip = $profiles->id;
+            $input_nama = $profiles->nama_ktp;
+        @endphp
+        <div class="col-md-6 col-sm-12 mb-3">
+            <div class="card shadow">
                 <div class="card-header">
                     Data Karyawan
                 </div>
@@ -31,16 +34,10 @@
                     </table>
                 </div>
             </div>
+            
         </div>
-        @php
-            $input_nip = $profiles->id;
-            $input_nama = $profiles->nama_ktp;
-        @endphp
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
-                    <h1 class="text-center ">Form penilaian pegawai</h1>
-                </div>
+        <div class="col-md-12 col-sm-12">
+            <div class="card shadow">   
                 <div class="card-body">
                     <form action="/input_nilai/store" method="POST">
                         @csrf
@@ -48,8 +45,8 @@
                         <input type="hidden" id="nip" name="nip" value="{{ $input_nip }}">
                         <input type="hidden" id="nama_ktp" name="nama_ktp" value="{{ $input_nama }}">
                         
-                        <div class="table-responsive-md">
-                            <table class="table table-bordered table-fixed m-1">
+                        <div class="">
+                            <table class="tableform table table-bordered table-fixed m-1">
                                 <thead>
                                     <tr class=" text-center m-1">
                                         <th>
