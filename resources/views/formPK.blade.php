@@ -18,7 +18,6 @@
                 </div>
                 <div class="card-body">
                     <table class="table table-bordered">
-            
                         <tr>
                             <td>NIK</td>
                             <td>{{ $profiles->id }}</td>

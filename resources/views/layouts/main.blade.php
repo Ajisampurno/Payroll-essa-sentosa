@@ -22,5 +22,8 @@
     <script src="/plugins/feather.min.js"></script>
     <!-- Custom scripts -->
     <script src="/js/script.js"></script>
+    <!-- JQUERY -->
+    <script src="/js/jquery/jquery.js"></script>
+    <script src="/js/jquery/style.js"></script>
   </body>
 </html>

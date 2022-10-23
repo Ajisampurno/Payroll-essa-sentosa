@@ -105,6 +105,8 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin']], function () {
     Route::get('/formPK/{id}', [PenilaiankaryawanController::class, 'show']);
     //FUNGSI INPUT NILAI
     Route::post('/input_nilai/store', [PenilaiankaryawanController::class, 'store']);
-    //TAMPILASN DASHBOARD PENILAIAN KARYAWAN
+    //TAMPILASN RANGKING BOARD
     Route::get('/rangkingboard', [PenilaiankaryawanController::class, 'rangkingboard']);
+    //TAMPILASN PERHITUNGAN
+    Route::get('/perhitungan', [PenilaiankaryawanController::class, 'perhitungan']);
 });
