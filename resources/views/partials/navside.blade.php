@@ -24,33 +24,6 @@
                 <li>
                     <a class="{{ ($title === "Dashboard")?'active':'' }}" href="/dashboard"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
                 </li>
-                <li>
-                    <a class="show-cat-btn" href="##">
-                        <span class="icon folder" aria-hidden="true"></span>Pengajuan
-                        <span class="category__btn transparent-btn" title="Open list">
-                            <span class="sr-only">Open list</span>
-                            <span class="icon arrow-down" aria-hidden="true"></span>
-                        </span>
-                    </a>
-                    <ul class="cat-sub-menu">
-                      <li>
-                          <a href="/pengajuan">Mengajukan</a>
-                      </li>
-                      <li>
-                        <a href="/show_pengajuan">Pengajuan Saya</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <form action="/cetak_slip_gaji/pdf" method="post">
-                      @csrf
-                      <input type="hidden" name="nip" value="{{ auth()->user()->nip }}">
-                      <a>
-                        <button class="btn btn-primary-outline p-0 " style="color:white" type="submit"><span class="icon document me-2" aria-hidden="true"></span>Pay slip</button>
-                      </a>                    
-                    </form>
-                  </li>
-
                 @if (auth()->user()->ceklevel=="admin")
                   <li>
                     <a class="show-cat-btn" href="##">
@@ -89,7 +62,35 @@
                       </li>
                     </ul>
                   </li>    
-                @endif
+                  @endif
+                  <li>
+                    <a class="show-cat-btn" href="##">
+                        <span class="icon folder" aria-hidden="true"></span>Pengajuan
+                        <span class="category__btn transparent-btn" title="Open list">
+                            <span class="sr-only">Open list</span>
+                            <span class="icon arrow-down" aria-hidden="true"></span>
+                        </span>
+                    </a>
+                    <ul class="cat-sub-menu">
+                      <li>
+                          <a href="/pengajuan">Mengajukan</a>
+                      </li>
+                      <li>
+                        <a href="/show_pengajuan">Pengajuan Saya</a>
+                      </li>
+                    </ul>
+                  </li>
+                
+                  <li>
+                    <form action="/cetak_slip_gaji/pdf" method="post">
+                      @csrf
+                      <input type="hidden" name="nip" value="{{ auth()->user()->nip }}">
+                      <a>
+                        <button class="btn btn-primary-outline p-0 " style="color:white" type="submit"><span class="icon document me-2" aria-hidden="true"></span>Pay slip</button>
+                      </a>                    
+                    </form>
+                  </li>
+
               </ul>  
           </div>
       </div>
