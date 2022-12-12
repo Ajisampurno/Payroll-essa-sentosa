@@ -102,7 +102,11 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin']], function () {
     //TAMPILASN DASHBOARD PENILAIAN KARYAWAN
     Route::get('/raport', [PenilaiankaryawanController::class, 'index']);
     //TAMPILASN FORM PENILAIAN PEGAWAI
-    Route::get('/formPK/{id}', [PenilaiankaryawanController::class, 'show']);
+    //    Route::get('/formPK/{id}', [PenilaiankaryawanController::class, 'show']);
+
+    //TAMPILASN FORM PENILAIAN PEGAWAI
+    Route::get('/formPK', [PenilaiankaryawanController::class, 'form']);
+
     //FUNGSI INPUT NILAI
     Route::post('/input_nilai/store', [PenilaiankaryawanController::class, 'store']);
     //TAMPILASN DASHBOARD PENILAIAN KARYAWAN
