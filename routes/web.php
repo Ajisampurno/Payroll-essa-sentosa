@@ -11,6 +11,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\SettingnilaiController;
 use App\Http\Controllers\PenilaiankaryawanController;
 
 
@@ -106,9 +107,14 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin']], function () {
 
     //TAMPILASN FORM PENILAIAN PEGAWAI
     Route::get('/formPK', [PenilaiankaryawanController::class, 'form']);
-
     //FUNGSI INPUT NILAI
     Route::post('/input_nilai/store', [PenilaiankaryawanController::class, 'store']);
     //TAMPILASN DASHBOARD PENILAIAN KARYAWAN
     Route::get('/rangkingboard', [PenilaiankaryawanController::class, 'rangkingboard']);
+
+    //GROUP SETTING NILAI
+    //TAMPILASN SETTING NILAI
+    Route::get('/settingnilai', [SettingnilaiController::class, 'index']);
+    //FUNGSI SIMPAN SETTING
+    Route::post('simpansetting', [SettingnilaiController::class, 'store']);
 });

@@ -9,17 +9,31 @@
         @endif
 
         <div class="col-md-12 col-sm-12">
-            <form action="/input_nilai/store" method="POST">
-            @csrf
-                <select class="form-select" aria-label="Default select example" name="nama" id="nama" style="width: 400px">
-                    <option selected>Open this select menu</option>
-                    @foreach ($profiles as $item)                    
-                    <option value="{{ $item->id }}">{{ $item->nama_ktp }}</option>
-                    @endforeach
-                </select>
-                <br>    
             <div class="card shadow">   
                 <div class="card-body">
+        
+                    <div class="position-absolute end-0 me-4 mt-2">
+                        <a href="/settingnilai">
+                            <i data-feather="settings"></i>
+                        </a>
+                    </div>
+                    
+                    <form action="/input_nilai/store" method="POST">
+                        @csrf
+                        <div class="select-karyawan">
+                            <select class="form-select" aria-label="Default select example" name="nip" id="nip">
+                                <option> Open this select menu</option>
+                                @foreach ($profiles as $item)                    
+                                <option value="{{ $item->id }}">
+                                    {{ $item->id }} | {{ $item->nama_ktp }}
+                                    <hr>
+                                </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        
+                        <br>
+
                         <div class="">
                             <table class="tableform table table-bordered table-fixed m-1">
                                 <thead>

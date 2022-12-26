@@ -7,14 +7,9 @@
       <div class="sidebar-start">
           <div class="sidebar-head">
             <a href="/dashboard" class="logo-wrapper" title="Home">
-                <span class="sr-only">Home</span>
-                <img src="/storage/{{ auth()->user()->foto }}" class="rounded mx-auto d-block" height="200" width="150" alt="">
-                <div class="logo-text">
-                    <span class="logo-title text-center">Essa Sentosa</span>
-                  <!--  <span class="logo-subtitle">Dashboard</span> -->
-                </div>
+              <img src="{{ asset('images/logo.png') }}" class="mx-auto d-block" alt="">
             </a>
-            <button class="sidebar-toggle transparent-btn" title="Menu" type="button">
+            <button class="sidebar-toggle transparent-btn mt-2" title="Menu" type="button">
                 <span class="sr-only">Toggle menu</span>
                 <span class="icon menu-toggle" aria-hidden="true"></span>
             </button>
@@ -35,7 +30,7 @@
                     </a>
                     <ul class="cat-sub-menu">                                   
                       <li>
-                        <a class="{{ ($title === "Data karyawan")?'active':'' }}" href="/data_karyawan">Form penilaian</a>
+                        <a class="{{ ($title === "Data karyawan")?'active':'' }}" href="/formPK">Form penilaian</a>
                       </li>
                       <li>
                         <a class="{{ ($title === "Rangking Board")?'active':'' }}" href="/rangkingboard">Ranking Board</a>
@@ -112,11 +107,16 @@
       <i class="sun-icon" data-feather="sun" aria-hidden="true"></i>
       <i class="moon-icon" data-feather="moon" aria-hidden="true"></i>
     </button>
-    <a href="/logout">
-      <button class="btn btn-danger">
-        Logout
-      </button>
-    </a>
+    
+    <div class="">
+      <img src="/storage/{{ auth()->user()->foto }}" class="dropdown-toggle rounded-circle" type="button" data-bs-toggle="dropdown" aria-expanded="false" alt="Cinque Terre" width="40" height="40">
+ 
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li><a class="dropdown-item" style="color: red" href="/logout">Logout</a></li>
+      </ul>
+    </div>
+     
   </div>
 </div>
 </nav>

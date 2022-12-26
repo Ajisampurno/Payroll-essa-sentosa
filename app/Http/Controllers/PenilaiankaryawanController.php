@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Penilaian;
 use App\Models\Profile;
+use App\Models\Settingnilai;
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
@@ -91,6 +92,7 @@ class PenilaiankaryawanController extends Controller
     {
     }
 
+
     /**
      * Store a newly created resource in storage.
      *
@@ -99,8 +101,6 @@ class PenilaiankaryawanController extends Controller
      */
     public function store(Request $request)
     {
-
-        dd($request);
 
         $ValidateData = $request->validate([
             'id',
@@ -141,10 +141,12 @@ class PenilaiankaryawanController extends Controller
     public function form()
     {
         $profile = Profile::get();
+        $setting = Settingnilai::get();
 
         return view('formPK', [
             "title" => "Form penilaian",
-            "profiles" => $profile
+            "profiles" => $profile,
+            "setting" => $setting
         ]);
     }
 
