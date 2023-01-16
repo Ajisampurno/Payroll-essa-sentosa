@@ -13,8 +13,8 @@
                 <div class="card-body">
         
                     <div class="position-absolute end-0 me-4 mt-2">
-                        <a href="/settingnilai">
-                            <i data-feather="settings"></i>
+                        <a id="btn-setting" href="/settingnilai">
+                            <i data-feather="settings">Setting</i>
                         </a>
                     </div>
                     
@@ -22,7 +22,7 @@
                         @csrf
                         <div class="select-karyawan">
                             <select class="form-select" aria-label="Default select example" name="nip" id="nip">
-                                <option> Open this select menu</option>
+                                <option> Pilih karyawan</option>
                                 @foreach ($profiles as $item)                    
                                 <option value="{{ $item->id }}">
                                     {{ $item->id }} | {{ $item->nama_ktp }}

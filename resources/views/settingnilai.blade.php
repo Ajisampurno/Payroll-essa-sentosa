@@ -3,9 +3,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sx-12">
-                <div class="card">
+                <div class="card mt-3">
                     <div class="card-body">
-                        <h3>Setting Nilai</h3>
+                        <h3 class="m-3">Setting Nilai</h3>
                         @if (session()->has('success'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('success') }}
@@ -559,6 +559,34 @@
                                                 </select>
                                             </td>
                                         </tr>
+                                        <div id="no21">
+                                            <!-- penilaian 20 -->
+                                            <tr>
+                                                <td class="text-center">21</td>
+                                                <td>
+                                                    <input class="alternative" type="text" name="a20" id="a20" value="{{ $isi->a20 }}">
+                                                </td>
+                                                <td>
+                                                    <input class="bobot" type="number"  min="0" max="100" name="bobot20" id="bobot20" style="width: 50px" value="{{ $isi->bobot20 }}">
+                                                </td>
+                                                <td>
+                                                    <select class="form-select" aria-label="Default select example" id="type20" name="type20">
+                                                        @if ($isi->type20 != null)
+                                                            @if($isi->type20 == 'Cost')
+                                                                <option value="Benefit">Benefit</option>
+                                                                <option selected value="Cost">Cost</option>
+                                                            @else
+                                                                <option value="Benefit">Benefit</option>
+                                                                <option value="Cost">Cost</option>
+                                                            @endif    
+                                                        @else
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option value="Cost">Cost</option>
+                                                        @endif                                                    
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                        </div>
                                         @endforeach
                                     </tbody>
                                 </table>

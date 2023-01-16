@@ -22,10 +22,10 @@
     <!-- icon https://feather.com -->
     <script src="https://unpkg.com/feather-icons"></script>
 
-    <style> 
-        
-
-
+    <style>
+      #btn-setting:hover{
+        color: red;
+      }
     </style>
     
   </head>

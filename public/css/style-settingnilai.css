@@ -1,4 +1,6 @@
-
+#btn-setting:hover {
+    color: red;
+}
 .table-setting tbody tr td input {
     background: white;
 }
