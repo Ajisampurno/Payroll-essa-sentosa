@@ -1,0 +1,29 @@
+
+.select-karyawan select {
+    width: 400px;
+}
+
+.select-karyawan select option {
+    color: blue;
+    font-size: 15px;
+}
+
+.text-bobot {
+    color: red;
+    font-size: 12px;
+    font-weight: lighter;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: italic;
+    text-align: end;
+}
+@media only screen and (max-width:500px) {
+    .select-karyawan select {
+        width: 200px;
+        font-size: 10px;
+    }
+
+    .select-karyawan select option {
+        color: blue;
+        font-size: 10px;
+    }   
+}

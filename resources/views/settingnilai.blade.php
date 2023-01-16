@@ -45,17 +45,16 @@
                                             <td>
                                                 <select class="form-select" aria-label="Default select example" id="type1" name="type1">
                                                     @if ($isi->type1 != null)
-                                                        @if($isi->type1 == 'C')
-                                                            <option value="B">Benefit</option>
-                                                            <option selected value="C">Cost</option>
+                                                        @if($isi->type1 == 'Cost')
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option selected value="Cost">Cost</option>
                                                         @else
-                                                            <option value="B">Benefit</option>
-                                                            <option value="C">Cost</option>
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option value="Cost">Cost</option>
                                                         @endif    
                                                     @else
-                                                        <option selected value="">Null</option>
-                                                        <option value="B">Benefit</option>
-                                                        <option value="C">Cost</option>
+                                                        <option value="Benefit">Benefit</option>
+                                                        <option value="Cost">Cost</option>
                                                     @endif
                                                     
                                                 </select>
@@ -73,17 +72,16 @@
                                             <td>
                                                 <select class="form-select" aria-label="Default select example" id="type2" name="type2">
                                                     @if ($isi->type2 != null)
-                                                        @if($isi->type2 == 'C')
-                                                            <option value="B">Benefit</option>
-                                                            <option selected value="C">Cost</option>
+                                                        @if($isi->type2 == 'Cost')
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option selected value="Cost">Cost</option>
                                                         @else
-                                                            <option value="B">Benefit</option>
-                                                            <option value="C">Cost</option>
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option value="Cost">Cost</option>
                                                         @endif    
                                                     @else
-                                                        <option selected value="">Null</option>
-                                                        <option value="B">Benefit</option>
-                                                        <option value="C">Cost</option>
+                                                        <option value="Benefit">Benefit</option>
+                                                        <option value="Cost">Cost</option>
                                                     @endif
                                                     
                                                 </select>
@@ -101,17 +99,16 @@
                                             <td>
                                                 <select class="form-select" aria-label="Default select example" id="type3" name="type3">
                                                     @if ($isi->type3 != null)
-                                                        @if($isi->type3 == 'C')
-                                                            <option value="B">Benefit</option>
-                                                            <option selected value="C">Cost</option>
+                                                        @if($isi->type3 == 'Cost')
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option selected value="Cost">Cost</option>
                                                         @else
-                                                            <option value="B">Benefit</option>
-                                                            <option value="C">Cost</option>
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option value="Cost">Cost</option>
                                                         @endif    
                                                     @else
-                                                        <option selected value="">Null</option>
-                                                        <option value="B">Benefit</option>
-                                                        <option value="C">Cost</option>
+                                                        <option value="Benefit">Benefit</option>
+                                                        <option value="Cost">Cost</option>
                                                     @endif
                                                     
                                                 </select>
@@ -129,17 +126,16 @@
                                             <td>
                                                 <select class="form-select" aria-label="Default select example" id="type4" name="type4">
                                                     @if ($isi->type4 != null)
-                                                        @if($isi->type4 == 'C')
-                                                            <option value="B">Benefit</option>
-                                                            <option selected value="C">Cost</option>
+                                                        @if($isi->type4 == 'Cost')
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option selected value="Cost">Cost</option>
                                                         @else
-                                                            <option value="B">Benefit</option>
-                                                            <option value="C">Cost</option>
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option value="Cost">Cost</option>
                                                         @endif    
                                                     @else
-                                                        <option selected value="">Null</option>
-                                                        <option value="B">Benefit</option>
-                                                        <option value="C">Cost</option>
+                                                        <option value="Benefit">Benefit</option>
+                                                        <option value="Cost">Cost</option>
                                                     @endif
                                                     
                                                 </select>
@@ -157,17 +153,16 @@
                                             <td>
                                                 <select class="form-select" aria-label="Default select example" id="type5" name="type5">
                                                     @if ($isi->type5 != null)
-                                                        @if($isi->type5 == 'C')
-                                                            <option value="B">Benefit</option>
-                                                            <option selected value="C">Cost</option>
+                                                        @if($isi->type5 == 'Cost')
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option selected value="Cost">Cost</option>
                                                         @else
-                                                            <option value="B">Benefit</option>
-                                                            <option value="C">Cost</option>
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option value="Cost">Cost</option>
                                                         @endif    
                                                     @else
-                                                        <option selected value="">Null</option>
-                                                        <option value="B">Benefit</option>
-                                                        <option value="C">Cost</option>
+                                                        <option value="Benefit">Benefit</option>
+                                                        <option value="Cost">Cost</option>
                                                     @endif
                                                     
                                                 </select>
@@ -185,17 +180,16 @@
                                             <td>
                                                 <select class="form-select" aria-label="Default select example" id="type6" name="type6">
                                                     @if ($isi->type6 != null)
-                                                        @if($isi->type6 == 'C')
-                                                            <option value="B">Benefit</option>
-                                                            <option selected value="C">Cost</option>
+                                                        @if($isi->type6 == 'Cost')
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option selected value="Cost">Cost</option>
                                                         @else
-                                                            <option value="B">Benefit</option>
-                                                            <option value="C">Cost</option>
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option value="Cost">Cost</option>
                                                         @endif    
                                                     @else
-                                                        <option selected value="">Null</option>
-                                                        <option value="B">Benefit</option>
-                                                        <option value="C">Cost</option>
+                                                        <option value="Benefit">Benefit</option>
+                                                        <option value="Cost">Cost</option>
                                                     @endif
                                                     
                                                 </select>
@@ -213,17 +207,16 @@
                                             <td>
                                                 <select class="form-select" aria-label="Default select example" id="type7" name="type7">
                                                     @if ($isi->type7 != null)
-                                                        @if($isi->type7 == 'C')
-                                                            <option value="B">Benefit</option>
-                                                            <option selected value="C">Cost</option>
+                                                        @if($isi->type7 == 'Cost')
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option selected value="Cost">Cost</option>
                                                         @else
-                                                            <option value="B">Benefit</option>
-                                                            <option value="C">Cost</option>
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option value="Cost">Cost</option>
                                                         @endif    
                                                     @else
-                                                        <option selected value="">Null</option>
-                                                        <option value="B">Benefit</option>
-                                                        <option value="C">Cost</option>
+                                                        <option value="Benefit">Benefit</option>
+                                                        <option value="Cost">Cost</option>
                                                     @endif                                                    
                                                 </select>
                                             </td>
@@ -240,17 +233,16 @@
                                             <td>
                                                 <select class="form-select" aria-label="Default select example" id="type8" name="type8">
                                                     @if ($isi->type8 != null)
-                                                        @if($isi->type8 == 'C')
-                                                            <option value="B">Benefit</option>
-                                                            <option selected value="C">Cost</option>
+                                                        @if($isi->type8 == 'Cost')
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option selected value="Cost">Cost</option>
                                                         @else
-                                                            <option value="B">Benefit</option>
-                                                            <option value="C">Cost</option>
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option value="Cost">Cost</option>
                                                         @endif    
                                                     @else
-                                                        <option selected value="">Null</option>
-                                                        <option value="B">Benefit</option>
-                                                        <option value="C">Cost</option>
+                                                        <option value="Benefit">Benefit</option>
+                                                        <option value="Cost">Cost</option>
                                                     @endif                                                    
                                                 </select>
                                             </td>
@@ -267,17 +259,16 @@
                                             <td>
                                                 <select class="form-select" aria-label="Default select example" id="type9" name="type9">
                                                     @if ($isi->type9 != null)
-                                                        @if($isi->type9 == 'C')
-                                                            <option value="B">Benefit</option>
-                                                            <option selected value="C">Cost</option>
+                                                        @if($isi->type9 == 'Cost')
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option selected value="Cost">Cost</option>
                                                         @else
-                                                            <option value="B">Benefit</option>
-                                                            <option value="C">Cost</option>
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option value="Cost">Cost</option>
                                                         @endif    
                                                     @else
-                                                        <option selected value="">Null</option>
-                                                        <option value="B">Benefit</option>
-                                                        <option value="C">Cost</option>
+                                                        <option value="Benefit">Benefit</option>
+                                                        <option value="Cost">Cost</option>
                                                     @endif                                                    
                                                 </select>
                                             </td>
@@ -294,17 +285,16 @@
                                             <td>
                                                 <select class="form-select" aria-label="Default select example" id="type10" name="type10">
                                                     @if ($isi->type10 != null)
-                                                        @if($isi->type10 == 'C')
-                                                            <option value="B">Benefit</option>
-                                                            <option selected value="C">Cost</option>
+                                                        @if($isi->type10 == 'Cost')
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option selected value="Cost">Cost</option>
                                                         @else
-                                                            <option value="B">Benefit</option>
-                                                            <option value="C">Cost</option>
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option value="Cost">Cost</option>
                                                         @endif    
                                                     @else
-                                                        <option selected value="">Null</option>
-                                                        <option value="B">Benefit</option>
-                                                        <option value="C">Cost</option>
+                                                        <option value="Benefit">Benefit</option>
+                                                        <option value="Cost">Cost</option>
                                                     @endif                                                    
                                                 </select>
                                             </td>
@@ -321,17 +311,16 @@
                                             <td>
                                                 <select class="form-select" aria-label="Default select example" id="type11" name="type11">
                                                     @if ($isi->type11 != null)
-                                                        @if($isi->type11 == 'C')
-                                                            <option value="B">Benefit</option>
-                                                            <option selected value="C">Cost</option>
+                                                        @if($isi->type11 == 'Cost')
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option selected value="Cost">Cost</option>
                                                         @else
-                                                            <option value="B">Benefit</option>
-                                                            <option value="C">Cost</option>
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option value="Cost">Cost</option>
                                                         @endif    
                                                     @else
-                                                        <option selected value="">Null</option>
-                                                        <option value="B">Benefit</option>
-                                                        <option value="C">Cost</option>
+                                                        <option value="Benefit">Benefit</option>
+                                                        <option value="Cost">Cost</option>
                                                     @endif                                                    
                                                 </select>
                                             </td>
@@ -348,17 +337,16 @@
                                             <td>
                                                 <select class="form-select" aria-label="Default select example" id="type12" name="type12">
                                                     @if ($isi->type12 != null)
-                                                        @if($isi->type12 == 'C')
-                                                            <option value="B">Benefit</option>
-                                                            <option selected value="C">Cost</option>
+                                                        @if($isi->type12 == 'Cost')
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option selected value="Cost">Cost</option>
                                                         @else
-                                                            <option value="B">Benefit</option>
-                                                            <option value="C">Cost</option>
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option value="Cost">Cost</option>
                                                         @endif    
                                                     @else
-                                                        <option selected value="">Null</option>
-                                                        <option value="B">Benefit</option>
-                                                        <option value="C">Cost</option>
+                                                        <option value="Benefit">Benefit</option>
+                                                        <option value="Cost">Cost</option>
                                                     @endif                                                    
                                                 </select>
                                             </td>
@@ -375,17 +363,16 @@
                                             <td>
                                                 <select class="form-select" aria-label="Default select example" id="type13" name="type13">
                                                     @if ($isi->type13 != null)
-                                                        @if($isi->type13 == 'C')
-                                                            <option value="B">Benefit</option>
-                                                            <option selected value="C">Cost</option>
+                                                        @if($isi->type13 == 'Cost')
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option selected value="Cost">Cost</option>
                                                         @else
-                                                            <option value="B">Benefit</option>
-                                                            <option value="C">Cost</option>
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option value="Cost">Cost</option>
                                                         @endif    
                                                     @else
-                                                        <option selected value="">Null</option>
-                                                        <option value="B">Benefit</option>
-                                                        <option value="C">Cost</option>
+                                                        <option value="Benefit">Benefit</option>
+                                                        <option value="Cost">Cost</option>
                                                     @endif                                                    
                                                 </select>
                                             </td>
@@ -402,17 +389,16 @@
                                             <td>
                                                 <select class="form-select" aria-label="Default select example" id="type14" name="type14">
                                                     @if ($isi->type14 != null)
-                                                        @if($isi->type14 == 'C')
-                                                            <option value="B">Benefit</option>
-                                                            <option selected value="C">Cost</option>
+                                                        @if($isi->type14 == 'Cost')
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option selected value="Cost">Cost</option>
                                                         @else
-                                                            <option value="B">Benefit</option>
-                                                            <option value="C">Cost</option>
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option value="Cost">Cost</option>
                                                         @endif    
                                                     @else
-                                                        <option selected value="">Null</option>
-                                                        <option value="B">Benefit</option>
-                                                        <option value="C">Cost</option>
+                                                        <option value="Benefit">Benefit</option>
+                                                        <option value="Cost">Cost</option>
                                                     @endif                                                    
                                                 </select>
                                             </td>
@@ -429,17 +415,16 @@
                                             <td>
                                                 <select class="form-select" aria-label="Default select example" id="type15" name="type15">
                                                     @if ($isi->type15 != null)
-                                                        @if($isi->type7 == 'C')
-                                                            <option value="B">Benefit</option>
-                                                            <option selected value="C">Cost</option>
+                                                        @if($isi->type7 == 'Cost')
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option selected value="Cost">Cost</option>
                                                         @else
-                                                            <option value="B">Benefit</option>
-                                                            <option value="C">Cost</option>
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option value="Cost">Cost</option>
                                                         @endif    
                                                     @else
-                                                        <option selected value="">Null</option>
-                                                        <option value="B">Benefit</option>
-                                                        <option value="C">Cost</option>
+                                                        <option value="Benefit">Benefit</option>
+                                                        <option value="Cost">Cost</option>
                                                     @endif                                                    
                                                 </select>
                                             </td>
@@ -456,17 +441,16 @@
                                             <td>
                                                 <select class="form-select" aria-label="Default select example" id="type16" name="type16">
                                                     @if ($isi->type16 != null)
-                                                        @if($isi->type16 == 'C')
-                                                            <option value="B">Benefit</option>
-                                                            <option selected value="C">Cost</option>
+                                                        @if($isi->type16 == 'Cost')
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option selected value="Cost">Cost</option>
                                                         @else
-                                                            <option value="B">Benefit</option>
-                                                            <option value="C">Cost</option>
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option value="Cost">Cost</option>
                                                         @endif    
                                                     @else
-                                                        <option selected value="">Null</option>
-                                                        <option value="B">Benefit</option>
-                                                        <option value="C">Cost</option>
+                                                        <option value="Benefit">Benefit</option>
+                                                        <option value="Cost">Cost</option>
                                                     @endif                                                    
                                                 </select>
                                             </td>
@@ -483,17 +467,16 @@
                                             <td>
                                                 <select class="form-select" aria-label="Default select example" id="type17" name="type17">
                                                     @if ($isi->type17 != null)
-                                                        @if($isi->type17 == 'C')
-                                                            <option value="B">Benefit</option>
-                                                            <option selected value="C">Cost</option>
+                                                        @if($isi->type17 == 'Cost')
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option selected value="Cost">Cost</option>
                                                         @else
-                                                            <option value="B">Benefit</option>
-                                                            <option value="C">Cost</option>
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option value="Cost">Cost</option>
                                                         @endif    
                                                     @else
-                                                        <option selected value="">Null</option>
-                                                        <option value="B">Benefit</option>
-                                                        <option value="C">Cost</option>
+                                                        <option value="Benefit">Benefit</option>
+                                                        <option value="Cost">Cost</option>
                                                     @endif                                                    
                                                 </select>
                                             </td>
@@ -510,17 +493,16 @@
                                             <td>
                                                 <select class="form-select" aria-label="Default select example" id="type18" name="type18">
                                                     @if ($isi->type18 != null)
-                                                        @if($isi->type18 == 'C')
-                                                            <option value="B">Benefit</option>
-                                                            <option selected value="C">Cost</option>
+                                                        @if($isi->type18 == 'Cost')
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option selected value="Cost">Cost</option>
                                                         @else
-                                                            <option value="B">Benefit</option>
-                                                            <option value="C">Cost</option>
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option value="Cost">Cost</option>
                                                         @endif    
                                                     @else
-                                                        <option selected value="">Null</option>
-                                                        <option value="B">Benefit</option>
-                                                        <option value="C">Cost</option>
+                                                        <option value="Benefit">Benefit</option>
+                                                        <option value="Cost">Cost</option>
                                                     @endif                                                    
                                                 </select>
                                             </td>
@@ -537,17 +519,16 @@
                                             <td>
                                                 <select class="form-select" aria-label="Default select example" id="type19" name="type19">
                                                     @if ($isi->type19 != null)
-                                                        @if($isi->type19 == 'C')
-                                                            <option value="B">Benefit</option>
-                                                            <option selected value="C">Cost</option>
+                                                        @if($isi->type19 == 'Cost')
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option selected value="Cost">Cost</option>
                                                         @else
-                                                            <option value="B">Benefit</option>
-                                                            <option value="C">Cost</option>
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option value="Cost">Cost</option>
                                                         @endif    
                                                     @else
-                                                        <option selected value="">Null</option>
-                                                        <option value="B">Benefit</option>
-                                                        <option value="C">Cost</option>
+                                                        <option value="Benefit">Benefit</option>
+                                                        <option value="Cost">Cost</option>
                                                     @endif                                                    
                                                 </select>
                                             </td>
@@ -564,17 +545,16 @@
                                             <td>
                                                 <select class="form-select" aria-label="Default select example" id="type20" name="type20">
                                                     @if ($isi->type20 != null)
-                                                        @if($isi->type20 == 'C')
-                                                            <option value="B">Benefit</option>
-                                                            <option selected value="C">Cost</option>
+                                                        @if($isi->type20 == 'Cost')
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option selected value="Cost">Cost</option>
                                                         @else
-                                                            <option value="B">Benefit</option>
-                                                            <option value="C">Cost</option>
+                                                            <option value="Benefit">Benefit</option>
+                                                            <option value="Cost">Cost</option>
                                                         @endif    
                                                     @else
-                                                        <option selected value="">Null</option>
-                                                        <option value="B">Benefit</option>
-                                                        <option value="C">Cost</option>
+                                                        <option value="Benefit">Benefit</option>
+                                                        <option value="Cost">Cost</option>
                                                     @endif                                                    
                                                 </select>
                                             </td>

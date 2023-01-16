@@ -16,18 +16,26 @@ class CreatePenilaiansTable extends Migration
         Schema::create('penilaians', function (Blueprint $table) {
             $table->id();
             $table->integer('nip')->unique();
-            $table->integer('s1')->required();
-            $table->integer('s2')->required();
-            $table->integer('s3')->required();
-            $table->integer('s4')->required();
-            $table->integer('s5')->required();
-            $table->integer('s6')->required();
-            $table->integer('s7')->required();
-            $table->integer('s8')->required();
-            $table->integer('s9')->required();
-            $table->integer('s10')->required();
-            $table->integer('s11')->required();
-            $table->integer('s12')->required();
+            $table->integer('s1')->nullable()->default(0);
+            $table->integer('s2')->nullable()->default(0);
+            $table->integer('s3')->nullable()->default(0);
+            $table->integer('s4')->nullable()->default(0);
+            $table->integer('s5')->nullable()->default(0);
+            $table->integer('s6')->nullable()->default(0);
+            $table->integer('s7')->nullable()->default(0);
+            $table->integer('s8')->nullable()->default(0);
+            $table->integer('s9')->nullable()->default(0);
+            $table->integer('s10')->nullable()->default(0);
+            $table->integer('s11')->nullable()->default(0);
+            $table->integer('s12')->nullable()->default(0);
+            $table->integer('s13')->nullable()->default(0);
+            $table->integer('s14')->nullable()->default(0);
+            $table->integer('s15')->nullable()->default(0);
+            $table->integer('s16')->nullable()->default(0);
+            $table->integer('s17')->nullable()->default(0);
+            $table->integer('s18')->nullable()->default(0);
+            $table->integer('s19')->nullable()->default(0);
+            $table->integer('s20')->nullable()->default(0);
             $table->timestamps();
         });
     }
