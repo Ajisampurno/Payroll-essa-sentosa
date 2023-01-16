@@ -1,0 +1,73 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Settingnilai extends Model
+{
+    use HasFactory;
+    protected $fillable = [
+        'a1',
+        'bobot1',
+        'type1',
+        'a2',
+        'bobot2',
+        'type2',
+        'a3',
+        'bobot3',
+        'type3',
+        'a4',
+        'bobot4',
+        'type4',
+        'a5',
+        'bobot5',
+        'type5',
+        'a6',
+        'bobot6',
+        'type6',
+        'a7',
+        'bobot7',
+        'type7',
+        'a8',
+        'bobot8',
+        'type8',
+        'a9',
+        'bobot9',
+        'type9',
+        'a10',
+        'bobot10',
+        'type10',
+        'a11',
+        'bobot11',
+        'type11',
+        'a12',
+        'bobot12',
+        'type12',
+        'a13',
+        'bobot13',
+        'type13',
+        'a14',
+        'bobot14',
+        'type14',
+        'a15',
+        'bobot15',
+        'type15',
+        'a16',
+        'bobot16',
+        'type16',
+        'a17',
+        'bobot17',
+        'type17',
+        'a18',
+        'bobot18',
+        'type18',
+        'a19',
+        'bobot19',
+        'type19',
+        'a20',
+        'bobot20',
+        'type20',
+    ];
+}

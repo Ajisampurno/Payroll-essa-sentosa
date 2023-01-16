@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Penilaian;
 use App\Models\Profile;
+use App\Models\Settingnilai;
+use Illuminate\Support\Facades\DB;
+
 use Illuminate\Http\Request;
 
 class PenilaiankaryawanController extends Controller
@@ -22,49 +25,57 @@ class PenilaiankaryawanController extends Controller
 
     public function rangkingboard()
     {
-        $penilaians = Penilaian::latest();
 
-        $m1 = Penilaian::max('s1');
-        $m2 = Penilaian::max('s2');
-        $m3 = Penilaian::max('s3');
-        $m4 = Penilaian::max('s4');
-        $m5 = Penilaian::max('s5');
-        $m6 = Penilaian::max('s6');
-        $m7 = Penilaian::max('s7');
-        $m8 = Penilaian::max('s8');
-        $m9 = Penilaian::max('s9');
-        $m10 = Penilaian::max('s10');
-        $m11 = Penilaian::max('s11');
-        $m12 = Penilaian::max('s12');
+        $count = Penilaian::get()->toarray();
 
-        $penilaian = $penilaians->get();
+        if ($count != null) {
+            $m1 = Penilaian::max('s1');
+            $m2 = Penilaian::max('s2');
+            $m3 = Penilaian::max('s3');
+            $m4 = Penilaian::max('s4');
+            $m5 = Penilaian::max('s5');
+            $m6 = Penilaian::max('s6');
+            $m7 = Penilaian::max('s7');
+            $m8 = Penilaian::max('s8');
+            $m9 = Penilaian::max('s9');
+            $m10 = Penilaian::max('s10');
+            $m11 = Penilaian::max('s11');
+            $m12 = Penilaian::max('s12');
 
-        foreach ($penilaian as $key => $nilai) {
-            $total[$key] =  $nilai->s1 / $m1 * 1 +
-                $nilai->s2 / $m2 * 1 +
-                $nilai->s3 / $m3 * 1 +
-                $nilai->s4 / $m4 * 1 +
-                $nilai->s5 / $m5 * 1 +
-                $nilai->s6 / $m6 * 1 +
-                $nilai->s7 / $m7 * 1 +
-                $nilai->s8 / $m8 * 1 +
-                $nilai->s9 / $m9 * 0.5 +
-                $nilai->s10 / $m10 * 0.5 +
-                $nilai->s11 / $m11 * 0.5 +
-                $nilai->s12 / $m12 * 0.5;
+            $penilaian = Penilaian::join('profiles', 'penilaians.nip', '=', 'profiles.id')
+                ->select('penilaians.*', 'profiles.nama_ktp')
+                ->get();
+            foreach ($penilaian as $key => $nilai) {
+                $total[$key] =  $nilai->s1 / $m1 * 1 +
+                    $nilai->s2 / $m2 * 1 +
+                    $nilai->s3 / $m3 * 1 +
+                    $nilai->s4 / $m4 * 1 +
+                    $nilai->s5 / $m5 * 1 +
+                    $nilai->s6 / $m6 * 1 +
+                    $nilai->s7 / $m7 * 1 +
+                    $nilai->s8 / $m8 * 1 +
+                    $nilai->s9 / $m9 * 0.5 +
+                    $nilai->s10 / $m10 * 0.5 +
+                    $nilai->s11 / $m11 * 0.5 +
+                    $nilai->s12 / $m12 * 0.5;
+            }
+
+
+            foreach ($total as $key => $item) {
+
+                $fixnilai[$key] = [
+                    'nip' => $penilaian[$key]->nip,
+                    'nama_ktp' => $penilaian[$key]->nama_ktp,
+                    'skor' => $item
+                ];
+            }
+
+            usort($fixnilai, function ($a, $b) {
+                return $a['skor'] < $b['skor'];
+            });
+        } else {
+            $fixnilai = [];
         }
-
-        foreach ($total as $key => $item) {
-            $fixnilai[$key] = [
-                'nip' => $penilaian[$key]->nip,
-                'nama_ktp' => $penilaian[$key]->nama_ktp,
-                'skor' => $item
-            ];
-        }
-
-        usort($fixnilai, function ($a, $b) {
-            return $a['skor'] < $b['skor'];
-        });
 
         return view('rangkingboard', [
             "title" => "Rangking Board",
@@ -81,6 +92,7 @@ class PenilaiankaryawanController extends Controller
     {
     }
 
+
     /**
      * Store a newly created resource in storage.
      *
@@ -90,11 +102,9 @@ class PenilaiankaryawanController extends Controller
     public function store(Request $request)
     {
 
-
         $ValidateData = $request->validate([
             'id',
             'nip' => 'unique:penilaians,nip',
-            'nama_ktp' => 'required',
             's1' => 'required',
             's2' => 'required',
             's3' => 'required',
@@ -125,6 +135,18 @@ class PenilaiankaryawanController extends Controller
         return view('formPK', [
             "title" => "Form penilaian",
             "profiles" => Profile::find($id)
+        ]);
+    }
+
+    public function form()
+    {
+        $profile = Profile::get();
+        $setting = Settingnilai::get();
+
+        return view('formPK', [
+            "title" => "Form penilaian",
+            "profiles" => $profile,
+            "setting" => $setting
         ]);
     }
 

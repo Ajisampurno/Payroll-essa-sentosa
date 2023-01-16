@@ -7,44 +7,33 @@
           {{ session('success') }}
         </div>
         @endif
-        @php
-            $input_nip = $profiles->id;
-            $input_nama = $profiles->nama_ktp;
-        @endphp
-        <div class="col-md-6 col-sm-12 mb-3">
-            <div class="card shadow">
-                <div class="card-header">
-                    Data Karyawan
-                </div>
-                <div class="card-body">
-                    <table class="table table-bordered">
-            
-                        <tr>
-                            <td>NIK</td>
-                            <td>{{ $profiles->id }}</td>
-                        </tr>
-                        <tr>
-                            <td>Nama</td>
-                            <td>{{ $profiles->nama_ktp }}</td>
-                        </tr>
-                        <tr>
-                            <td>Bagian</td>
-                            <td>{{ $profiles->bagian }}</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            
-        </div>
+
         <div class="col-md-12 col-sm-12">
             <div class="card shadow">   
                 <div class="card-body">
+        
+                    <div class="position-absolute end-0 me-4 mt-2">
+                        <a href="/settingnilai">
+                            <i data-feather="settings"></i>
+                        </a>
+                    </div>
+                    
                     <form action="/input_nilai/store" method="POST">
                         @csrf
-
-                        <input type="hidden" id="nip" name="nip" value="{{ $input_nip }}">
-                        <input type="hidden" id="nama_ktp" name="nama_ktp" value="{{ $input_nama }}">
+                        <div class="select-karyawan">
+                            <select class="form-select" aria-label="Default select example" name="nip" id="nip">
+                                <option> Open this select menu</option>
+                                @foreach ($profiles as $item)                    
+                                <option value="{{ $item->id }}">
+                                    {{ $item->id }} | {{ $item->nama_ktp }}
+                                    <hr>
+                                </option>
+                                @endforeach
+                            </select>
+                        </div>
                         
+                        <br>
+
                         <div class="">
                             <table class="tableform table table-bordered table-fixed m-1">
                                 <thead>
@@ -401,10 +390,10 @@
                             <div class="p-3 d-grid gap-2 col-6 mx-auto">
                                 <button class="btn btn-success" type="submit">Simpan</button>
                             </div>
-                    </form>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </form>
     </div>
     
 

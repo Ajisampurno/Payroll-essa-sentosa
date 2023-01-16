@@ -12,7 +12,10 @@
     <link rel="stylesheet" href="/css/style.min.css">
     <title>ES | {{ $title }}</title>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- jquery -->
+    <script src="{{ asset('js/jquery.js') }}"></script>
+    <!-- icon https://feather.com -->
+    <script src="https://unpkg.com/feather-icons"></script>
 
     <style>
 
@@ -23,6 +26,29 @@
         .progress {
             height: 10px;
         }
+
+        
+        .select-karyawan select{
+            width: 400px;
+        }
+        .select-karyawan select option{
+            color: blue;
+            font-size: 15px;
+        }
+        .table-setting tbody tr td input{
+            background: white;            
+        }
+        .alternative{
+            width: 800px;
+            margin: 0px;
+            padding: 0px;
+            background: white;
+        }
+        .bobot{
+                margin-left: 30px;
+                padding: 0px;
+                background: white;
+            }
 
         @media only screen and (max-width:500px) {
             
@@ -36,7 +62,43 @@
                 margin: 0px;
                 padding: 0px;
             }
+            .select-karyawan select{
+                width: 200px;
+                font-size: 10px;
+            }
+            .select-karyawan select option{
+                color: blue;
+                font-size: 10px;
+            }
+            .table-setting thead tr th{
+                font-size: 10px;
+                margin: 0px;
+                padding: 0px;
+                font-size: 10px;
+            }
+            .table-setting tbody tr td{
+                font-size: 10px;
+                margin: 0px;
+                padding: 0px;
+            }
+            .alternative{
+                font-size: 10px;
+                margin: 0px;
+                padding: 0px;
+                max-width: 165px;
+                background: white;
+            }
+            .bobot{
+                font-size: 10px;
+                text-align: center;
+                margin: 0px;
+                padding: 0px;
+                max-width: 50px;
+                background: white;
+            }
+
         }
+
     </style>
     
   </head>
