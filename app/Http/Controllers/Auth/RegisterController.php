@@ -71,7 +71,7 @@ class RegisterController extends Controller
         if ($data['foto']) {
             $validasi['foto'] = $data['foto']->store('foto-profil');
         }
-        $level = 'user';
+        $level = 'hrd';
         return User::create([
             'name' => $data['name'],
             'nip'   => $data['nip'],

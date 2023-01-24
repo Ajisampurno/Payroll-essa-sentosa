@@ -17,10 +17,28 @@
           <div class="sidebar-body">
               <ul class="sidebar-body-menu">
                 <li>
-                    <a class="{{ ($title === "Dashboard")?'active':'' }}" href="/dashboard"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
+                    <a class="{{ ($title === "Dashboard")?'active':'' }}" href="/dashboard"><span class="icon" data-feather="home" aria-hidden="true"></span>Dashboard</a>
                 </li>
-                @if (auth()->user()->ceklevel=="admin")
+                <!-- Jika yg buka adalah manager -->
+                @if (auth()->user()->ceklevel=="manager")
                   <li>
+                      <a class="{{ ($title === "Form penilaian")?'active':'' }}" href="/formPK"><span class="icon paper" aria-hidden="true"></span>Form Penilaian</a>
+                  </li>
+                  <li>
+                      <a class="{{ ($title === "Rangking Board")?'active':'' }}" href="/rangkingboard"><span data-feather="award" class="icon" aria-hidden="true"></span>Rangking Board</a>
+                  </li> 
+                @else
+                    <li>
+                      <a class="{{ ($title === "Data karyawan")?'active':'' }}" href="/data_karyawan"><span data-feather="clipboard" class="icon" aria-hidden="true"></span>Data Karyawan</a>
+                    </li>
+                    <li>
+                      <a class="{{ ($title === "Rangking Board")?'active':'' }}" href="/rangkingboard"><span data-feather="award" class="icon" aria-hidden="true"></span>Rangking Board</a>
+                    </li>
+                @endif
+
+                <!--
+                @if (auth()->user()->ceklevel=="admin")
+                <li>
                     <a class="show-cat-btn" href="##">
                         <span class="icon folder" aria-hidden="true"></span>Penilaian
                         <span class="category__btn transparent-btn" title="Open list">
@@ -85,6 +103,7 @@
                       </a>                    
                     </form>
                   </li>
+                -->
 
               </ul>  
           </div>

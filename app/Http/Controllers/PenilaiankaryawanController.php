@@ -244,6 +244,7 @@ class PenilaiankaryawanController extends Controller
             foreach ($total as $key => $item) {
 
                 $fixnilai[$key] = [
+                    'id' => $penilaian[$key]->id,
                     'nip' => $penilaian[$key]->nip,
                     'nama_ktp' => $penilaian[$key]->nama_ktp,
                     'skor' => $item
@@ -262,81 +263,13 @@ class PenilaiankaryawanController extends Controller
             "fixnilai" => $fixnilai
         ]);
     }
-    //    public function rangkingboard()
-    //    {
-    //
-    //        $count = Penilaian::get()->toarray();
-    //        $penilaian = Penilaian::join('profiles', 'penilaians.nip', '=', 'profiles.id')
-    //        ->select('penilaians.*', 'profiles.nama_ktp')
-    //        ->get();
-    //        $settingnilai = Settingnilai::get();
-    //
-    //        if ($count != null) {
-    //
-    //            foreach ($settingnilai as $set) {
-    //                if (Penilaian::max('s1') != 0) {
-    //                    if ($set->type1 = "Benefit") {
-    //                        $m1 = Penilaian::max('s1');
-    //                    } else {
-    //                        $m1 = Penilaian::min('s1');
-    //                    }
-    //                } else {
-    //                    $m1 = 0;
-    //                }
-    //            }
-    //
-    //            $m1 = Penilaian::max('s1');
-    //            $m2 = Penilaian::max('s2');
-    //            $m3 = Penilaian::max('s3');
-    //            $m4 = Penilaian::max('s4');
-    //            $m5 = Penilaian::max('s5');
-    //            $m6 = Penilaian::max('s6');
-    //            $m7 = Penilaian::max('s7');
-    //            $m8 = Penilaian::max('s8');
-    //            $m9 = Penilaian::max('s9');
-    //            $m10 = Penilaian::max('s10');
-    //            $m11 = Penilaian::max('s11');
-    //            $m12 = Penilaian::max('s12');
-    //
-    //            foreach ($penilaian as $key => $nilai) {
-    //                $total[$key] =  $nilai->s1 / $m1 * 1 +
-    //                    $nilai->s2 / $m2 * 1 +
-    //                    $nilai->s3 / $m3 * 1 +
-    //                    $nilai->s4 / $m4 * 1 +
-    //                    $nilai->s5 / $m5 * 1 +
-    //                    $nilai->s6 / $m6 * 1 +
-    //                    $nilai->s7 / $m7 * 1 +
-    //                    $nilai->s8 / $m8 * 1 +
-    //                    $nilai->s9 / $m9 * 0.5 +
-    //                    $nilai->s10 / $m10 * 0.5 +
-    //                    $nilai->s11 / $m11 * 0.5 +
-    //                    $nilai->s12 / $m12 * 0.5;
-    //            }
-    //
-    //
-    //            foreach ($total as $key => $item) {
-    //
-    //                $fixnilai[$key] = [
-    //                    'nip' => $penilaian[$key]->nip,
-    //                    'nama_ktp' => $penilaian[$key]->nama_ktp,
-    //                    'skor' => $item
-    //                ];
-    //            }
-    //
-    //            usort($fixnilai, function ($a, $b) {
-    //                return $a['skor'] < $b['skor'];
-    //            });
-    //        } else {
-    //            $fixnilai = [];
-    //        }
-    //
-    //        return view('rangkingboard', [
-    //            "title" => "Rangking Board",
-    //            "fixnilai" => $fixnilai
-    //        ]);
-    //    }
-    //
 
+    public function hapus($id)
+    {
+        $data = Penilaian::find($id);
+        $data->delete();
+        return redirect('/rangkingboard')->with('success', 'Data berhasil di hapus');
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -383,7 +316,7 @@ class PenilaiankaryawanController extends Controller
 
 
         Penilaian::create($ValidateData);
-        return redirect('/data_karyawan')->with('success', 'Data berhasil di tambah kan');
+        return redirect('/formPK')->with('success', 'Data berhasil di tambah kan');
     }
 
     /**

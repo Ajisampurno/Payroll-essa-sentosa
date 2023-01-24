@@ -19,6 +19,9 @@
                             <th>NIP</th>
                             <th>NAMA</th>
                             <th>Skor</th>
+                            @if (auth()->user()->ceklevel=="manager")
+                            <th>Aksi</th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody>
@@ -32,7 +35,16 @@
                                 <td class="text-center">{{ $i['nip'] }}</td>
                                 <td >{{ $i['nama_ktp'] }}</td>
                                 <td class="text-center">{{ $i['skor'] }}</td>
-                                
+                                @if (auth()->user()->ceklevel=="manager")
+                                <td class="text-center">
+                                    <a href="/rangkingboard/hapus/{{ $i['id'] }}" class="aksi">
+                                        <span data-feather="trash-2" class="icon" style="color: red" aria-hidden="true"></span>
+                                    </a>
+                                    <a href="" class="aksi">
+                                        <span data-feather="edit" class="icon" style="color: blue" aria-hidden="true"></span>
+                                    </a>
+                                </td>
+                                @endif
                             </tr>
                         @endforeach
                     </tbody>

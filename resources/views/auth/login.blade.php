@@ -4,9 +4,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="card m-5">
+            <div class="card p-3">
                 <div class="text-center">
-                    <img src="img/logo/logo.png" alt="Logo" class="rounded mx-auto d-block w-50 m-5">
+                    <img src="{{ asset('img/logo/logo.png') }}" alt="Logo" class="rounded mx-auto d-block w-50 m-5">
                 </div>
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
@@ -55,6 +55,9 @@
                             <button type="submit" class="btn btn-info">
                                 {{ __('Login') }}
                             </button>
+                            <a href="/register">
+                                Belum punya akun?
+                            </a>
         
                             @if (Route::has('password.request'))
                                 <a class="btn btn-link" href="{{ route('password.request') }}">

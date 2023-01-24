@@ -38,36 +38,16 @@ Route::get('/logout', function () {
 });
 
 
-
-Route::group(['middleware' => ['auth', 'ceklevel:user,admin']], function () {
-
-    //HALAMAN DASHBOARD
+Route::group(['middleware' => ['auth', 'ceklevel:hrd,manager']], function () {
     //TAMPILAN DASHBOARD
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-
-    //HALAMAN CETAK SLIP GAJI
-    //TAMPIL SLIP
-    Route::get('/cetak_slip_gaji/{id}', [UpotController::class, 'cetakslip']);
-    //TAMPIL SLIP 2
-    Route::post('/cetak_slip_gaji/pdf', [UpotController::class, 'cetakslip2']);
-
-    //HALAMAN PENGAJUAN KARYAWAN
-    //TAMPIL HALAMAN
-    Route::get('/pengajuan', [PengajuanController::class, 'index']);
-    //FUNGSI TAMBAH DATA PENGAJUAN
-    Route::post('pengajuan/store', [PengajuanController::class, 'store']);
-    //SHOW PENGAJUAN
-    Route::get('/show_pengajuan', [PengajuanController::class, 'pengajuansaya']);
-    //FUNGSI UPDATE APPROVE 
-    Route::post('/cancel/update/{id}', [PengajuanController::class, 'cancel']);
-    Route::post('/approve/update/{id}', [PengajuanController::class, 'approve']);
+    //TAMPILASN DASHBOARD PENILAIAN KARYAWAN
+    Route::get('/rangkingboard', [PenilaiankaryawanController::class, 'rangkingboard']);
+    //HALAMAN HAPUS DATA KARYAWAN
+    Route::get('/rangkingboard/hapus/{id}', [PenilaiankaryawanController::class, 'hapus']);
 });
 
-Route::group(['middleware' => ['auth', 'ceklevel:admin']], function () {
-
-    //GROUP PENGAJUAN
-    //REQUEST PENGAJUAN
-    Route::get('/request_karyawan', [PengajuanController::class, 'request_karyawan']);
+Route::group(['middleware' => ['auth', 'ceklevel:hrd']], function () {
 
     // GROUP DATA KARYAWAN
     //TAMPILAN DATA KARYAWAN
@@ -88,33 +68,95 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin']], function () {
     Route::get('/export_profiles', [ProfileController::class, 'profilesexport']);
     //FUNCTION IMPORT EXCEL
     Route::post('/import_profiles', [ProfileController::class, 'ProfilesImport']);
+});
 
-    //GROUP PAYROLL
-    //TAMPILAN SETTING UPAH
-    Route::get('/upah_potongan', [UpotController::class, 'index']);
-    //FUNCTION EXPORT KE EXCEL
-    Route::get('/export_upot', [UpotController::class, 'upotsexport']);
-    //FUNCTION IMPORT EXCEL
-    Route::post('/import_upot', [UpotController::class, 'UpotImport']);
-    //FUNCTION EXPORT KE EXCEL
-    Route::get('/hapus_semua', [UpotController::class, 'hapus']);
+Route::group(['middleware' => ['auth', 'ceklevel:manager']], function () {
 
     //GROUP PENILAIAN KARYAWAN
     //TAMPILASN DASHBOARD PENILAIAN KARYAWAN
     Route::get('/raport', [PenilaiankaryawanController::class, 'index']);
     //TAMPILASN FORM PENILAIAN PEGAWAI
-    //    Route::get('/formPK/{id}', [PenilaiankaryawanController::class, 'show']);
-
-    //TAMPILASN FORM PENILAIAN PEGAWAI
     Route::get('/formPK', [PenilaiankaryawanController::class, 'form']);
     //FUNGSI INPUT NILAI
     Route::post('/input_nilai/store', [PenilaiankaryawanController::class, 'store']);
-    //TAMPILASN DASHBOARD PENILAIAN KARYAWAN
-    Route::get('/rangkingboard', [PenilaiankaryawanController::class, 'rangkingboard']);
+});     
 
-    //GROUP SETTING NILAI
-    //TAMPILASN SETTING NILAI
-    Route::get('/settingnilai', [SettingnilaiController::class, 'index']);
-    //FUNGSI SIMPAN SETTING
-    Route::post('simpansetting', [SettingnilaiController::class, 'store']);
-});
+//Route::group(['middleware' => ['auth', 'ceklevel: hrd']], function () {
+//    //HALAMAN DASHBOARD
+//    //TAMPILAN DASHBOARD
+//    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+//
+//    //HALAMAN CETAK SLIP GAJI
+//    //TAMPIL SLIP
+//    Route::get('/cetak_slip_gaji/{id}', [UpotController::class, 'cetakslip']);
+//    //TAMPIL SLIP 2
+//    Route::post('/cetak_slip_gaji/pdf', [UpotController::class, 'cetakslip2']);
+//
+//    //HALAMAN PENGAJUAN KARYAWAN
+//    //TAMPIL HALAMAN
+//    Route::get('/pengajuan', [PengajuanController::class, 'index']);
+//    //FUNGSI TAMBAH DATA PENGAJUAN
+//    Route::post('pengajuan/store', [PengajuanController::class, 'store']);
+//    //SHOW PENGAJUAN
+//    Route::get('/show_pengajuan', [PengajuanController::class, 'pengajuansaya']);
+//    //FUNGSI UPDATE APPROVE 
+//    Route::post('/cancel/update/{id}', [PengajuanController::class, 'cancel']);
+//    Route::post('/approve/update/{id}', [PengajuanController::class, 'approve']);
+//});
+//
+//Route::group(['middleware' => ['auth', 'ceklevel: manager']], function () {
+//
+//    //GROUP PENGAJUAN
+//    //REQUEST PENGAJUAN
+//    Route::get('/request_karyawan', [PengajuanController::class, 'request_karyawan']);
+//
+//    // GROUP DATA KARYAWAN
+//    //TAMPILAN DATA KARYAWAN
+//    Route::get('/data_karyawan', [ProfileController::class, 'index'])->name('data_karyawan');
+//    //SHOW DATA KARYAWAM
+//    Route::get('/show_profiles/{id}', [ProfileController::class, 'show']);
+//    //HALAMAN TAMBAH DATA KARYAWAN
+//    Route::get('/tambah_karyawan', [ProfileController::class, 'tambah'])->name('tambah');
+//    //HALAMAN UPDATE DATA KARYAWAN
+//    Route::get('/update_datakaryawan/{id}', [ProfileController::class, 'edit']);
+//    //HFUNGSI UPDATE DATA KAEYAWAN
+//    Route::post('/update_datakaryawan/update/{id}', [ProfileController::class, 'update']);
+//    //HALAMAN HAPUS DATA KARYAWAN
+//    Route::get('/data_karyawan/hapus/{id}', [ProfileController::class, 'hapus']);
+//    //HALAMAN TAMBAH DATA KARYAWAN
+//    Route::post('/tambah_data/store', [ProfileController::class, 'store']);
+//    //FUNCTION EXPORT KE EXCEL
+//    Route::get('/export_profiles', [ProfileController::class, 'profilesexport']);
+//    //FUNCTION IMPORT EXCEL
+//    Route::post('/import_profiles', [ProfileController::class, 'ProfilesImport']);
+//
+//    //GROUP PAYROLL
+//    //TAMPILAN SETTING UPAH
+//    Route::get('/upah_potongan', [UpotController::class, 'index']);
+//    //FUNCTION EXPORT KE EXCEL
+//    Route::get('/export_upot', [UpotController::class, 'upotsexport']);
+//    //FUNCTION IMPORT EXCEL
+//    Route::post('/import_upot', [UpotController::class, 'UpotImport']);
+//    //FUNCTION EXPORT KE EXCEL
+//    Route::get('/hapus_semua', [UpotController::class, 'hapus']);
+//
+//    //GROUP PENILAIAN KARYAWAN
+//    //TAMPILASN DASHBOARD PENILAIAN KARYAWAN
+//    Route::get('/raport', [PenilaiankaryawanController::class, 'index']);
+//    //TAMPILASN FORM PENILAIAN PEGAWAI
+//    //    Route::get('/formPK/{id}', [PenilaiankaryawanController::class, 'show']);
+//
+//    //TAMPILASN FORM PENILAIAN PEGAWAI
+//    Route::get('/formPK', [PenilaiankaryawanController::class, 'form']);
+//    //FUNGSI INPUT NILAI
+//    Route::post('/input_nilai/store', [PenilaiankaryawanController::class, 'store']);
+//    //TAMPILASN DASHBOARD PENILAIAN KARYAWAN
+//    Route::get('/rangkingboard', [PenilaiankaryawanController::class, 'rangkingboard']);
+//
+//    //GROUP SETTING NILAI
+//    //TAMPILASN SETTING NILAI
+//    Route::get('/settingnilai', [SettingnilaiController::class, 'index']);
+//    //FUNGSI SIMPAN SETTING
+//    Route::post('simpansetting', [SettingnilaiController::class, 'store']);
+//});
+//

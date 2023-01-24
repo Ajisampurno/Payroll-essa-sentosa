@@ -5,8 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card m-5">
-                <div class="card-header">{{ __('Register') }}</div>
-
+                <div class="text-center">
+                    <img src="{{ asset('img/logo/logo.png') }}" alt="Logo" class="rounded mx-auto d-block w-50 mt-3">
+                </div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
@@ -88,9 +89,10 @@
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                <button type="submit" class="btn btn-info">
+                                    {{ __('Registrasi') }}
                                 </button>
+                                <a href="/login">Sudah punya akun?</a>  
                             </div>
                         </div>
                     </form>
