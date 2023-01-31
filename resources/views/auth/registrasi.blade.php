@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
-@section('content')
+@section('container')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -9,7 +9,7 @@
                     <h3>Form Registrasi User</h3>    
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+                    <form method="POST" action="/simpanregistrasi" enctype="multipart/form-data">
                         @csrf
 
                         <div class="row mb-3">

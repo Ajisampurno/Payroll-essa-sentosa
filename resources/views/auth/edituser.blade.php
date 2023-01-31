@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
-@section('content')
+@section('container')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -9,14 +9,14 @@
                     <h3>Form Registrasi User</h3>    
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+                    <form method="POST" action="/edituser/update/{{ $users->id }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="row mb-3">
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control border @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" class="form-control border @error('name') is-invalid @enderror" name="name" value="{{ $users->name }}" required autocomplete="name" autofocus>
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -29,7 +29,7 @@
                             <label for="nip" class="col-md-4 col-form-label text-md-end">{{ __('nip') }}</label>
 
                             <div class="col-md-6">
-                                <input id="nip" type="text" class="form-control border @error('nip') is-invalid @enderror" name="nip" value="{{ old('nip') }}" required autocomplete="nip" autofocus>
+                                <input id="nip" type="text" class="form-control border @error('nip') is-invalid @enderror" name="nip" value="{{ $users->nip }}" required autocomplete="nip" autofocus>
 
                                 @error('nip')
                                     <span class="invalid-feedback" role="alert">
@@ -44,15 +44,15 @@
 
                             <div class="col-md-6">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="ceklevel" name="ceklevel" class="custom-control-input" value="manager">
+                                    <input type="radio" id="ceklevel" name="ceklevel" class="custom-control-input" value="manager" {{ ($users->ceklevel === "manager")?'checked':'' }}>
                                     <label class="custom-control-label" for="ceklevel1">Manager</label>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="ceklevel" name="ceklevel" class="custom-control-input" value="hrd">
+                                    <input type="radio" id="ceklevel" name="ceklevel" class="custom-control-input" value="hrd" {{ ($users->ceklevel === "hrd")?'checked':'' }}>
                                     <label class="custom-control-label" for="ceklevel2">HRD</label>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="ceklevel" name="ceklevel" class="custom-control-input" value="pic">
+                                    <input type="radio" id="ceklevel" name="ceklevel" class="custom-control-input" value="pic" {{ ($users->ceklevel === "manager")?'pic':'' }}>
                                     <label class="custom-control-label" for="ceklevel3">PIC</label>
                                 </div>
                                 @error('ceklevel')
@@ -67,7 +67,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control border @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="email" type="email" class="form-control border @error('email') is-invalid @enderror" name="email" value="{{ $users->email }}" required autocomplete="email">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -127,5 +127,3 @@
 @endsection
   </body>
 </html>
-
-

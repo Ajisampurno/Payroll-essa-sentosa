@@ -20,20 +20,33 @@
                     <a class="{{ ($title === "Dashboard")?'active':'' }}" href="/dashboard"><span class="icon" data-feather="home" aria-hidden="true"></span>Dashboard</a>
                 </li>
                 <!-- Jika yg buka adalah manager -->
-                @if (auth()->user()->ceklevel=="manager")
+                @if (auth()->user()->ceklevel=="pic")
                   <li>
-                      <a class="{{ ($title === "Form penilaian")?'active':'' }}" href="/formPK"><span class="icon paper" aria-hidden="true"></span>Form Penilaian</a>
+                      <a class="{{ ($title === "Form penilaian")?'active':'' }}" href="/formPK"><span class="icon" data-feather="file-text" aria-hidden="true"></span>Form Penilaian</a>
                   </li>
                   <li>
                       <a class="{{ ($title === "Rangking Board")?'active':'' }}" href="/rangkingboard"><span data-feather="award" class="icon" aria-hidden="true"></span>Rangking Board</a>
                   </li> 
-                @else
+                @elseif (auth()->user()->ceklevel=="hrd")
                     <li>
                       <a class="{{ ($title === "Data karyawan")?'active':'' }}" href="/data_karyawan"><span data-feather="clipboard" class="icon" aria-hidden="true"></span>Data Karyawan</a>
                     </li>
                     <li>
                       <a class="{{ ($title === "Rangking Board")?'active':'' }}" href="/rangkingboard"><span data-feather="award" class="icon" aria-hidden="true"></span>Rangking Board</a>
                     </li>
+                @else
+                  <li>
+                      <a class="{{ ($title === "Manage User")?'active':'' }}" href="/manageuser"><span data-feather="users" class="icon" aria-hidden="true"></span>Manage Users</a>
+                  </li>
+                  <li>
+                      <a class="{{ ($title === "Form penilaian")?'active':'' }}" href="/formPK"><span class="icon" data-feather="file-text" aria-hidden="true"></span>Form Penilaian</a>
+                  </li>
+                  <li>
+                      <a class="{{ ($title === "Rangking Board")?'active':'' }}" href="/rangkingboard"><span data-feather="award" class="icon" aria-hidden="true"></span>Rangking Board</a>
+                  </li>
+                  <li>
+                      <a class="{{ ($title === "Data karyawan")?'active':'' }}" href="/data_karyawan"><span data-feather="clipboard" class="icon" aria-hidden="true"></span>Data Karyawan</a>
+                  </li> 
                 @endif
 
                 <!--

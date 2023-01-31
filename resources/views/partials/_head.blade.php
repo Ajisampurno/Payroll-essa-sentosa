@@ -23,9 +23,7 @@
     <script src="https://unpkg.com/feather-icons"></script>
 
     <style>
-      #btn-setting:hover{
-        color: red;
-      }
+      
     </style>
     
   </head>

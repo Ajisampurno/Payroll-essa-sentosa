@@ -13,6 +13,7 @@ use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\SettingnilaiController;
 use App\Http\Controllers\PenilaiankaryawanController;
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -37,8 +38,23 @@ Route::get('/logout', function () {
     return redirect('/');
 });
 
+Route::group(['middleware' => ['auth', 'ceklevel:manager']], function () {
+    //TAMPILAN DASHBOARD
+    Route::get('/manageuser', [UserController::class, 'index'])->name('manageuser');
+    //TAMPILAN REGISTRASI USER
+    Route::get('/registrasi', [UserController::class, 'registrasi'])->name('registrasi');
+    //HALAMAN TAMBAH DATA USER
+    Route::post('/simpanregistrasi', [UserController::class, 'simpan']);
+    //HALAMAN HAPUS DATA USER
+    Route::get('/user/hapus/{id}', [UserController::class, 'hapus']);
+    //HALAMAN UPDATE USER
+    Route::get('/edituser/{id}', [UserController::class, 'edit']);
+    //HFUNGSI UPDATE USER
+    Route::post('/edituser/update/{id}', [UserController::class, 'update']);
+});
 
-Route::group(['middleware' => ['auth', 'ceklevel:hrd,manager']], function () {
+
+Route::group(['middleware' => ['auth', 'ceklevel:pic,hrd,manager']], function () {
     //TAMPILAN DASHBOARD
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     //TAMPILASN DASHBOARD PENILAIAN KARYAWAN
@@ -47,9 +63,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:hrd,manager']], function () {
     Route::get('/rangkingboard/hapus/{id}', [PenilaiankaryawanController::class, 'hapus']);
 });
 
-Route::group(['middleware' => ['auth', 'ceklevel:hrd']], function () {
-
-    // GROUP DATA KARYAWAN
+Route::group(['middleware' => ['auth', 'ceklevel:hrd,manager']], function () {
     //TAMPILAN DATA KARYAWAN
     Route::get('/data_karyawan', [ProfileController::class, 'index'])->name('data_karyawan');
     //SHOW DATA KARYAWAM
@@ -70,16 +84,48 @@ Route::group(['middleware' => ['auth', 'ceklevel:hrd']], function () {
     Route::post('/import_profiles', [ProfileController::class, 'ProfilesImport']);
 });
 
-Route::group(['middleware' => ['auth', 'ceklevel:manager']], function () {
-
-    //GROUP PENILAIAN KARYAWAN
+Route::group(['middleware' => ['auth', 'ceklevel:pic,manager']], function () {
     //TAMPILASN DASHBOARD PENILAIAN KARYAWAN
     Route::get('/raport', [PenilaiankaryawanController::class, 'index']);
     //TAMPILASN FORM PENILAIAN PEGAWAI
     Route::get('/formPK', [PenilaiankaryawanController::class, 'form']);
     //FUNGSI INPUT NILAI
     Route::post('/input_nilai/store', [PenilaiankaryawanController::class, 'store']);
+    //HALAMAN UPDATE NILAI KARYAWAN
+    Route::get('/update_nilai/{id}', [PenilaiankaryawanController::class, 'edit']);
+    //HFUNGSI UPDATE NILAI KAEYAWAN
+    Route::post('/update_nilai/update/{id}', [PenilaiankaryawanController::class, 'update']);
 });     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //Route::group(['middleware' => ['auth', 'ceklevel: hrd']], function () {
 //    //HALAMAN DASHBOARD
