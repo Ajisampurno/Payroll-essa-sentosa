@@ -27,9 +27,9 @@
                                     <th>Rank</th>
                                     <th>NIP</th>
                                     <th>NAMA</th>
-                                    <th>Skor</th>
+                                    <th>SKOR</th>
                                     @if (auth()->user()->ceklevel=="manager")
-                                    <th>Aksi</th>
+                                        <th>AKSI</th>
                                     @endif
                                 </tr>
                             </thead>
@@ -45,7 +45,7 @@
                                         <td >{{ $i['nama_ktp'] }}</td>
                                         <td class="text-center">{{ $i['skor'] }}</td>
                                         @if (auth()->user()->ceklevel=="manager"||auth()->user()->ceklevel=="pic")
-                                        <td>
+                                        <td class="text-center">
                                             <span class="p-relative">
                                                 <button class="dropdown-btn transparent-btn" type="button" title="More info">
                                                 <div class="sr-only">More info</div>

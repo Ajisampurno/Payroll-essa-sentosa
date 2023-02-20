@@ -14,6 +14,7 @@ use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\SettingnilaiController;
 use App\Http\Controllers\PenilaiankaryawanController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ReportController;
 
 
 /*
@@ -39,7 +40,7 @@ Route::get('/logout', function () {
 });
 
 Route::group(['middleware' => ['auth', 'ceklevel:manager']], function () {
-    //TAMPILAN DASHBOARD
+    //TAMPILAN MANAGE USERS
     Route::get('/manageuser', [UserController::class, 'index'])->name('manageuser');
     //TAMPILAN REGISTRASI USER
     Route::get('/registrasi', [UserController::class, 'registrasi'])->name('registrasi');
@@ -51,6 +52,8 @@ Route::group(['middleware' => ['auth', 'ceklevel:manager']], function () {
     Route::get('/edituser/{id}', [UserController::class, 'edit']);
     //HFUNGSI UPDATE USER
     Route::post('/edituser/update/{id}', [UserController::class, 'update']);
+    //TAMPILAN REPORT
+    Route::get('/report', [ReportController::class, 'index'])->name('report');
 });
 
 
@@ -82,6 +85,12 @@ Route::group(['middleware' => ['auth', 'ceklevel:hrd,manager']], function () {
     Route::get('/export_profiles', [ProfileController::class, 'profilesexport']);
     //FUNCTION IMPORT EXCEL
     Route::post('/import_profiles', [ProfileController::class, 'ProfilesImport']);
+
+    //GROUP SETTING NILAI
+    //TAMPILASN SETTING NILAI
+    Route::get('/settingnilai', [SettingnilaiController::class, 'index']);
+    //FUNGSI SIMPAN SETTING
+    Route::post('simpansetting', [SettingnilaiController::class, 'store']);
 });
 
 Route::group(['middleware' => ['auth', 'ceklevel:pic,manager']], function () {
@@ -198,11 +207,5 @@ Route::group(['middleware' => ['auth', 'ceklevel:pic,manager']], function () {
 //    Route::post('/input_nilai/store', [PenilaiankaryawanController::class, 'store']);
 //    //TAMPILASN DASHBOARD PENILAIAN KARYAWAN
 //    Route::get('/rangkingboard', [PenilaiankaryawanController::class, 'rangkingboard']);
-//
-//    //GROUP SETTING NILAI
-//    //TAMPILASN SETTING NILAI
-//    Route::get('/settingnilai', [SettingnilaiController::class, 'index']);
-//    //FUNGSI SIMPAN SETTING
-//    Route::post('simpansetting', [SettingnilaiController::class, 'store']);
 //});
 //

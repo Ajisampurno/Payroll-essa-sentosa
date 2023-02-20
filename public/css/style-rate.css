@@ -6,7 +6,7 @@
 .rate {
     float: left;
     height: 46px;
-    margin-left: 450px;
+    margin-left: 420px;
 }
 
 .rate:not(:checked)>input {

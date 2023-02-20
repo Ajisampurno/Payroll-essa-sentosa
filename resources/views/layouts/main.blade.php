@@ -22,5 +22,19 @@
     <script src="/plugins/feather.min.js"></script>
     <!-- Custom scripts -->
     <script src="/js/script.js"></script>
+    <script type="text/javascript">
+      $.ajax({
+        type: "get",
+        url: "https://katanime.vercel.app/api/getrandom",
+        dataType:'json',
+        success:function(data){
+          var index = Math.floor(Math.random() * (data.result.length));
+
+          $("#quotes").text(data.result[index].indo);
+          $("#byquotes").text("By : " + data.result[index].character);
+          $("#animequotes").text("Anime : " + data.result[index].character);
+        }
+      });
+    </script>
   </body>
 </html>

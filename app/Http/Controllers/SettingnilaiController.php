@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Settingnilai;
 use App\Http\Requests\StoreSettingnilaiRequest;
 use App\Http\Requests\UpdateSettingnilaiRequest;
+use App\Models\Inputtype;
 use App\Models\Penilaian;
 use Illuminate\Http\Request;
 
@@ -17,10 +18,13 @@ class SettingnilaiController extends Controller
      */
     public function index()
     {
-        $isi = Settingnilai::get();
+        $setting = Settingnilai::get();
+        $inputtype = Inputtype::get();
+
         return view('settingnilai', [
             "title" => "Setting Nilai",
-            "settingnilai" => $isi,
+            "settingnilai" => $setting,
+            "inputtype" => $inputtype
         ]);
     }
 
@@ -46,6 +50,7 @@ class SettingnilaiController extends Controller
      */
     public function store(Request $request)
     {
+        Inputtype::truncate();
         Settingnilai::truncate();
         $tbobot = $request->bobot1 +
             $request->bobot2 +
@@ -69,7 +74,30 @@ class SettingnilaiController extends Controller
             $request->bobot20;
 
         if ($tbobot == 100) {
-            $ValidateData = $request->validate([
+            $ValidateInputtype = $request->validate([
+                'inputtype1' => 'nullable',
+                'inputtype2' => 'nullable',
+                'inputtype3' => 'nullable',
+                'inputtype4' => 'nullable',
+                'inputtype5' => 'nullable',
+                'inputtype6' => 'nullable',
+                'inputtype7' => 'nullable',
+                'inputtype8' => 'nullable',
+                'inputtype9' => 'nullable',
+                'inputtype10' => 'nullable',
+                'inputtype11' => 'nullable',
+                'inputtype12' => 'nullable',
+                'inputtype13' => 'nullable',
+                'inputtype14' => 'nullable',
+                'inputtype15' => 'nullable',
+                'inputtype16' => 'nullable',
+                'inputtype17' => 'nullable',
+                'inputtype18' => 'nullable',
+                'inputtype19' => 'nullable',
+                'inputtype20' => 'nullable',
+            ]);
+
+            $ValidateSetting = $request->validate([
                 'a1' => 'nullable',
                 'bobot1' => 'nullable',
                 'type1' => 'nullable',
@@ -150,10 +178,34 @@ class SettingnilaiController extends Controller
                 'bobot20' => 'nullable',
                 'type20' => 'nullable',
             ]);
-            Settingnilai::create($ValidateData);
+            Inputtype::create($ValidateInputtype);
+            Settingnilai::create($ValidateSetting);
             return redirect('/settingnilai')->with('success', 'Data berhasil di ubah');
         } else {
-            $ValidateData = $request->validate([
+            $ValidateInputtype = $request->validate([
+                'a1' => 'nullable',
+                'a2' => 'nullable',
+                'a3' => 'nullable',
+                'a4' => 'nullable',
+                'a5' => 'nullable',
+                'a6' => 'nullable',
+                'a7' => 'nullable',
+                'a8' => 'nullable',
+                'a9' => 'nullable',
+                'a10' => 'nullable',
+                'a11' => 'nullable',
+                'a12' => 'nullable',
+                'a13' => 'nullable',
+                'a14' => 'nullable',
+                'a15' => 'nullable',
+                'a16' => 'nullable',
+                'a17' => 'nullable',
+                'a18' => 'nullable',
+                'a19' => 'nullable',
+                'a20' => 'nullable',
+            ]);
+
+            $ValidateSetting = $request->validate([
                 'a1' => 'nullable',
                 'bobot1' => 'nullable',
                 'type1' => 'nullable',
@@ -234,8 +286,9 @@ class SettingnilaiController extends Controller
                 'bobot20' => 'nullable',
                 'type20' => 'nullable',
             ]);
-            Settingnilai::create($ValidateData);
-            return redirect('/settingnilai')->with('gagal', 'nilai total bobot tidak boleh lebih atau kurang dari 100');;
+            Inputtype::create($ValidateInputtype);
+            Settingnilai::create($ValidateSetting);
+            return redirect('/settingnilai')->with('gagal', 'nilai total bobot tidak boleh lebih atau kurang dari 100');
         }
     }
 

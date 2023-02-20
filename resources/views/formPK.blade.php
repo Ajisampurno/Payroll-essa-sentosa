@@ -9,15 +9,8 @@
         @endif
 
         <div class="col-md-12 col-sm-12">
-            <div class="card shadow">   
+            <div class="card-form card shadow">   
                 <div class="card-body">
-        
-                    <div class="position-absolute end-0 me-4 mt-2">
-                        <a id="btn-setting" href="/settingnilai">
-                            <i data-feather="settings">Setting</i>
-                        </a>
-                    </div>
-                    
                     <form action="/input_nilai/store" method="POST">
                         @csrf
                         <div class="select-karyawan">
@@ -31,7 +24,6 @@
                                 @endforeach
                             </select>
                         </div>
-                        
                         <br>
                         @foreach ($setting as $set)
                         <!-- penilaian 1 -->        
@@ -42,19 +34,40 @@
                                         <p class="text-bobot"> Bobot:{{ $set->bobot1 }}, Type:{{ $set->type1 }}</p>
                                     </div>
                                     <div class="card-body">
-                                        <div class="rate">
-                                            <input type="hiddent" name="s1" value="0" checked>
-                                            <input type="radio" id="star5s1" name="s1" value="5">
-                                            <label for="star5s1" title="text">5 stars</label>
-                                            <input type="radio" id="star4s1" name="s1" value="4">
-                                            <label for="star4s1" title="text">4 stars</label>
-                                            <input type="radio" id="star3s1" name="s1" value="3">
-                                            <label for="star3s1" title="text">3 stars</label>
-                                            <input type="radio" id="star2s1" name="s1" value="2">
-                                            <label for="star2s1" title="text">2 stars</label>
-                                            <input type="radio" id="star1s1" name="s1" value="1">
-                                            <label for="star1s1" title="text">1 star</label>
-                                        </div>                  
+                                        @if ($inputtypes->inputtype1 == "Radio")
+                                            <div class="" align="center">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s1" id="radio1" value="2">
+                                                    <label class="form-check-label" for="radio1">
+                                                        Tercapai
+                                                    </label>
+                                                </div>
+                                                    <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s1" id="radio2" value="1">
+                                                    <label class="form-check-label" for="radio2">
+                                                        Tidak Tercapai
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        @elseif($inputtypes->inputtype1 == "Number")
+                                            <div class="input-group mb-3">
+                                                <input type="number" class="form-control border" name="s1" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                            </div>
+                                        @else
+                                            <div class="rate">
+                                                <input type="hiddent" name="s1" value="0" checked>
+                                                <input type="radio" id="star5s1" name="s1" value="5">
+                                                <label for="star5s1" title="text">5 stars</label>
+                                                <input type="radio" id="star4s1" name="s1" value="4">
+                                                <label for="star4s1" title="text">4 stars</label>
+                                                <input type="radio" id="star3s1" name="s1" value="3">
+                                                <label for="star3s1" title="text">3 stars</label>
+                                                <input type="radio" id="star2s1" name="s1" value="2">
+                                                <label for="star2s1" title="text">2 stars</label>
+                                                <input type="radio" id="star1s1" name="s1" value="1">
+                                                <label for="star1s1" title="text">1 star</label>
+                                            </div>
+                                        @endif                  
                                     </div>
                                 </div>
                             @endif
@@ -66,19 +79,40 @@
                                         <p class="text-bobot"> Bobot:{{ $set->bobot2 }}, Type:{{ $set->type2 }}</p>
                                     </div>
                                     <div class="card-body">
-                                        <div class="rate">
-                                            <input type="hiddent" name="s2" value="0" checked>
-                                            <input type="radio" id="star5s2" name="s2" value="5">
-                                            <label for="star5s2" title="text">5 stars</label>
-                                            <input type="radio" id="star4s2" name="s2" value="4">
-                                            <label for="star4s2" title="text">4 stars</label>
-                                            <input type="radio" id="star3s2" name="s2" value="3">
-                                            <label for="star3s2" title="text">3 stars</label>
-                                            <input type="radio" id="star2s2" name="s2" value="2">
-                                            <label for="star2s2" title="text">2 stars</label>
-                                            <input type="radio" id="star1s2" name="s2" value="1">
-                                            <label for="star1s2" title="text">1 star</label>
-                                        </div>                  
+                                        @if ($inputtypes->inputtype2 == "Radio")
+                                            <div class="" align="center">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s2" id="radio1" value="2">
+                                                    <label class="form-check-label" for="radio1">
+                                                        Tercapai
+                                                    </label>
+                                                </div>
+                                                    <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s2" id="radio2" value="1">
+                                                    <label class="form-check-label" for="radio2">
+                                                        Tidak Tercapai
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        @elseif($inputtypes->inputtype2 == "Number")
+                                            <div class="input-group mb-3">
+                                                <input type="number" class="form-control border" name="s2" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                            </div>
+                                        @else
+                                            <div class="rate">
+                                                <input type="hiddent" name="s2" value="0" checked>
+                                                <input type="radio" id="star5s2" name="s2" value="5">
+                                                <label for="star5s2" title="text">5 stars</label>
+                                                <input type="radio" id="star4s2" name="s2" value="4">
+                                                <label for="star4s2" title="text">4 stars</label>
+                                                <input type="radio" id="star3s2" name="s2" value="3">
+                                                <label for="star3s2" title="text">3 stars</label>
+                                                <input type="radio" id="star2s2" name="s2" value="2">
+                                                <label for="star2s2" title="text">2 stars</label>
+                                                <input type="radio" id="star1s2" name="s2" value="1">
+                                                <label for="star1s2" title="text">1 star</label>
+                                            </div>
+                                        @endif                  
                                     </div>
                                 </div>
                             @endif  
@@ -90,19 +124,40 @@
                                         <p class="text-bobot"> Bobot:{{ $set->bobot3 }}, Type:{{ $set->type3 }}</p>
                                     </div>
                                     <div class="card-body">
-                                        <div class="rate">
-                                            <input type="hiddent" name="s3" value="0" checked>
-                                            <input type="radio" id="star5s3" name="s3" value="5">
-                                            <label for="star5s3" title="text">5 stars</label>
-                                            <input type="radio" id="star4s3" name="s3" value="4">
-                                            <label for="star4s3" title="text">4 stars</label>
-                                            <input type="radio" id="star3s3" name="s3" value="3">
-                                            <label for="star3s3" title="text">3 stars</label>
-                                            <input type="radio" id="star2s3" name="s3" value="2">
-                                            <label for="star2s3" title="text">2 stars</label>
-                                            <input type="radio" id="star1s3" name="s3" value="1">
-                                            <label for="star1s3" title="text">1 star</label>
-                                        </div>                  
+                                        @if ($inputtypes->inputtype3 == "Radio")
+                                            <div class="" align="center">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s3" id="radio1" value="2">
+                                                    <label class="form-check-label" for="radio1">
+                                                        Tercapai
+                                                    </label>
+                                                </div>
+                                                    <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s3" id="radio2" value="1">
+                                                    <label class="form-check-label" for="radio2">
+                                                        Tidak Tercapai
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        @elseif($inputtypes->inputtype2 == "Number")
+                                            <div class="input-group mb-3">
+                                                <input type="number" class="form-control border" name="s3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                            </div>
+                                        @else
+                                            <div class="rate">
+                                                <input type="hiddent" name="s3" value="0" checked>
+                                                <input type="radio" id="star5s3" name="s3" value="5">
+                                                <label for="star5s3" title="text">5 stars</label>
+                                                <input type="radio" id="star4s3" name="s3" value="4">
+                                                <label for="star4s3" title="text">4 stars</label>
+                                                <input type="radio" id="star3s3" name="s3" value="3">
+                                                <label for="star3s3" title="text">3 stars</label>
+                                                <input type="radio" id="star2s3" name="s3" value="2">
+                                                <label for="star2s3" title="text">2 stars</label>
+                                                <input type="radio" id="star1s3" name="s3" value="1">
+                                                <label for="star1s3" title="text">1 star</label>
+                                            </div>
+                                        @endif                  
                                     </div>
                                 </div>
                             @endif 
@@ -114,19 +169,40 @@
                                         <p class="text-bobot"> Bobot:{{ $set->bobot4 }}, Type:{{ $set->type4 }}</p>
                                     </div>
                                     <div class="card-body">
-                                        <div class="rate">
-                                            <input type="hiddent" name="s4" value="0" checked>
-                                            <input type="radio" id="star5s4" name="s4" value="5">
-                                            <label for="star5s4" title="text">5 stars</label>
-                                            <input type="radio" id="star4s4" name="s4" value="4">
-                                            <label for="star4s4" title="text">4 stars</label>
-                                            <input type="radio" id="star3s4" name="s4" value="3">
-                                            <label for="star3s4" title="text">3 stars</label>
-                                            <input type="radio" id="star2s4" name="s4" value="2">
-                                            <label for="star2s4" title="text">2 stars</label>
-                                            <input type="radio" id="star1s4" name="s4" value="1">
-                                            <label for="star1s4" title="text">1 star</label>
-                                        </div>                  
+                                         @if ($inputtypes->inputtype4 == "Radio")
+                                            <div class="" align="center">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s4" id="radio1" value="2">
+                                                    <label class="form-check-label" for="radio1">
+                                                        Tercapai
+                                                    </label>
+                                                </div>
+                                                    <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s4" id="radio2" value="1">
+                                                    <label class="form-check-label" for="radio2">
+                                                        Tidak Tercapai
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        @elseif($inputtypes->inputtype2 == "Number")
+                                            <div class="input-group mb-3">
+                                                <input type="number" class="form-control border" name="s4" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                            </div>
+                                        @else
+                                            <div class="rate">
+                                                <input type="hiddent" name="s4" value="0" checked>
+                                                <input type="radio" id="star5s4" name="s4" value="5">
+                                                <label for="star5s4" title="text">5 stars</label>
+                                                <input type="radio" id="star4s4" name="s4" value="4">
+                                                <label for="star4s4" title="text">4 stars</label>
+                                                <input type="radio" id="star3s4" name="s4" value="3">
+                                                <label for="star3s4" title="text">3 stars</label>
+                                                <input type="radio" id="star2s4" name="s4" value="2">
+                                                <label for="star2s4" title="text">2 stars</label>
+                                                <input type="radio" id="star1s4" name="s4" value="1">
+                                                <label for="star1s4" title="text">1 star</label>
+                                            </div>
+                                        @endif                  
                                     </div>
                                 </div>
                             @endif 
@@ -138,19 +214,40 @@
                                         <p class="text-bobot"> Bobot:{{ $set->bobot5 }}, Type:{{ $set->type5 }}</p>
                                     </div>
                                     <div class="card-body">
-                                        <div class="rate">
-                                            <input type="hiddent" name="s5" value="0" checked>
-                                            <input type="radio" id="star5s5" name="s5" value="5">
-                                            <label for="star5s5" title="text">5 stars</label>
-                                            <input type="radio" id="star4s5" name="s5" value="4">
-                                            <label for="star4s5" title="text">4 stars</label>
-                                            <input type="radio" id="star3s5" name="s5" value="3">
-                                            <label for="star3s5" title="text">3 stars</label>
-                                            <input type="radio" id="star2s5" name="s5" value="2">
-                                            <label for="star2s5" title="text">2 stars</label>
-                                            <input type="radio" id="star1s5" name="s5" value="1">
-                                            <label for="star1s5" title="text">1 star</label>
-                                        </div>                  
+                                         @if ($inputtypes->inputtype5 == "Radio")
+                                            <div class="" align="center">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s5" id="radio1" value="2">
+                                                    <label class="form-check-label" for="radio1">
+                                                        Tercapai
+                                                    </label>
+                                                </div>
+                                                    <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s5" id="radio2" value="1">
+                                                    <label class="form-check-label" for="radio2">
+                                                        Tidak Tercapai
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        @elseif($inputtypes->inputtype2 == "Number")
+                                            <div class="input-group mb-3">
+                                                <input type="number" class="form-control border" name="s5" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                            </div>
+                                        @else
+                                            <div class="rate">
+                                                <input type="hiddent" name="s5" value="0" checked>
+                                                <input type="radio" id="star5s5" name="s5" value="5">
+                                                <label for="star5s5" title="text">5 stars</label>
+                                                <input type="radio" id="star4s5" name="s5" value="4">
+                                                <label for="star4s5" title="text">4 stars</label>
+                                                <input type="radio" id="star3s5" name="s5" value="3">
+                                                <label for="star3s5" title="text">3 stars</label>
+                                                <input type="radio" id="star2s5" name="s5" value="2">
+                                                <label for="star2s5" title="text">2 stars</label>
+                                                <input type="radio" id="star1s5" name="s5" value="1">
+                                                <label for="star1s5" title="text">1 star</label>
+                                            </div>
+                                        @endif                  
                                     </div>
                                 </div>
                             @endif
@@ -162,19 +259,40 @@
                                         <p class="text-bobot"> Bobot:{{ $set->bobot6 }}, Type:{{ $set->type6 }}</p>
                                     </div>
                                     <div class="card-body">
-                                        <div class="rate">
-                                            <input type="hiddent" name="s6" value="0" checked>
-                                            <input type="radio" id="star5s6" name="s6" value="5">
-                                            <label for="star5s6" title="text">5 stars</label>
-                                            <input type="radio" id="star4s6" name="s6" value="4">
-                                            <label for="star4s6" title="text">4 stars</label>
-                                            <input type="radio" id="star3s6" name="s6" value="3">
-                                            <label for="star3s6" title="text">3 stars</label>
-                                            <input type="radio" id="star2s6" name="s6" value="2">
-                                            <label for="star2s6" title="text">2 stars</label>
-                                            <input type="radio" id="star1s6" name="s6" value="1">
-                                            <label for="star1s6" title="text">1 star</label>
-                                        </div>                  
+                                         @if ($inputtypes->inputtype6 == "Radio")
+                                            <div class="" align="center">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s6" id="radio1" value="2">
+                                                    <label class="form-check-label" for="radio1">
+                                                        Tercapai
+                                                    </label>
+                                                </div>
+                                                    <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s6" id="radio2" value="1">
+                                                    <label class="form-check-label" for="radio2">
+                                                        Tidak Tercapai
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        @elseif($inputtypes->inputtype2 == "Number")
+                                            <div class="input-group mb-3">
+                                                <input type="number" class="form-control border" name="s6" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                            </div>
+                                        @else
+                                            <div class="rate">
+                                                <input type="hiddent" name="s6" value="0" checked>
+                                                <input type="radio" id="star5s6" name="s6" value="5">
+                                                <label for="star5s6" title="text">5 stars</label>
+                                                <input type="radio" id="star4s6" name="s6" value="4">
+                                                <label for="star4s6" title="text">4 stars</label>
+                                                <input type="radio" id="star3s6" name="s6" value="3">
+                                                <label for="star3s6" title="text">3 stars</label>
+                                                <input type="radio" id="star2s6" name="s6" value="2">
+                                                <label for="star2s6" title="text">2 stars</label>
+                                                <input type="radio" id="star1s6" name="s6" value="1">
+                                                <label for="star1s6" title="text">1 star</label>
+                                            </div>
+                                        @endif                  
                                     </div>
                                 </div>
                             @endif             
@@ -186,19 +304,40 @@
                                         <p class="text-bobot"> Bobot:{{ $set->bobot7 }}, Type:{{ $set->type7 }}</p>
                                     </div>
                                     <div class="card-body">
-                                        <div class="rate">
-                                            <input type="hiddent" name="s7" value="0" checked>
-                                            <input type="radio" id="star5s7" name="s7" value="5">
-                                            <label for="star5s7" title="text">5 stars</label>
-                                            <input type="radio" id="star4s7" name="s7" value="4">
-                                            <label for="star4s7" title="text">4 stars</label>
-                                            <input type="radio" id="star3s7" name="s7" value="3">
-                                            <label for="star3s7" title="text">3 stars</label>
-                                            <input type="radio" id="star2s7" name="s7" value="2">
-                                            <label for="star2s7" title="text">2 stars</label>
-                                            <input type="radio" id="star1s7" name="s7" value="1">
-                                            <label for="star1s7" title="text">1 star</label>
-                                        </div>                  
+                                         @if ($inputtypes->inputtype7 == "Radio")
+                                            <div class="" align="center">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s7" id="radio1" value="2">
+                                                    <label class="form-check-label" for="radio1">
+                                                        Tercapai
+                                                    </label>
+                                                </div>
+                                                    <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s7" id="radio2" value="1">
+                                                    <label class="form-check-label" for="radio2">
+                                                        Tidak Tercapai
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        @elseif($inputtypes->inputtype2 == "Number")
+                                            <div class="input-group mb-3">
+                                                <input type="number" class="form-control border" name="s7" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                            </div>
+                                        @else
+                                            <div class="rate">
+                                                <input type="hiddent" name="s7" value="0" checked>
+                                                <input type="radio" id="star5s7" name="s7" value="5">
+                                                <label for="star5s7" title="text">5 stars</label>
+                                                <input type="radio" id="star4s7" name="s7" value="4">
+                                                <label for="star4s7" title="text">4 stars</label>
+                                                <input type="radio" id="star3s7" name="s7" value="3">
+                                                <label for="star3s7" title="text">3 stars</label>
+                                                <input type="radio" id="star2s7" name="s7" value="2">
+                                                <label for="star2s7" title="text">2 stars</label>
+                                                <input type="radio" id="star1s7" name="s7" value="1">
+                                                <label for="star1s7" title="text">1 star</label>
+                                            </div>
+                                        @endif                  
                                     </div>
                                 </div>
                             @endif  
@@ -210,19 +349,40 @@
                                         <p class="text-bobot"> Bobot:{{ $set->bobot8 }}, Type:{{ $set->type8 }}</p>
                                     </div>
                                     <div class="card-body">
-                                        <div class="rate">
-                                            <input type="hiddent" name="s8" value="0" checked>
-                                            <input type="radio" id="star5s8" name="s8" value="5">
-                                            <label for="star5s8" title="text">5 stars</label>
-                                            <input type="radio" id="star4s8" name="s8" value="4">
-                                            <label for="star4s8" title="text">4 stars</label>
-                                            <input type="radio" id="star3s8" name="s8" value="3">
-                                            <label for="star3s8" title="text">3 stars</label>
-                                            <input type="radio" id="star2s8" name="s8" value="2">
-                                            <label for="star2s8" title="text">2 stars</label>
-                                            <input type="radio" id="star1s8" name="s8" value="1">
-                                            <label for="star1s8" title="text">1 star</label>
-                                        </div>                  
+                                         @if ($inputtypes->inputtype8 == "Radio")
+                                            <div class="" align="center">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s8" id="radio1" value="2">
+                                                    <label class="form-check-label" for="radio1">
+                                                        Tercapai
+                                                    </label>
+                                                </div>
+                                                    <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s8" id="radio2" value="1">
+                                                    <label class="form-check-label" for="radio2">
+                                                        Tidak Tercapai
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        @elseif($inputtypes->inputtype2 == "Number")
+                                            <div class="input-group mb-3">
+                                                <input type="number" class="form-control border" name="s8" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                            </div>
+                                        @else
+                                            <div class="rate">
+                                                <input type="hiddent" name="s8" value="0" checked>
+                                                <input type="radio" id="star5s8" name="s8" value="5">
+                                                <label for="star5s8" title="text">5 stars</label>
+                                                <input type="radio" id="star4s8" name="s8" value="4">
+                                                <label for="star4s8" title="text">4 stars</label>
+                                                <input type="radio" id="star3s8" name="s8" value="3">
+                                                <label for="star3s8" title="text">3 stars</label>
+                                                <input type="radio" id="star2s8" name="s8" value="2">
+                                                <label for="star2s8" title="text">2 stars</label>
+                                                <input type="radio" id="star1s8" name="s8" value="1">
+                                                <label for="star1s8" title="text">1 star</label>
+                                            </div>
+                                        @endif                  
                                     </div>
                                 </div>
                             @endif
@@ -234,19 +394,40 @@
                                         <p class="text-bobot"> Bobot:{{ $set->bobot9 }}, Type:{{ $set->type9 }}</p>
                                     </div>
                                     <div class="card-body">
-                                        <div class="rate">
-                                            <input type="hiddent" name="s9" value="0" checked>
-                                            <input type="radio" id="star5s9" name="s9" value="5">
-                                            <label for="star5s9" title="text">5 stars</label>
-                                            <input type="radio" id="star4s9" name="s9" value="4">
-                                            <label for="star4s9" title="text">4 stars</label>
-                                            <input type="radio" id="star3s9" name="s9" value="3">
-                                            <label for="star3s9" title="text">3 stars</label>
-                                            <input type="radio" id="star2s9" name="s9" value="2">
-                                            <label for="star2s9" title="text">2 stars</label>
-                                            <input type="radio" id="star1s9" name="s9" value="1">
-                                            <label for="star1s9" title="text">1 star</label>
-                                        </div>                  
+                                         @if ($inputtypes->inputtype9 == "Radio")
+                                            <div class="" align="center">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s9" id="radio1" value="2">
+                                                    <label class="form-check-label" for="radio1">
+                                                        Tercapai
+                                                    </label>
+                                                </div>
+                                                    <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s9" id="radio2" value="1">
+                                                    <label class="form-check-label" for="radio2">
+                                                        Tidak Tercapai
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        @elseif($inputtypes->inputtype2 == "Number")
+                                            <div class="input-group mb-3">
+                                                <input type="number" class="form-control border" name="s9" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                            </div>
+                                        @else
+                                            <div class="rate">
+                                                <input type="hiddent" name="s9" value="0" checked>
+                                                <input type="radio" id="star5s9" name="s9" value="5">
+                                                <label for="star5s9" title="text">5 stars</label>
+                                                <input type="radio" id="star4s9" name="s9" value="4">
+                                                <label for="star4s9" title="text">4 stars</label>
+                                                <input type="radio" id="star3s9" name="s9" value="3">
+                                                <label for="star3s9" title="text">3 stars</label>
+                                                <input type="radio" id="star2s9" name="s9" value="2">
+                                                <label for="star2s9" title="text">2 stars</label>
+                                                <input type="radio" id="star1s9" name="s9" value="1">
+                                                <label for="star1s9" title="text">1 star</label>
+                                            </div>
+                                        @endif                  
                                     </div>
                                 </div>
                             @endif  
@@ -258,19 +439,40 @@
                                         <p class="text-bobot"> Bobot:{{ $set->bobot10 }}, Type:{{ $set->type10 }}</p>
                                     </div>
                                     <div class="card-body">
-                                        <div class="rate">
-                                            <input type="hiddent" name="s10" value="0" checked>
-                                            <input type="radio" id="star5s10" name="s10" value="5">
-                                            <label for="star5s10" title="text">5 stars</label>
-                                            <input type="radio" id="star4s10" name="s10" value="4">
-                                            <label for="star4s10" title="text">4 stars</label>
-                                            <input type="radio" id="star3s10" name="s10" value="3">
-                                            <label for="star3s10" title="text">3 stars</label>
-                                            <input type="radio" id="star2s10" name="s10" value="2">
-                                            <label for="star2s10" title="text">2 stars</label>
-                                            <input type="radio" id="star1s10" name="s10" value="1">
-                                            <label for="star1s10" title="text">1 star</label>
-                                        </div>                  
+                                         @if ($inputtypes->inputtype10 == "Radio")
+                                            <div class="" align="center">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s10" id="radio1" value="2">
+                                                    <label class="form-check-label" for="radio1">
+                                                        Tercapai
+                                                    </label>
+                                                </div>
+                                                    <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s10" id="radio2" value="1">
+                                                    <label class="form-check-label" for="radio2">
+                                                        Tidak Tercapai
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        @elseif($inputtypes->inputtype2 == "Number")
+                                            <div class="input-group mb-3">
+                                                <input type="number" class="form-control border" name="s10" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                            </div>
+                                        @else
+                                            <div class="rate">
+                                                <input type="hiddent" name="s10" value="0" checked>
+                                                <input type="radio" id="star5s10" name="s10" value="5">
+                                                <label for="star5s10" title="text">5 stars</label>
+                                                <input type="radio" id="star4s10" name="s10" value="4">
+                                                <label for="star4s10" title="text">4 stars</label>
+                                                <input type="radio" id="star3s10" name="s10" value="3">
+                                                <label for="star3s10" title="text">3 stars</label>
+                                                <input type="radio" id="star2s10" name="s10" value="2">
+                                                <label for="star2s10" title="text">2 stars</label>
+                                                <input type="radio" id="star1s10" name="s10" value="1">
+                                                <label for="star1s10" title="text">1 star</label>
+                                            </div>
+                                        @endif                  
                                     </div>
                                 </div>
                             @endif
@@ -282,19 +484,40 @@
                                         <p class="text-bobot"> Bobot:{{ $set->bobot11 }}, Type:{{ $set->type11 }}</p>
                                     </div>
                                     <div class="card-body">
-                                        <div class="rate">
-                                            <input type="hiddent" name="s11" value="0" checked>
-                                            <input type="radio" id="star5s11" name="s11" value="5">
-                                            <label for="star5s11" title="text">5 stars</label>
-                                            <input type="radio" id="star4s11" name="s11" value="4">
-                                            <label for="star4s11" title="text">4 stars</label>
-                                            <input type="radio" id="star3s11" name="s11" value="3">
-                                            <label for="star3s11" title="text">3 stars</label>
-                                            <input type="radio" id="star2s11" name="s11" value="2">
-                                            <label for="star2s11" title="text">2 stars</label>
-                                            <input type="radio" id="star1s11" name="s11" value="1">
-                                            <label for="star1s11" title="text">1 star</label>
-                                        </div>                  
+                                         @if ($inputtypes->inputtype11 == "Radio")
+                                            <div class="" align="center">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s11" id="radio1" value="2">
+                                                    <label class="form-check-label" for="radio1">
+                                                        Tercapai
+                                                    </label>
+                                                </div>
+                                                    <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s11" id="radio2" value="1">
+                                                    <label class="form-check-label" for="radio2">
+                                                        Tidak Tercapai
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        @elseif($inputtypes->inputtype2 == "Number")
+                                            <div class="input-group mb-3">
+                                                <input type="number" class="form-control border" name="s11" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                            </div>
+                                        @else
+                                            <div class="rate">
+                                                <input type="hiddent" name="s11" value="0" checked>
+                                                <input type="radio" id="star5s11" name="s11" value="5">
+                                                <label for="star5s11" title="text">5 stars</label>
+                                                <input type="radio" id="star4s11" name="s11" value="4">
+                                                <label for="star4s11" title="text">4 stars</label>
+                                                <input type="radio" id="star3s11" name="s11" value="3">
+                                                <label for="star3s11" title="text">3 stars</label>
+                                                <input type="radio" id="star2s11" name="s11" value="2">
+                                                <label for="star2s11" title="text">2 stars</label>
+                                                <input type="radio" id="star1s11" name="s11" value="1">
+                                                <label for="star1s11" title="text">1 star</label>
+                                            </div>
+                                        @endif                  
                                     </div>
                                 </div>
                             @endif
@@ -306,19 +529,40 @@
                                         <p class="text-bobot"> Bobot:{{ $set->bobot12 }}, Type:{{ $set->type12 }}</p>
                                     </div>
                                     <div class="card-body">
-                                        <div class="rate">
-                                            <input type="hiddent" name="s12" value="0" checked>
-                                            <input type="radio" id="star5s12" name="s12" value="5">
-                                            <label for="star5s12" title="text">5 stars</label>
-                                            <input type="radio" id="star4s12" name="s12" value="4">
-                                            <label for="star4s12" title="text">4 stars</label>
-                                            <input type="radio" id="star3s12" name="s12" value="3">
-                                            <label for="star3s12" title="text">3 stars</label>
-                                            <input type="radio" id="star2s12" name="s12" value="2">
-                                            <label for="star2s12" title="text">2 stars</label>
-                                            <input type="radio" id="star1s12" name="s12" value="1">
-                                            <label for="star1s12" title="text">1 star</label>
-                                        </div>                  
+                                         @if ($inputtypes->inputtype12 == "Radio")
+                                            <div class="" align="center">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s12" id="radio1" value="2">
+                                                    <label class="form-check-label" for="radio1">
+                                                        Tercapai
+                                                    </label>
+                                                </div>
+                                                    <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s12" id="radio2" value="1">
+                                                    <label class="form-check-label" for="radio2">
+                                                        Tidak Tercapai
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        @elseif($inputtypes->inputtype2 == "Number")
+                                            <div class="input-group mb-3">
+                                                <input type="number" class="form-control border" name="s12" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                            </div>
+                                        @else
+                                            <div class="rate">
+                                                <input type="hiddent" name="s12" value="0" checked>
+                                                <input type="radio" id="star5s12" name="s12" value="5">
+                                                <label for="star5s12" title="text">5 stars</label>
+                                                <input type="radio" id="star4s12" name="s12" value="4">
+                                                <label for="star4s12" title="text">4 stars</label>
+                                                <input type="radio" id="star3s12" name="s12" value="3">
+                                                <label for="star3s12" title="text">3 stars</label>
+                                                <input type="radio" id="star2s12" name="s12" value="2">
+                                                <label for="star2s12" title="text">2 stars</label>
+                                                <input type="radio" id="star1s12" name="s12" value="1">
+                                                <label for="star1s12" title="text">1 star</label>
+                                            </div>
+                                        @endif                  
                                     </div>
                                 </div>
                             @endif
@@ -330,19 +574,40 @@
                                         <p class="text-bobot"> Bobot:{{ $set->bobot13 }}, Type:{{ $set->type13 }}</p>
                                     </div>
                                     <div class="card-body">
-                                        <div class="rate">
-                                            <input type="hiddent" name="s13" value="0" checked>
-                                            <input type="radio" id="star5s13" name="s13" value="5">
-                                            <label for="star5s13" title="text">5 stars</label>
-                                            <input type="radio" id="star4s13" name="s13" value="4">
-                                            <label for="star4s13" title="text">4 stars</label>
-                                            <input type="radio" id="star3s13" name="s13" value="3">
-                                            <label for="star3s13" title="text">3 stars</label>
-                                            <input type="radio" id="star2s13" name="s13" value="2">
-                                            <label for="star2s13" title="text">2 stars</label>
-                                            <input type="radio" id="star1s13" name="s13" value="1">
-                                            <label for="star1s13" title="text">1 star</label>
-                                        </div>                  
+                                         @if ($inputtypes->inputtype13 == "Radio")
+                                            <div class="" align="center">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s13" id="radio1" value="2">
+                                                    <label class="form-check-label" for="radio1">
+                                                        Tercapai
+                                                    </label>
+                                                </div>
+                                                    <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s13" id="radio2" value="1">
+                                                    <label class="form-check-label" for="radio2">
+                                                        Tidak Tercapai
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        @elseif($inputtypes->inputtype2 == "Number")
+                                            <div class="input-group mb-3">
+                                                <input type="number" class="form-control border" name="s13" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                            </div>
+                                        @else
+                                            <div class="rate">
+                                                <input type="hiddent" name="s13" value="0" checked>
+                                                <input type="radio" id="star5s13" name="s13" value="5">
+                                                <label for="star5s13" title="text">5 stars</label>
+                                                <input type="radio" id="star4s13" name="s13" value="4">
+                                                <label for="star4s13" title="text">4 stars</label>
+                                                <input type="radio" id="star3s13" name="s13" value="3">
+                                                <label for="star3s13" title="text">3 stars</label>
+                                                <input type="radio" id="star2s13" name="s13" value="2">
+                                                <label for="star2s13" title="text">2 stars</label>
+                                                <input type="radio" id="star1s13" name="s13" value="1">
+                                                <label for="star1s13" title="text">1 star</label>
+                                            </div>
+                                        @endif                  
                                     </div>
                                 </div>
                             @endif    
@@ -354,19 +619,40 @@
                                         <p class="text-bobot"> Bobot:{{ $set->bobot14 }}, Type:{{ $set->type14 }}</p>
                                     </div>
                                     <div class="card-body">
-                                        <div class="rate">
-                                            <input type="hiddent" name="s14" value="0" checked>
-                                            <input type="radio" id="star5s14" name="s14" value="5">
-                                            <label for="star5s14" title="text">5 stars</label>
-                                            <input type="radio" id="star4s14" name="s14" value="4">
-                                            <label for="star4s14" title="text">4 stars</label>
-                                            <input type="radio" id="star3s14" name="s14" value="3">
-                                            <label for="star3s14" title="text">3 stars</label>
-                                            <input type="radio" id="star2s14" name="s14" value="2">
-                                            <label for="star2s14" title="text">2 stars</label>
-                                            <input type="radio" id="star1s14" name="s14" value="1">
-                                            <label for="star1s14" title="text">1 star</label>
-                                        </div>                  
+                                         @if ($inputtypes->inputtype14 == "Radio")
+                                            <div class="" align="center">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s14" id="radio1" value="2">
+                                                    <label class="form-check-label" for="radio1">
+                                                        Tercapai
+                                                    </label>
+                                                </div>
+                                                    <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s14" id="radio2" value="1">
+                                                    <label class="form-check-label" for="radio2">
+                                                        Tidak Tercapai
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        @elseif($inputtypes->inputtype2 == "Number")
+                                            <div class="input-group mb-3">
+                                                <input type="number" class="form-control border" name="s14" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                            </div>
+                                        @else
+                                            <div class="rate">
+                                                <input type="hiddent" name="s14" value="0" checked>
+                                                <input type="radio" id="star5s14" name="s14" value="5">
+                                                <label for="star5s14" title="text">5 stars</label>
+                                                <input type="radio" id="star4s14" name="s14" value="4">
+                                                <label for="star4s14" title="text">4 stars</label>
+                                                <input type="radio" id="star3s14" name="s14" value="3">
+                                                <label for="star3s14" title="text">3 stars</label>
+                                                <input type="radio" id="star2s14" name="s14" value="2">
+                                                <label for="star2s14" title="text">2 stars</label>
+                                                <input type="radio" id="star1s14" name="s14" value="1">
+                                                <label for="star1s14" title="text">1 star</label>
+                                            </div>
+                                        @endif                  
                                     </div>
                                 </div>
                             @endif
@@ -378,19 +664,40 @@
                                         <p class="text-bobot"> Bobot:{{ $set->bobot15 }}, Type:{{ $set->type15 }}</p>
                                     </div>
                                     <div class="card-body">
-                                        <div class="rate">
-                                            <input type="hiddent" name="s15" value="0" checked>
-                                            <input type="radio" id="star5s15" name="s15" value="5">
-                                            <label for="star5s15" title="text">5 stars</label>
-                                            <input type="radio" id="star4s15" name="s15" value="4">
-                                            <label for="star4s15" title="text">4 stars</label>
-                                            <input type="radio" id="star3s15" name="s15" value="3">
-                                            <label for="star3s15" title="text">3 stars</label>
-                                            <input type="radio" id="star2s15" name="s15" value="2">
-                                            <label for="star2s15" title="text">2 stars</label>
-                                            <input type="radio" id="star1s15" name="s15" value="1">
-                                            <label for="star1s15" title="text">1 star</label>
-                                        </div>                  
+                                         @if ($inputtypes->inputtype15 == "Radio")
+                                            <div class="" align="center">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s15" id="radio1" value="2">
+                                                    <label class="form-check-label" for="radio1">
+                                                        Tercapai
+                                                    </label>
+                                                </div>
+                                                    <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s15" id="radio2" value="1">
+                                                    <label class="form-check-label" for="radio2">
+                                                        Tidak Tercapai
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        @elseif($inputtypes->inputtype2 == "Number")
+                                            <div class="input-group mb-3">
+                                                <input type="number" class="form-control border" name="s15" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                            </div>
+                                        @else
+                                            <div class="rate">
+                                                <input type="hiddent" name="s15" value="0" checked>
+                                                <input type="radio" id="star5s15" name="s15" value="5">
+                                                <label for="star5s15" title="text">5 stars</label>
+                                                <input type="radio" id="star4s15" name="s15" value="4">
+                                                <label for="star4s15" title="text">4 stars</label>
+                                                <input type="radio" id="star3s15" name="s15" value="3">
+                                                <label for="star3s15" title="text">3 stars</label>
+                                                <input type="radio" id="star2s15" name="s15" value="2">
+                                                <label for="star2s15" title="text">2 stars</label>
+                                                <input type="radio" id="star1s15" name="s15" value="1">
+                                                <label for="star1s15" title="text">1 star</label>
+                                            </div>
+                                        @endif                  
                                     </div>
                                 </div>
                             @endif
@@ -402,19 +709,40 @@
                                         <p class="text-bobot"> Bobot:{{ $set->bobot16 }}, Type:{{ $set->type16 }}</p>
                                     </div>
                                     <div class="card-body">
-                                        <div class="rate">
-                                            <input type="hiddent" name="s16" value="0" checked>
-                                            <input type="radio" id="star5s16" name="s16" value="5">
-                                            <label for="star5s16" title="text">5 stars</label>
-                                            <input type="radio" id="star4s16" name="s16" value="4">
-                                            <label for="star4s16" title="text">4 stars</label>
-                                            <input type="radio" id="star3s16" name="s16" value="3">
-                                            <label for="star3s16" title="text">3 stars</label>
-                                            <input type="radio" id="star2s16" name="s16" value="2">
-                                            <label for="star2s16" title="text">2 stars</label>
-                                            <input type="radio" id="star1s16" name="s16" value="1">
-                                            <label for="star1s16" title="text">1 star</label>
-                                        </div>                  
+                                         @if ($inputtypes->inputtype16 == "Radio")
+                                            <div class="" align="center">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s16" id="radio1" value="2">
+                                                    <label class="form-check-label" for="radio1">
+                                                        Tercapai
+                                                    </label>
+                                                </div>
+                                                    <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s16" id="radio2" value="1">
+                                                    <label class="form-check-label" for="radio2">
+                                                        Tidak Tercapai
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        @elseif($inputtypes->inputtype2 == "Number")
+                                            <div class="input-group mb-3">
+                                                <input type="number" class="form-control border" name="s16" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                            </div>
+                                        @else
+                                            <div class="rate">
+                                                <input type="hiddent" name="s16" value="0" checked>
+                                                <input type="radio" id="star5s16" name="s16" value="5">
+                                                <label for="star5s16" title="text">5 stars</label>
+                                                <input type="radio" id="star4s16" name="s16" value="4">
+                                                <label for="star4s16" title="text">4 stars</label>
+                                                <input type="radio" id="star3s16" name="s16" value="3">
+                                                <label for="star3s16" title="text">3 stars</label>
+                                                <input type="radio" id="star2s16" name="s16" value="2">
+                                                <label for="star2s16" title="text">2 stars</label>
+                                                <input type="radio" id="star1s16" name="s16" value="1">
+                                                <label for="star1s16" title="text">1 star</label>
+                                            </div>
+                                        @endif                  
                                     </div>
                                 </div>
                             @endif
@@ -426,19 +754,40 @@
                                         <p class="text-bobot"> Bobot:{{ $set->bobot17 }}, Type:{{ $set->type17 }}</p>
                                     </div>
                                     <div class="card-body">
-                                        <div class="rate">
-                                            <input type="hiddent" name="s17" value="0" checked>
-                                            <input type="radio" id="star5s17" name="s17" value="5">
-                                            <label for="star5s17" title="text">5 stars</label>
-                                            <input type="radio" id="star4s17" name="s17" value="4">
-                                            <label for="star4s17" title="text">4 stars</label>
-                                            <input type="radio" id="star3s17" name="s17" value="3">
-                                            <label for="star3s17" title="text">3 stars</label>
-                                            <input type="radio" id="star2s17" name="s17" value="2">
-                                            <label for="star2s17" title="text">2 stars</label>
-                                            <input type="radio" id="star1s17" name="s17" value="1">
-                                            <label for="star1s17" title="text">1 star</label>
-                                        </div>                  
+                                         @if ($inputtypes->inputtype17 == "Radio")
+                                            <div class="" align="center">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s17" id="radio1" value="2">
+                                                    <label class="form-check-label" for="radio1">
+                                                        Tercapai
+                                                    </label>
+                                                </div>
+                                                    <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s17" id="radio2" value="1">
+                                                    <label class="form-check-label" for="radio2">
+                                                        Tidak Tercapai
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        @elseif($inputtypes->inputtype2 == "Number")
+                                            <div class="input-group mb-3">
+                                                <input type="number" class="form-control border" name="s17" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                            </div>
+                                        @else
+                                            <div class="rate">
+                                                <input type="hiddent" name="s17" value="0" checked>
+                                                <input type="radio" id="star5s17" name="s17" value="5">
+                                                <label for="star5s17" title="text">5 stars</label>
+                                                <input type="radio" id="star4s17" name="s17" value="4">
+                                                <label for="star4s17" title="text">4 stars</label>
+                                                <input type="radio" id="star3s17" name="s17" value="3">
+                                                <label for="star3s17" title="text">3 stars</label>
+                                                <input type="radio" id="star2s17" name="s17" value="2">
+                                                <label for="star2s17" title="text">2 stars</label>
+                                                <input type="radio" id="star1s17" name="s17" value="1">
+                                                <label for="star1s17" title="text">1 star</label>
+                                            </div>
+                                        @endif                 
                                     </div>
                                 </div>
                             @endif
@@ -450,19 +799,40 @@
                                         <p class="text-bobot"> Bobot:{{ $set->bobot18 }}, Type:{{ $set->type18 }}</p>
                                     </div>
                                     <div class="card-body">
-                                        <div class="rate">
-                                            <input type="hiddent" name="s18" value="0" checked>
-                                            <input type="radio" id="star5s18" name="s18" value="5">
-                                            <label for="star5s18" title="text">5 stars</label>
-                                            <input type="radio" id="star4s18" name="s18" value="4">
-                                            <label for="star4s18" title="text">4 stars</label>
-                                            <input type="radio" id="star3s18" name="s18" value="3">
-                                            <label for="star3s18" title="text">3 stars</label>
-                                            <input type="radio" id="star2s18" name="s18" value="2">
-                                            <label for="star2s18" title="text">2 stars</label>
-                                            <input type="radio" id="star1s18" name="s18" value="1">
-                                            <label for="star1s18" title="text">1 star</label>
-                                        </div>                  
+                                         @if ($inputtypes->inputtype18 == "Radio")
+                                            <div class="" align="center">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s18" id="radio1" value="2">
+                                                    <label class="form-check-label" for="radio1">
+                                                        Tercapai
+                                                    </label>
+                                                </div>
+                                                    <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s18" id="radio2" value="1">
+                                                    <label class="form-check-label" for="radio2">
+                                                        Tidak Tercapai
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        @elseif($inputtypes->inputtype2 == "Number")
+                                            <div class="input-group mb-3">
+                                                <input type="number" class="form-control border" name="s18" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                            </div>
+                                        @else
+                                            <div class="rate">
+                                                <input type="hiddent" name="s18" value="0" checked>
+                                                <input type="radio" id="star5s18" name="s18" value="5">
+                                                <label for="star5s18" title="text">5 stars</label>
+                                                <input type="radio" id="star4s18" name="s18" value="4">
+                                                <label for="star4s18" title="text">4 stars</label>
+                                                <input type="radio" id="star3s18" name="s18" value="3">
+                                                <label for="star3s18" title="text">3 stars</label>
+                                                <input type="radio" id="star2s18" name="s18" value="2">
+                                                <label for="star2s18" title="text">2 stars</label>
+                                                <input type="radio" id="star1s18" name="s18" value="1">
+                                                <label for="star1s18" title="text">1 star</label>
+                                            </div>
+                                        @endif                  
                                     </div>
                                 </div>
                             @endif
@@ -474,19 +844,40 @@
                                         <p class="text-bobot"> Bobot:{{ $set->bobot19 }}, Type:{{ $set->type19 }}</p>
                                     </div>
                                     <div class="card-body">
-                                        <div class="rate">
-                                            <input type="hiddent" name="s19" value="0" checked>
-                                            <input type="radio" id="star5s19" name="s19" value="5">
-                                            <label for="star5s19" title="text">5 stars</label>
-                                            <input type="radio" id="star4s19" name="s19" value="4">
-                                            <label for="star4s19" title="text">4 stars</label>
-                                            <input type="radio" id="star3s19" name="s19" value="3">
-                                            <label for="star3s19" title="text">3 stars</label>
-                                            <input type="radio" id="star2s19" name="s19" value="2">
-                                            <label for="star2s19" title="text">2 stars</label>
-                                            <input type="radio" id="star1s19" name="s19" value="1">
-                                            <label for="star1s19" title="text">1 star</label>
-                                        </div>                  
+                                         @if ($inputtypes->inputtype19 == "Radio")
+                                            <div class="" align="center">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s19" id="radio1" value="2">
+                                                    <label class="form-check-label" for="radio1">
+                                                        Tercapai
+                                                    </label>
+                                                </div>
+                                                    <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s19" id="radio2" value="1">
+                                                    <label class="form-check-label" for="radio2">
+                                                        Tidak Tercapai
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        @elseif($inputtypes->inputtype2 == "Number")
+                                            <div class="input-group mb-3">
+                                                <input type="number" class="form-control border" name="s19" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                            </div>
+                                        @else
+                                            <div class="rate">
+                                                <input type="hiddent" name="s19" value="0" checked>
+                                                <input type="radio" id="star5s19" name="s19" value="5">
+                                                <label for="star5s19" title="text">5 stars</label>
+                                                <input type="radio" id="star4s19" name="s19" value="4">
+                                                <label for="star4s19" title="text">4 stars</label>
+                                                <input type="radio" id="star3s19" name="s19" value="3">
+                                                <label for="star3s19" title="text">3 stars</label>
+                                                <input type="radio" id="star2s19" name="s19" value="2">
+                                                <label for="star2s19" title="text">2 stars</label>
+                                                <input type="radio" id="star1s19" name="s19" value="1">
+                                                <label for="star1s19" title="text">1 star</label>
+                                            </div>
+                                        @endif                  
                                     </div>
                                 </div>
                             @endif
@@ -498,19 +889,40 @@
                                         <p class="text-bobot"> Bobot:{{ $set->bobot20 }}, Type:{{ $set->type20 }}</p>
                                     </div>
                                     <div class="card-body">
-                                        <div class="rate">
-                                            <input type="hiddent" name="s20" value="0" checked>
-                                            <input type="radio" id="star5s20" name="s20" value="5">
-                                            <label for="star5s20" title="text">5 stars</label>
-                                            <input type="radio" id="star4s20" name="s20" value="4">
-                                            <label for="star4s20" title="text">4 stars</label>
-                                            <input type="radio" id="star3s20" name="s20" value="3">
-                                            <label for="star3s20" title="text">3 stars</label>
-                                            <input type="radio" id="star2s20" name="s20" value="2">
-                                            <label for="star2s20" title="text">2 stars</label>
-                                            <input type="radio" id="star1s20" name="s20" value="1">
-                                            <label for="star1s20" title="text">1 star</label>
-                                        </div>                  
+                                         @if ($inputtypes->inputtype20 == "Radio")
+                                            <div class="" align="center">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s20" id="radio1" value="2">
+                                                    <label class="form-check-label" for="radio1">
+                                                        Tercapai
+                                                    </label>
+                                                </div>
+                                                    <div class="form-check form-check-inline">
+                                                    <input class="form-check-input border" type="radio" name="s20" id="radio2" value="1">
+                                                    <label class="form-check-label" for="radio2">
+                                                        Tidak Tercapai
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        @elseif($inputtypes->inputtype2 == "Number")
+                                            <div class="input-group mb-3">
+                                                <input type="number" class="form-control border" name="s20" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                            </div>
+                                        @else
+                                            <div class="rate">
+                                                <input type="hiddent" name="s20" value="0" checked>
+                                                <input type="radio" id="star5s20" name="s20" value="5">
+                                                <label for="star5s20" title="text">5 stars</label>
+                                                <input type="radio" id="star4s20" name="s20" value="4">
+                                                <label for="star4s20" title="text">4 stars</label>
+                                                <input type="radio" id="star3s20" name="s20" value="3">
+                                                <label for="star3s20" title="text">3 stars</label>
+                                                <input type="radio" id="star2s20" name="s20" value="2">
+                                                <label for="star2s20" title="text">2 stars</label>
+                                                <input type="radio" id="star1s20" name="s20" value="1">
+                                                <label for="star1s20" title="text">1 star</label>
+                                            </div>
+                                        @endif                  
                                     </div>
                                 </div>
                             @endif

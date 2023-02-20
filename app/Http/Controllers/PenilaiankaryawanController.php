@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Inputtype;
 use App\Models\Penilaian;
 use App\Models\Profile;
 use App\Models\Settingnilai;
@@ -28,14 +29,13 @@ class PenilaiankaryawanController extends Controller
     public function rangkingboard()
     {
 
-        $count = Penilaian::get()->toarray();
+        $cekcount = Penilaian::get()->toarray();
         $penilaian = Penilaian::join('profiles', 'penilaians.nip', '=', 'profiles.id')
             ->select('penilaians.*', 'profiles.nama_ktp')
             ->get();
         $settingnilai = Settingnilai::get();
 
-        if ($count != null) {
-
+        if ($cekcount != null) {
             foreach ($settingnilai as $set) {
                 foreach ($penilaian as $key => $nilai) {
 
@@ -243,6 +243,7 @@ class PenilaiankaryawanController extends Controller
                 }
             }
 
+
             foreach ($total as $key => $item) {
 
                 $fixnilai[$key] = [
@@ -339,11 +340,16 @@ class PenilaiankaryawanController extends Controller
     {
         $profile = Profile::get();
         $setting = Settingnilai::get();
+        $inputtype = Inputtype::get();
+
+        foreach ($inputtype as $input) {
+        }
 
         return view('formPK', [
             "title" => "Form penilaian",
             "profiles" => $profile,
-            "setting" => $setting
+            "setting" => $setting,
+            "inputtypes" => $input
         ]);
     }
 

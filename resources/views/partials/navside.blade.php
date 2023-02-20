@@ -34,7 +34,13 @@
                     <li>
                       <a class="{{ ($title === "Rangking Board")?'active':'' }}" href="/rangkingboard"><span data-feather="award" class="icon" aria-hidden="true"></span>Rangking Board</a>
                     </li>
+                    <li>
+                      <a class="{{ ($title === "Setting Nilai")?'active':'' }}" href="/settingnilai"><span data-feather="settings" class="icon" aria-hidden="true"></span>Setting</a>
+                    </li>
                 @else
+                  <li>
+                      <a class="{{ ($title === "Report")?'active':'' }}" href="/report"><span data-feather="pie-chart" class="icon" aria-hidden="true"></span>Report</a>
+                  </li>
                   <li>
                       <a class="{{ ($title === "Manage User")?'active':'' }}" href="/manageuser"><span data-feather="users" class="icon" aria-hidden="true"></span>Manage Users</a>
                   </li>
@@ -46,6 +52,9 @@
                   </li>
                   <li>
                       <a class="{{ ($title === "Data karyawan")?'active':'' }}" href="/data_karyawan"><span data-feather="clipboard" class="icon" aria-hidden="true"></span>Data Karyawan</a>
+                  </li>
+                  <li>
+                    <a class="{{ ($title === "Setting Nilai")?'active':'' }}" href="/settingnilai"><span data-feather="settings" class="icon" aria-hidden="true"></span>Setting</a>
                   </li> 
                 @endif
 
@@ -134,17 +143,16 @@
       <span class="sr-only">Toggle menu</span>
       <span class="icon menu-toggle--gray" aria-hidden="true"></span>
     </button>
-    <button class="theme-switcher gray-circle-btn" type="button" title="Switch theme">
+    <!--<button class="theme-switcher gray-circle-btn" type="button" title="Switch theme">
       <span class="sr-only">Switch theme</span>
       <i class="sun-icon" data-feather="sun" aria-hidden="true"></i>
       <i class="moon-icon" data-feather="moon" aria-hidden="true"></i>
-    </button>
+    </button>-->
     
     <div class="">
       <img src="/storage/{{ auth()->user()->foto }}" class="dropdown-toggle rounded-circle" type="button" data-bs-toggle="dropdown" aria-expanded="false" alt="Cinque Terre" width="40" height="40">
  
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="#">Profile</a></li>
         <li><a class="dropdown-item" style="color: red" href="/logout">Logout</a></li>
       </ul>
     </div>
