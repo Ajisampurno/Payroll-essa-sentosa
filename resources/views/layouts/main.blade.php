@@ -22,19 +22,104 @@
     <script src="/plugins/feather.min.js"></script>
     <!-- Custom scripts -->
     <script src="/js/script.js"></script>
+    <script src="/js/camera.js"></script>
+
     <script type="text/javascript">
+      
       $.ajax({
         type: "get",
         url: "https://katanime.vercel.app/api/getrandom",
         dataType:'json',
         success:function(data){
           var index = Math.floor(Math.random() * (data.result.length));
-
+          
           $("#quotes").text(data.result[index].indo);
           $("#byquotes").text("By : " + data.result[index].character);
           $("#animequotes").text("Anime : " + data.result[index].character);
         }
       });
+      
+      // MENAMPILKAN WAKTU SAAT INI
+      // Mengambil elemen dengan ID "waktu"
+      var TextJammenit = document.getElementById("status");
+      var waktuElemen = document.getElementById("waktu");
+//      const InpStatus = document.getElementById("inpstatus");
+      
+      // Membuat fungsi untuk memperbarui tanggal, bulan, tahun, waktu, dan hari secara real-time
+      function updateTanggalBulanTahunWaktuHari() {
+        var waktuSekarang = new Date();
+        var tanggal = waktuSekarang.getDate();
+        var bulan = waktuSekarang.toLocaleDateString("id-ID", {month: "long"});
+        var bulan_nomer = waktuSekarang.toLocaleDateString();
+        var tahun = waktuSekarang.getFullYear();
+        var hari = waktuSekarang.toLocaleDateString("id-ID", {weekday: "long"});
+        var jam = waktuSekarang.getHours();
+        var menit = waktuSekarang.getMinutes();
+        var detik = waktuSekarang.getSeconds();
+        
+        var inpdate = document.getElementById("inpdate").value = bulan_nomer;
+        var inptime = document.getElementById("inptime").value = jam+":"+menit+":"+detik;
+
+            var jamawal = 8-jam;
+            var menitawal = 0-menit;
+
+            var jamtelat = -1*8-jam*-1;
+            var menittelat = -1*0-menit*-1;
+
+//            if (jam < 8 || (jam === 8 && menit <= 0)) {
+//              TextJammenit.innerHTML = "Lebih awal "+ jamawal +"jam "+menitawal+"menit";
+//              InpStatus.value = "Lebih awal";
+//            }else if (jam > 8 || (jam === 8 && menit >= 0)) {
+//              TextJammenit.innerHTML = "Telat Masuk "+jamtelat+"jam "+menittelat+"menit";
+//              InpStatus.value = "Telat";  
+//            }else{
+//              TextJammenit.innerHTML = "Ontime";
+//              InpStatus.value = "Ontime";
+//            }
+
+
+            var waktuString = hari + ", " + tanggal + " " + bulan + " " + tahun + ", " + jam + ":" + menit + ":" + detik;
+            waktuElemen.innerHTML = waktuString;
+
+        }
+        // Memanggil fungsi updateTanggalBulanTahunWaktuHari setiap 1 detik (1000 ms)
+        setInterval(updateTanggalBulanTahunWaktuHari, 1000);
+
+
+
+        // MENAMPILKAN LOKASI SAAT INI
+         // Cek apakah browser mendukung geolokasi
+        if (navigator.geolocation) {
+            // Jika mendukung, maka minta izin akses geolokasi
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            // Jika tidak mendukung, tampilkan pesan error
+            document.getElementById("lokasi").innerHTML = "Geolokasi tidak didukung oleh browser ini.";
+        }
+        // Fungsi untuk menampilkan hasil lokasi
+        function showPosition(position) {
+            // Mendapatkan koordinat latitude dan longitude
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+
+            // Menampilkan hasil lokasi pada elemen HTML dengan id "lokasi"
+            document.getElementById("lokasi").innerHTML = "Latitude: " + latitude + "<br>Longitude: " + longitude;
+         
+            // MENAMPILKAN DAN MENYEMBUNYIKAN TOMBOL REKAM ABSEN
+            const BtnRekamabsen = document.getElementById("btn-rekamabsen");
+            const BtnAlertLokasi = document.getElementById("btn-alert-lokasi");
+
+            BtnRekamabsen.style.display = "block";
+            BtnAlertLokasi.style.display="none";
+
+            if (latitude != -7.3433034 || longitude != 112.6317722) {
+              BtnAlertLokasi.style.display="block";
+              BtnRekamabsen.style.display = "none";
+            }
+          }
+
+
+
     </script>
   </body>
 </html>

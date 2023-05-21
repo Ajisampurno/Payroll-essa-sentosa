@@ -15,6 +15,7 @@ use App\Http\Controllers\SettingnilaiController;
 use App\Http\Controllers\PenilaiankaryawanController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\AbsenController;
 
 
 /*
@@ -57,13 +58,17 @@ Route::group(['middleware' => ['auth', 'ceklevel:manager']], function () {
 });
 
 
-Route::group(['middleware' => ['auth', 'ceklevel:pic,hrd,manager']], function () {
+Route::group(['middleware' => ['auth', 'ceklevel:pic,hrd,manager,karyawan']], function () {
     //TAMPILAN DASHBOARD
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     //TAMPILASN DASHBOARD PENILAIAN KARYAWAN
     Route::get('/rangkingboard', [PenilaiankaryawanController::class, 'rangkingboard']);
     //HALAMAN HAPUS DATA KARYAWAN
     Route::get('/rangkingboard/hapus/{id}', [PenilaiankaryawanController::class, 'hapus']);
+    //TAMPILAN ABSEN
+    Route::get('/absen', [AbsenController::class, 'index'])->name('absen');
+    //HALAMAN TAMBAH data absen
+    Route::post('/simpan_absen', [AbsenController::class, 'simpan']);
 });
 
 Route::group(['middleware' => ['auth', 'ceklevel:hrd,manager']], function () {
