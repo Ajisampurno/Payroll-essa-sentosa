@@ -69,6 +69,17 @@ Route::group(['middleware' => ['auth', 'ceklevel:pic,hrd,manager,karyawan']], fu
     Route::get('/absen', [AbsenController::class, 'index'])->name('absen');
     //HALAMAN TAMBAH data absen
     Route::post('/simpan_absen', [AbsenController::class, 'simpan']);
+
+    //HALAMAN PENGAJUAN KARYAWAN
+    //TAMPIL HALAMAN
+    Route::get('/pengajuan', [PengajuanController::class, 'index']);
+    //FUNGSI TAMBAH DATA PENGAJUAN
+    Route::post('pengajuan/store', [PengajuanController::class, 'store']);
+    //SHOW PENGAJUAN
+    Route::get('/show_pengajuan', [PengajuanController::class, 'pengajuansaya']);
+    //FUNGSI UPDATE APPROVE 
+    Route::post('/cancel/update/{id}', [PengajuanController::class, 'cancel']);
+    Route::post('/approve/update/{id}', [PengajuanController::class, 'approve']);
 });
 
 Route::group(['middleware' => ['auth', 'ceklevel:hrd,manager']], function () {

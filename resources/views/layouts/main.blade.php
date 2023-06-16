@@ -1,9 +1,11 @@
+
 <!doctype html>
 <html lang="en">
 
   @include('partials._head')
 
   <body>
+    
     @include('partials.navside')
       @yield('container')
     <!-- Optional JavaScript; choose one of the two! -->
@@ -57,25 +59,7 @@
         var menit = waktuSekarang.getMinutes();
         var detik = waktuSekarang.getSeconds();
         
-        var inpdate = document.getElementById("inpdate").value = bulan_nomer;
-        var inptime = document.getElementById("inptime").value = jam+":"+menit+":"+detik;
-
-            var jamawal = 8-jam;
-            var menitawal = 0-menit;
-
-            var jamtelat = -1*8-jam*-1;
-            var menittelat = -1*0-menit*-1;
-
-//            if (jam < 8 || (jam === 8 && menit <= 0)) {
-//              TextJammenit.innerHTML = "Lebih awal "+ jamawal +"jam "+menitawal+"menit";
-//              InpStatus.value = "Lebih awal";
-//            }else if (jam > 8 || (jam === 8 && menit >= 0)) {
-//              TextJammenit.innerHTML = "Telat Masuk "+jamtelat+"jam "+menittelat+"menit";
-//              InpStatus.value = "Telat";  
-//            }else{
-//              TextJammenit.innerHTML = "Ontime";
-//              InpStatus.value = "Ontime";
-//            }
+     
 
 
             var waktuString = hari + ", " + tanggal + " " + bulan + " " + tahun + ", " + jam + ":" + menit + ":" + detik;
@@ -112,7 +96,7 @@
             BtnRekamabsen.style.display = "block";
             BtnAlertLokasi.style.display="none";
 
-            if (latitude != -7.3433034 || longitude != 112.6317722) {
+            if (latitude != -7.3420392 || longitude != 112.6538172) {
               BtnAlertLokasi.style.display="block";
               BtnRekamabsen.style.display = "none";
             }

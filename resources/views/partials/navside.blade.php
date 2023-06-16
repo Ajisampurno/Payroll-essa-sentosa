@@ -26,6 +26,23 @@
                   </li>
                   <li>
                       <a class="{{ ($title === "Rangking Board")?'active':'' }}" href="/rangkingboard"><span data-feather="award" class="icon" aria-hidden="true"></span>Rangking Board</a>
+                  </li>
+                  <li>
+                    <a class="show-cat-btn" href="##">
+                        <span class="icon folder" aria-hidden="true"></span>Pengajuan
+                        <span class="category__btn transparent-btn" title="Open list">
+                            <span class="sr-only">Open list</span>
+                            <span class="icon arrow-down" aria-hidden="true"></span>
+                        </span>
+                    </a>
+                    <ul class="cat-sub-menu">
+                      <li>
+                          <a href="/pengajuan">Mengajukan</a>
+                      </li>
+                      <li>
+                        <a href="/show_pengajuan">Pengajuan Saya</a>
+                      </li>
+                    </ul>
                   </li> 
                 @elseif (auth()->user()->ceklevel=="hrd")
                     <li>
@@ -36,6 +53,23 @@
                     </li>
                     <li>
                       <a class="{{ ($title === "Setting Nilai")?'active':'' }}" href="/settingnilai"><span data-feather="settings" class="icon" aria-hidden="true"></span>Setting</a>
+                    </li>
+                    <li>
+                      <a class="show-cat-btn" href="##">
+                          <span class="icon folder" aria-hidden="true"></span>Pengajuan
+                          <span class="category__btn transparent-btn" title="Open list">
+                              <span class="sr-only">Open list</span>
+                              <span class="icon arrow-down" aria-hidden="true"></span>
+                          </span>
+                      </a>
+                      <ul class="cat-sub-menu">
+                        <li>
+                            <a href="/pengajuan">Mengajukan</a>
+                        </li>
+                        <li>
+                          <a href="/show_pengajuan">Pengajuan Saya</a>
+                        </li>
+                      </ul>
                     </li>
                 @else
                   <li>
@@ -55,6 +89,23 @@
                   </li>
                   <li>
                     <a class="{{ ($title === "Setting Nilai")?'active':'' }}" href="/settingnilai"><span data-feather="settings" class="icon" aria-hidden="true"></span>Setting</a>
+                  </li>
+                  <li>
+                    <a class="show-cat-btn" href="##">
+                        <span class="icon folder" aria-hidden="true"></span>Pengajuan
+                        <span class="category__btn transparent-btn" title="Open list">
+                            <span class="sr-only">Open list</span>
+                            <span class="icon arrow-down" aria-hidden="true"></span>
+                        </span>
+                    </a>
+                    <ul class="cat-sub-menu">
+                      <li>
+                          <a href="/pengajuan">Mengajukan</a>
+                      </li>
+                      <li>
+                        <a href="/show_pengajuan">Pengajuan Saya</a>
+                      </li>
+                    </ul>
                   </li> 
                 @endif
 

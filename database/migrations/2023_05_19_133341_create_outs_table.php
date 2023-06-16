@@ -13,8 +13,9 @@ class CreateOutsTable extends Migration
      */
     public function up()
     {
+
         Schema::create('outs', function (Blueprint $table) {
-            $table->id();
+            $table->id()->unique();
             $table->integer('nip');
             $table->text('gambar');
             $table->text('date');

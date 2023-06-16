@@ -16,16 +16,14 @@ class CreateNilaisTable extends Migration
         Schema::create('nilais', function (Blueprint $table) {
             $table->id();
             $table->integer('nip');
-            $table->integer('nilai1');
-            $table->integer('nilai2');
-            $table->integer('nilai3');
-            $table->integer('nilai4');
-            $table->integer('nilai5');
-            $table->integer('nilai6');
-            $table->integer('nilai7');
-            $table->integer('nilai8');
-            $table->integer('nilai9');
-            $table->integer('nilai10');
+            $table->integer('datangawal')->nullable();
+            $table->integer('ontimemasuk')->nullable();
+            $table->integer('datangtelat')->nullable();
+            $table->integer('pulangawal')->nullable();
+            $table->integer('ontimepulang')->nullable();
+            $table->integer('pulangtelat')->nullable();
+            $table->integer('sakit')->nullable();
+            $table->integer('cuti')->nullable();
             $table->timestamps();
         });
     }

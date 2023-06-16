@@ -1,9 +1,16 @@
 @extends('layouts.main')
 @section('container')
 
+
+
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+                @if (session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
                 <video class="position-relative top-50 start-50 translate-middle" id="preview"></video>
                 <canvas class="position-relative top-50 start-50 translate-middle" id="output"></canvas>
                 <img id="result" src="" alt="">

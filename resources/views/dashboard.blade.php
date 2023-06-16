@@ -1,5 +1,7 @@
+
 @extends('layouts.main')
 @section('container')
+
 <!-- partial -->
 <div class="content-wrapper">
     <div class="col-lg-12">
@@ -10,15 +12,20 @@
             <div class="card-body" align="center">
               <h3 class="mb-2">Hari ini: <p id="waktu"></p></h3>
               <div class="row">
-                <div class="col-lg-6 mt-3">
-                  Absen masuk <br>
-                  12:00
+
+                @foreach ($abseninout as $inout)                    
+                  <div class="col-lg-6 mt-3">
+                    Absen masuk <br>
+                    <img style="width: 70px" class="rounded-circle" src="{{ $inout->gambar_in }}" alt=""><br>
+                     {{ $inout->time_in }}
+                  </div>
+                  <div class="col-lg-6 mt-3">
+                    Absen keluar <br>
+                    <img style="width: 70px" class="rounded-circle" src="{{ $inout->gambar_out }}" alt=""><br>
+                    {{ $inout->time_out }}
+                  </div>
                 </div>
-                <div class="col-lg-6 mt-3">
-                  Absen keluar <br>
-                  11:00
-                </div>
-              </div>
+                @endforeach
               
               <h3 class="mt-4">Lokasi Anda:</h3>
               <p id="lokasi"></p>
@@ -33,82 +40,6 @@
             </div>
           </div>
           
-          <div class="card bg-gradient-info text-black">
-            <div class="card-body">
-              <div class="row">
-                <div class="col-md-6">
-                <table class="table table-bordered mt-3">
-                <thead>
-                  <tr>
-                    <th class="text-center">In</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  @foreach ($in as $item)
-                  <tr>
-                    <td class="text-center">
-                      <img style="width:50px" src="{{ $item->gambar }}" alt=""> <br>
-                      {{ $item->updated_at }}
-                    </td>
-                  </tr>
-                  @endforeach
-                </tbody>
-              </table>
-              </div>
-              <div class="col-md-6">
-                <table class="table table-bordered mt-3">
-                <thead>
-                  <tr>
-                    <th class="text-center">Out</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  @foreach ($out as $item)
-                  <tr>
-                    <td class="text-center">
-                      <img style="width:50px" src="{{ $item->gambar }}" alt=""> <br>
-                      {{ $item->updated_at }}
-                    </td>
-                  </tr>
-                  @endforeach
-                </tbody>
-              </table>
-              </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-12">
-              <table class="table table-bordered mt-3">
-                <thead>
-                  <tr>
-                    <td>No</td>
-                    <td>Indikator</td>
-                    <td>Count</td>
-                    <td>Bobot</td>
-                    <td>nilai</td>
-                  </tr>
-                </thead>
-                <tbody>
-                  @foreach ($indikator as $item)                      
-                  <tr>
-                    <td>1</td>
-                    <td>{{ $item->status }}</td>
-                    <td>{{ $item->jumlah }}</td>
-                    @if ($item->status == "Telat")
-                        <td>cost</td>
-                    @else
-                        <td>benefit</td>
-                    @endif
-                    <td></td>
-                  </tr>
-                  @endforeach
-                </tbody>
-              </table>
-            </div>
-          </div>
-
               <!--<h5 class="font-weight-normal mb-1">~ Quote of the day ~</h5>
               <h5 class="font-weight-normal mb-1" id="quotes"></h5>
               <h5 class="font-weight-normal mb-1" id="byquotes"></h5>

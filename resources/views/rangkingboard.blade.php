@@ -41,8 +41,8 @@
                                 @foreach ($fixnilai as $i)
                                     <tr>
                                         <td class="text-center">{{ $n++ }}</td>
-                                        <td class="text-center">{{ $i['nip'] }}</td>
-                                        <td >{{ $i['nama_ktp'] }}</td>
+                                        <td class="text-center">{{ $i->nip }}</td>
+                                        <td >{{ $i->nama_ktp }}</td>
                                         <td class="text-center">{{ $i['skor'] }}</td>
                                         @if (auth()->user()->ceklevel=="manager"||auth()->user()->ceklevel=="pic")
                                         <td class="text-center">

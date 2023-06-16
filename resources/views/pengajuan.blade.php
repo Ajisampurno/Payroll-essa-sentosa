@@ -37,7 +37,7 @@
                         </div>
                         <label for="tgl_mulai"><small class="text-muted m-4">Tgl mulai cuti:</small> </label>
                         <div class=" m-2">
-                            <input class="form-control shadow-sm bg-body rounded @error('tgl_mulai') is-invalid  @enderror" value="{{ old('tgl_mulai') }}" type="date" id="tgl_mulai" placeholder="Tgl Mulai Cuti" name="tgl_mulai">
+                            <input class="form-control shadow-sm bg-body rounded @error('tgl_mulai') is-invalid  @enderror" value="{{ old('tgl_mulai') }}" type="date" id="tgl_mulai" name="tgl_mulai">
                             @error('tgl_mulai')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -46,7 +46,7 @@
                         </div>
                         <label for="tgl_sampai"><small class="text-muted m-4">Tgl sampai cuti:</small> </label>
                         <div class=" m-2">
-                            <input class="form-control shadow-sm bg-body rounded @error('tgl_sampai') is-invalid  @enderror" value="{{ old('tgl_sampai') }}" type="date" id="tgl_sampai" placeholder="Tgl Sampai Cuti" name="tgl_sampai">
+                            <input class="form-control shadow-sm bg-body rounded @error('tgl_sampai') is-invalid  @enderror" value="{{ old('tgl_sampai') }}" type="date" id="tgl_sampai" name="tgl_sampai">
                             @error('tgl_sampai')
                                 <div class="invalid-feedback">
                                     {{ $message }}
@@ -57,10 +57,8 @@
                         <div class="m-2 shadow-sm">
                             <select class="form-select" value="{{ old('alasan') }}" name="alasan" id="alasan">
                               <option selected>Pilih Alasan</option>
-                              <option value="Cuti Menikah">Cuti Menikah</option>
-                              <option value="Cuti Melahirkan">Cuti Melahirkan</option>
-                              <option value="Cuti Tahunan">Cuti Tahunan</option>
-                              <option value="Sakit">Sakit</option>
+                              <option value="cuti">Cuti</option>
+                              <option value="sakit">Sakit</option>
                             </select>
                             @error('alasan')
                                 <div class="invalid-feedback">
@@ -68,7 +66,7 @@
                                 </div>   
                             @enderror
                         </div>
-                        <p class="fst-italic text-muted m-4">Lampirkan foto surat dokter apabila beralasan sakit</p>
+                        <p class="fst-italic text-muted m-4">Lampirkan foto</p>
                         <div class="border shadow-sm m-2">
                             <input class="form-control @error('foto') is-invalid  @enderror" value="{{ old('foto') }}" type="file" name="foto" id="foto">
                             @error('foto')

@@ -26,8 +26,10 @@ class PenilaiankaryawanController extends Controller
         ]);
     }
 
+
     public function rangkingboard()
     {
+
 
         $cekcount = Penilaian::get()->toarray();
         $penilaian = Penilaian::join('profiles', 'penilaians.nip', '=', 'profiles.id')
