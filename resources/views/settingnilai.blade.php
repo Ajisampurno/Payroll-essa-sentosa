@@ -44,7 +44,7 @@
                                                     <input class="alternative" type="text" name="a1" id="a1" value="{{ $isi->a1 }}" placeholder="Isi Descripsi penilaian...">
                                                 </td>
                                                 <td>
-                                                    <input class="bobot" type="number"  min="0" max="100" name="bobot1" id="bobot1" style="width: 50px" value="{{ $isi->bobot1 }}">
+                                                    <input class="bobot" type="number" step="0.01" min="0" max="1" name="bobot1" id="bobot1" style="width: 50px" value="{{ $isi->bobot1 }}">
                                                 </td>
                                                 <td>
                                                     <select class="form-select" aria-label="Default select example" id="type1" name="type1">
@@ -77,7 +77,7 @@
                                                     <input class="alternative" type="text" name="a2" id="a2" value="{{ $isi->a2 }}" placeholder="Isi Descripsi penilaian...">
                                                 </td>
                                                 <td>
-                                                    <input class="bobot" type="number"  min="0" max="100" name="bobot2" id="bobot2" style="width: 50px" value="{{ $isi->bobot2 }}">
+                                                    <input class="bobot" type="number"  step="0.01" min="0" max="1" name="bobot2" id="bobot2" style="width: 50px" value="{{ $isi->bobot2 }}">
                                                 </td>
                                                 <td>
                                                     <select class="form-select" aria-label="Default select example" id="type2" name="type2">
@@ -110,7 +110,7 @@
                                                     <input class="alternative" type="text" name="a3" id="a3" value="{{ $isi->a3 }}" placeholder="Isi Descripsi penilaian...">
                                                 </td>
                                                 <td>
-                                                    <input class="bobot" type="number"  min="0" max="100" name="bobot3" id="bobot3" style="width: 50px" value="{{ $isi->bobot3 }}">
+                                                    <input class="bobot" type="number"  step="0.01" min="0" max="1" name="bobot3" id="bobot3" style="width: 50px" value="{{ $isi->bobot3 }}">
                                                 </td>
                                                 <td>
                                                     <select class="form-select" aria-label="Default select example" id="type3" name="type3">
@@ -144,7 +144,7 @@
                                                     <input class="alternative" type="text" name="a4" id="a4" value="{{ $isi->a4 }}" placeholder="Isi Descripsi penilaian...">
                                                 </td>
                                                 <td>
-                                                    <input class="bobot" type="number"  min="0" max="100" name="bobot4" id="bobot4" style="width: 50px" value="{{ $isi->bobot4 }}">
+                                                    <input class="bobot" type="number"  step="0.01" min="0" max="1" name="bobot4" id="bobot4" style="width: 50px" value="{{ $isi->bobot4 }}">
                                                 </td>
                                                 <td>
                                                     <select class="form-select" aria-label="Default select example" id="type4" name="type4">
@@ -177,7 +177,7 @@
                                                     <input class="alternative" type="text" name="a5" id="a5" value="{{ $isi->a5 }}" placeholder="Isi Descripsi penilaian...">
                                                 </td>
                                                 <td>
-                                                    <input class="bobot" type="number"  min="0" max="100" name="bobot5" id="bobot5" style="width: 50px" value="{{ $isi->bobot5 }}">
+                                                    <input class="bobot" type="number"  step="0.01" min="0" max="1" name="bobot5" id="bobot5" style="width: 50px" value="{{ $isi->bobot5 }}">
                                                 </td>
                                                 <td>
                                                     <select class="form-select" aria-label="Default select example" id="type5" name="type5">
@@ -210,7 +210,7 @@
                                                     <input class="alternative" type="text" name="a6" id="a6" value="{{ $isi->a6 }}" placeholder="Isi Descripsi penilaian...">
                                                 </td>
                                                 <td>
-                                                    <input class="bobot" type="number"  min="0" max="100" name="bobot6" id="bobot6" style="width: 50px" value="{{ $isi->bobot6 }}">
+                                                    <input class="bobot" type="number"  step="0.01" min="0" max="1" name="bobot6" id="bobot6" style="width: 50px" value="{{ $isi->bobot6 }}">
                                                 </td>
                                                 <td>
                                                     <select class="form-select" aria-label="Default select example" id="type6" name="type6">
@@ -243,7 +243,7 @@
                                                     <input class="alternative" type="text" name="a7" id="a7" value="{{ $isi->a7 }}" placeholder="Isi Descripsi penilaian...">
                                                 </td>
                                                 <td>
-                                                    <input class="bobot" type="number"  min="0" max="100" name="bobot7" id="bobot7" style="width: 50px" value="{{ $isi->bobot7 }}">
+                                                    <input class="bobot" type="number"  step="0.01" min="0" max="1" name="bobot7" id="bobot7" style="width: 50px" value="{{ $isi->bobot7 }}">
                                                 </td>
                                                 <td>
                                                     <select class="form-select" aria-label="Default select example" id="type7" name="type7">
@@ -276,7 +276,7 @@
                                                     <input class="alternative" type="text" name="a8" id="a8" value="{{ $isi->a8 }}" placeholder="Isi Descripsi penilaian...">
                                                 </td>
                                                 <td>
-                                                    <input class="bobot" type="number"  min="0" max="100" name="bobot8" id="bobot8" style="width: 50px" value="{{ $isi->bobot8 }}">
+                                                    <input class="bobot" type="number"  step="0.01" min="0" max="1" name="bobot8" id="bobot8" style="width: 50px" value="{{ $isi->bobot8 }}">
                                                 </td>
                                                 <td>
                                                     <select class="form-select" aria-label="Default select example" id="type8" name="type8">
@@ -309,7 +309,7 @@
                                                     <input class="alternative" type="text" name="a9" id="a9" value="{{ $isi->a9 }}" placeholder="Isi Descripsi penilaian...">
                                                 </td>
                                                 <td>
-                                                    <input class="bobot" type="number"  min="0" max="100" name="bobot9" id="bobot9" style="width: 50px" value="{{ $isi->bobot9 }}">
+                                                    <input class="bobot" type="number"  step="0.01" min="0" max="1" name="bobot9" id="bobot9" style="width: 50px" value="{{ $isi->bobot9 }}">
                                                 </td>
                                                 <td>
                                                     <select class="form-select" aria-label="Default select example" id="type9" name="type9">
@@ -342,7 +342,7 @@
                                                     <input class="alternative" type="text" name="a10" id="a10" value="{{ $isi->a10 }}" placeholder="Isi Descripsi penilaian...">
                                                 </td>
                                                 <td>
-                                                    <input class="bobot" type="number"  min="0" max="100" name="bobot10" id="bobot10" style="width: 50px" value="{{ $isi->bobot10 }}">
+                                                    <input class="bobot" type="number"  step="0.01" min="0" max="1" name="bobot10" id="bobot10" style="width: 50px" value="{{ $isi->bobot10 }}">
                                                 </td>
                                                 <td>
                                                     <select class="form-select" aria-label="Default select example" id="type10" name="type10">
@@ -375,7 +375,7 @@
                                                     <input class="alternative" type="text" name="a11" id="a11" value="{{ $isi->a11 }}" placeholder="Isi Descripsi penilaian...">
                                                 </td>
                                                 <td>
-                                                    <input class="bobot" type="number"  min="0" max="100" name="bobot11" id="bobot11" style="width: 50px" value="{{ $isi->bobot11 }}">
+                                                    <input class="bobot" type="number"  step="0.01" min="0" max="1" name="bobot11" id="bobot11" style="width: 50px" value="{{ $isi->bobot11 }}">
                                                 </td>
                                                 <td>
                                                     <select class="form-select" aria-label="Default select example" id="type11" name="type11">
@@ -408,7 +408,7 @@
                                                     <input class="alternative" type="text" name="a12" id="a12" value="{{ $isi->a12 }}" placeholder="Isi Descripsi penilaian...">
                                                 </td>
                                                 <td>
-                                                    <input class="bobot" type="number"  min="0" max="100" name="bobot12" id="bobot12" style="width: 50px" value="{{ $isi->bobot12 }}">
+                                                    <input class="bobot" type="number"  step="0.01" min="0" max="1" name="bobot12" id="bobot12" style="width: 50px" value="{{ $isi->bobot12 }}">
                                                 </td>
                                                 <td>
                                                     <select class="form-select" aria-label="Default select example" id="type12" name="type12">
@@ -441,7 +441,7 @@
                                                     <input class="alternative" type="text" name="a13" id="a13" value="{{ $isi->a13 }}" placeholder="Isi Descripsi penilaian...">
                                                 </td>
                                                 <td>
-                                                    <input class="bobot" type="number"  min="0" max="100" name="bobot13" id="bobot13" style="width: 50px" value="{{ $isi->bobot13 }}">
+                                                    <input class="bobot" type="number"  step="0.01" min="0" max="1" name="bobot13" id="bobot13" style="width: 50px" value="{{ $isi->bobot13 }}">
                                                 </td>
                                                 <td>
                                                     <select class="form-select" aria-label="Default select example" id="type13" name="type13">
@@ -474,7 +474,7 @@
                                                     <input class="alternative" type="text" name="a14" id="a14" value="{{ $isi->a14 }}" placeholder="Isi Descripsi penilaian...">
                                                 </td>
                                                 <td>
-                                                    <input class="bobot" type="number"  min="0" max="100" name="bobot14" id="bobot14" style="width: 50px" value="{{ $isi->bobot14 }}">
+                                                    <input class="bobot" type="number"  step="0.01" min="0" max="1" name="bobot14" id="bobot14" style="width: 50px" value="{{ $isi->bobot14 }}">
                                                 </td>
                                                 <td>
                                                     <select class="form-select" aria-label="Default select example" id="type14" name="type14">
@@ -507,7 +507,7 @@
                                                     <input class="alternative" type="text" name="a15" id="a15" value="{{ $isi->a15 }}" placeholder="Isi Descripsi penilaian...">
                                                 </td>
                                                 <td>
-                                                    <input class="bobot" type="number"  min="0" max="100" name="bobot15" id="bobot15" style="width: 50px" value="{{ $isi->bobot15 }}">
+                                                    <input class="bobot" type="number"  step="0.01" min="0" max="1" name="bobot15" id="bobot15" style="width: 50px" value="{{ $isi->bobot15 }}">
                                                 </td>
                                                 <td>
                                                     <select class="form-select" aria-label="Default select example" id="type15" name="type15">
@@ -540,7 +540,7 @@
                                                     <input class="alternative" type="text" name="a16" id="a16" value="{{ $isi->a16 }}" placeholder="Isi Descripsi penilaian...">
                                                 </td>
                                                 <td>
-                                                    <input class="bobot" type="number"  min="0" max="100" name="bobot16" id="bobot16" style="width: 50px" value="{{ $isi->bobot16 }}">
+                                                    <input class="bobot" type="number"  step="0.01" min="0" max="1" name="bobot16" id="bobot16" style="width: 50px" value="{{ $isi->bobot16 }}">
                                                 </td>
                                                 <td>
                                                     <select class="form-select" aria-label="Default select example" id="type16" name="type16">
@@ -573,7 +573,7 @@
                                                     <input class="alternative" type="text" name="a17" id="a17" value="{{ $isi->a17 }}" placeholder="Isi Descripsi penilaian...">
                                                 </td>
                                                 <td>
-                                                    <input class="bobot" type="number"  min="0" max="100" name="bobot17" id="bobot17" style="width: 50px" value="{{ $isi->bobot17 }}">
+                                                    <input class="bobot" type="number"  step="0.01" min="0" max="1" name="bobot17" id="bobot17" style="width: 50px" value="{{ $isi->bobot17 }}">
                                                 </td>
                                                 <td>
                                                     <select class="form-select" aria-label="Default select example" id="type17" name="type17">
@@ -606,7 +606,7 @@
                                                     <input class="alternative" type="text" name="a18" id="a18" value="{{ $isi->a18 }}" placeholder="Isi Descripsi penilaian...">
                                                 </td>
                                                 <td>
-                                                    <input class="bobot" type="number"  min="0" max="100" name="bobot18" id="bobot18" style="width: 50px" value="{{ $isi->bobot18 }}">
+                                                    <input class="bobot" type="number"  step="0.01" min="0" max="1" name="bobot18" id="bobot18" style="width: 50px" value="{{ $isi->bobot18 }}">
                                                 </td>
                                                 <td>
                                                     <select class="form-select" aria-label="Default select example" id="type18" name="type18">
@@ -639,7 +639,7 @@
                                                     <input class="alternative" type="text" name="a19" id="a19" value="{{ $isi->a19 }}" placeholder="Isi Descripsi penilaian...">
                                                 </td>
                                                 <td>
-                                                    <input class="bobot" type="number"  min="0" max="100" name="bobot19" id="bobot19" style="width: 50px" value="{{ $isi->bobot19 }}">
+                                                    <input class="bobot" type="number"  step="0.01" min="0" max="1" name="bobot19" id="bobot19" style="width: 50px" value="{{ $isi->bobot19 }}">
                                                 </td>
                                                 <td>
                                                     <select class="form-select" aria-label="Default select example" id="type19" name="type19">
@@ -672,7 +672,7 @@
                                                     <input class="alternative" type="text" name="a20" id="a20" value="{{ $isi->a20 }}" placeholder="Isi Descripsi penilaian...">
                                                 </td>
                                                 <td>
-                                                    <input class="bobot" type="number"  min="0" max="100" name="bobot20" id="bobot20" style="width: 50px" value="{{ $isi->bobot20 }}">
+                                                    <input class="bobot" type="number"  step="0.01" min="0" max="1" name="bobot20" id="bobot20" style="width: 50px" value="{{ $isi->bobot20 }}">
                                                 </td>
                                                 <td>
                                                     <select class="form-select" aria-label="Default select example" id="type20" name="type20">

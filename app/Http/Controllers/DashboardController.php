@@ -422,12 +422,13 @@ class DashboardController extends Controller
             }
         }
 
-        if ($saw->toarray() != null) {
-            Saw::truncate();
-        };
-        foreach ($cnilai as $n) {
-            Saw::create($n);
-        }
+
+        //if ($saw->toarray() != null) {
+        //    Saw::truncate();
+        //};
+        //foreach ($cnilai as $n) {
+        //    Saw::create($n);
+        //}
 
         return view('dashboard', [
             "abseninout" => $abseninout,
@@ -435,7 +436,7 @@ class DashboardController extends Controller
             "out" => $absenout,
             "indikator" => $indikator,
             "countnilai" => $cnilai,
-            "saw" => $saw,
+            "saw" => $cnilai,
             "title" => "Dashboard"
         ]);
     }

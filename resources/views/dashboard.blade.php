@@ -7,7 +7,7 @@
     <div class="col-lg-12">
       <div class="row justify-content-center">
         <div class="col-md-9 stretch-card grid-margin mt-3">
-          <h2 class="font-weight-normal mb-3 text-center">Hi, {{Auth::user()->name}}</h2>
+          <h2 class="font-weight-normal mb-3 text-center">Haii, {{Auth::user()->name}}</h2>
           <div class="card bg-gradient-info text-black">
             <div class="card-body" align="center">
               <h3 class="mb-2">Hari ini: <p id="waktu"></p></h3>
@@ -39,6 +39,7 @@
               </a>
             </div>
           </div>
+
           
               <!--<h5 class="font-weight-normal mb-1">~ Quote of the day ~</h5>
               <h5 class="font-weight-normal mb-1" id="quotes"></h5>
