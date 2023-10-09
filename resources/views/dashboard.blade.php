@@ -39,6 +39,7 @@
               </a>
             </div>
           </div>
+
           
               <!--<h5 class="font-weight-normal mb-1">~ Quote of the day ~</h5>
               <h5 class="font-weight-normal mb-1" id="quotes"></h5>
