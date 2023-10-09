@@ -96,7 +96,7 @@
             BtnRekamabsen.style.display = "block";
             BtnAlertLokasi.style.display="none";
 
-            if (latitude != -7.3420392 || longitude != 112.6538172) {
+            if (latitude != -7.3433034 || longitude != 112.6317722) {
               BtnAlertLokasi.style.display="block";
               BtnRekamabsen.style.display = "none";
             }
