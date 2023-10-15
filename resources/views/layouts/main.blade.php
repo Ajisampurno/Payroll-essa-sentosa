@@ -26,21 +26,7 @@
     <script src="/js/script.js"></script>
     <script src="/js/camera.js"></script>
 
-    <script type="text/javascript">
-      
-      $.ajax({
-        type: "get",
-        url: "https://katanime.vercel.app/api/getrandom",
-        dataType:'json',
-        success:function(data){
-          var index = Math.floor(Math.random() * (data.result.length));
-          
-          $("#quotes").text(data.result[index].indo);
-          $("#byquotes").text("By : " + data.result[index].character);
-          $("#animequotes").text("Anime : " + data.result[index].character);
-        }
-      });
-      
+    <script type="text/javascript"> 
       // MENAMPILKAN WAKTU SAAT INI
       // Mengambil elemen dengan ID "waktu"
       var TextJammenit = document.getElementById("status");
@@ -58,10 +44,6 @@
         var jam = waktuSekarang.getHours();
         var menit = waktuSekarang.getMinutes();
         var detik = waktuSekarang.getSeconds();
-        
-     
-
-
             var waktuString = hari + ", " + tanggal + " " + bulan + " " + tahun + ", " + jam + ":" + menit + ":" + detik;
             waktuElemen.innerHTML = waktuString;
 

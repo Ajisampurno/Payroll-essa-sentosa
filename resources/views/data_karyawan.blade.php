@@ -88,11 +88,20 @@
                       @endforeach
                   </tbody>
               </table>
-              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <table id="myTable">
+                  <thead>
+                    <tr>
+                        <th>id</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+              </table>
   </main>
 
 
@@ -124,3 +133,23 @@
 </div>
 
 @endsection
+
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+
+<script>
+ 
+$(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+
+    $(document).ready(function() {
+        $('#data_karyawan').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: {{'route("data")'}},
+            columns: [
+                { data: 'id', name: 'id' },
+            ]
+        });
+    });
+</script>

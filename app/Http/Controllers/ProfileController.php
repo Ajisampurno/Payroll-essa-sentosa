@@ -11,6 +11,7 @@ use Maatwebsite\Excel\Facades\Excel;
 
 use App\Http\Controllers\Controller;
 
+use Yajra\DataTables\DataTables;
 //use App\Http\Requests\StoreProfileRequest;
 //use App\Http\Requests\UpdateProfileRequest;
 use Illuminate\Auth\Events\Validated;
@@ -26,6 +27,14 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function data()
+    {
+
+        $profile = Profile::select(['id']);
+
+        return Datatables::of($profile)->make(true);
+    }
     public function index()
     {
 

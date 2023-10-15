@@ -14,25 +14,7 @@
     <link rel="stylesheet" href="/css/style-settingnilai.css">
     <link rel="stylesheet" href="/css/style-formpk.css">
 
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+  
     <title>ES | {{ $title }}</title>
-
-    <!-- jquery -->
-    <script src="{{ asset('js/jquery.js') }}"></script>
-    <!-- icon https://feather.com -->
-    <script src="https://unpkg.com/feather-icons"></script>
-    <script type="text/javascript">
-      $.ajax({
-        type: "get",
-        url: "https://katanime.vercel.app/api/getrandom",
-        dataType:'json',
-        success:function(data){
-          var index = Math.floor(Math.random() * (data.result.length));
-
-          $("#quotes").text(data.result[index].indo);
-          $("#byquotes").text("By : " + data.result[index].character);
-          $("#animequotes").text("Anime : " + data.result[index].character);
-        }
-      });
-      </script>
-    
   </head>

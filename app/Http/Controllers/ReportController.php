@@ -402,7 +402,6 @@ class ReportController extends Controller
             }
         }
 
-        //dd($cnilai);
         return view('/report', [
             'title' => 'Report',
             'saw' => $cnilai,

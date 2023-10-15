@@ -83,6 +83,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:pic,hrd,manager,karyawan']], fu
 });
 
 Route::group(['middleware' => ['auth', 'ceklevel:hrd,manager']], function () {
+    Route::get('data', [ProfileController::class, 'data']);
     //TAMPILAN DATA KARYAWAN
     Route::get('/data_karyawan', [ProfileController::class, 'index'])->name('data_karyawan');
     //SHOW DATA KARYAWAM
