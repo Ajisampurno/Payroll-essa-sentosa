@@ -93,15 +93,6 @@
         </div>
       </div>
     </div>
-    <table id="myTable">
-                  <thead>
-                    <tr>
-                        <th>id</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  </tbody>
-              </table>
   </main>
 
 
@@ -132,24 +123,28 @@
 </div>
 </div>
 
+//<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+//<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+//
+//<script type="text/javascript">
+//      $(document).ready(function () {
+//          $('#datatable').DataTable({
+//              processing: true,
+//              searching: true,
+//              serverSide: true,
+//              paging: true,
+//              dom: 'Bfrtip',
+//        title: '',
+//              ajax: {
+//                        url:'{{ url('/data') }}',
+//                    },
+//              columns: [
+//                  {data: 'id', name: 'id'},
+//                  {data: 'nama_ktp', name: 'nama_ktp'},
+//                  {data: 'aksi', name: 'aksi'},
+//              ],
+//          });
+//      });
+//  </script>
+//
 @endsection
-
-<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
-
-<script>
- 
-$(document).ready( function () {
-    $('#myTable').DataTable();
-} );
-
-    $(document).ready(function() {
-        $('#data_karyawan').DataTable({
-            processing: true,
-            serverSide: true,
-            ajax: {{'route("data")'}},
-            columns: [
-                { data: 'id', name: 'id' },
-            ]
-        });
-    });
-</script>

@@ -28,13 +28,6 @@ class ProfileController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function data()
-    {
-
-        $profile = Profile::select(['id']);
-
-        return Datatables::of($profile)->make(true);
-    }
     public function index()
     {
 
