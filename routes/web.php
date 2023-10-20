@@ -121,9 +121,15 @@ Route::group(['middleware' => ['auth', 'ceklevel:pic,manager']], function () {
     Route::get('/update_nilai/{id}', [PenilaiankaryawanController::class, 'edit']);
     //HFUNGSI UPDATE NILAI KAEYAWAN
     Route::post('/update_nilai/update/{id}', [PenilaiankaryawanController::class, 'update']);
-});     
+});
 
-
+Route::group(['middleware' => ['auth', 'ceklevel:hrd,manager']], function () {
+    //HALAMAN CETAK SLIP GAJI
+    //TAMPIL SLIP
+    Route::get('/cetak_slip_gaji/{id}', [UpotController::class, 'cetakslip']);
+    //TAMPIL SLIP 2
+    Route::post('/cetak_slip_gaji/pdf', [UpotController::class, 'cetakslip2']);
+});
 
 
 
