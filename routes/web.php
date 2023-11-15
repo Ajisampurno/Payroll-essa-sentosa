@@ -129,6 +129,9 @@ Route::group(['middleware' => ['auth', 'ceklevel:hrd,manager']], function () {
     Route::get('/cetak_slip_gaji/{id}', [UpotController::class, 'cetakslip']);
     //TAMPIL SLIP 2
     Route::post('/cetak_slip_gaji/pdf', [UpotController::class, 'cetakslip2']);
+
+    //TAMPIL Nilai
+    Route::get('/cetak_nilai/{id}', [ProfileController::class, 'cetaknilai']);
 });
 
 

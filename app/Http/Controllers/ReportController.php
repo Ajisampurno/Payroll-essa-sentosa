@@ -18,11 +18,8 @@ use Illuminate\Http\Request;
 
 class ReportController extends Controller
 {
-    public function index()
+    public static function getSaw()
     {
-
-
-
         $sakit = Pengajuan::where('nip', Auth::user()->nip)
             ->where('aproval', 'aprove')
             ->where('alasan', 'sakit')->get()->count();
@@ -72,7 +69,6 @@ class ReportController extends Controller
         // Nilai dari atasan
         $cekcount = Penilaian::get()->toarray();
         $settingnilai = Settingnilai::get();
-
 
         $bobotdatangawal = 0.1;
         $bobotontimemasuk = 0.1;
@@ -366,7 +362,7 @@ class ReportController extends Controller
                         $nl20;
 
                     // Bungkus ke variabel cnilai
-                    $cnilai[$key] = [
+                    $data[$key] = [
                         'nip' => $nl->nip,
                         'datangawal' => $nilaidatangawal,
                         'ontimemasuk' => $nilaiontimmasuk,
@@ -402,9 +398,26 @@ class ReportController extends Controller
             }
         }
 
+        usort($data, function ($a, $b) {
+            return $b['skor'] - $a['skor'];
+        });
+
+        $peringkat = 1;
+        foreach ($data as $key => $item) {
+            $data[$key]['peringkat'] = $peringkat++;
+        }
+        return $data;
+    }
+
+
+    public function index()
+    {
+        $data = ReportController::getSaw();
+        $settingnilai = Settingnilai::get();
+
         return view('/report', [
             'title' => 'Report',
-            'saw' => $cnilai,
+            'saw' => $data,
             'settingnilai' => $settingnilai
         ]);
     }

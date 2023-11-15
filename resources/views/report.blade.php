@@ -65,6 +65,7 @@ use App\Models\Saw;
                                     <td class="text-center">{{ $s['ontimepulang']}}</td>
                                     <td class="text-center">{{ $s['pulangtelat']}}</td>
                                     <td class="text-center">{{ $s['sakit'] }}</td>
+                                    <td class="text-center">{{ $s['cuti'] }}</td>
                                     <td class="text-center">{{ $s['nilai1']}}</td>
                                     <td class="text-center">{{ $s['nilai2']}}</td>
                                     <td class="text-center">{{ $s['nilai3']}}</td>

@@ -8,9 +8,18 @@
                     <div class="row g-0">
                         <div class="col-md-4">
                             <img src="/storage/{{ auth()->user()->foto }}" class="img-fluid rounded-start m-2" alt="...">
-                            <button type="button" class="btn btn-warning ms-4">
-                                <a href="/cetak_slip_gaji/{{ $profiles->id }}">Cetak slip gaji</a>
-                            </button>
+                            <div class="ms-4">
+                                <a href="/cetak_slip_gaji/{{ $profiles->id }}">
+                                    <button type="button" class="btn btn-warning">
+                                        Slip
+                                    </button>
+                                </a>
+                                <a href="/cetak_nilai/{{ $profiles->id }}">
+                                    <button type="button" class="btn btn-warning">
+                                        Nilai
+                                    </button>
+                                </a>
+                            </div>
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
