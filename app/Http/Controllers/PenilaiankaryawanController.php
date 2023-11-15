@@ -294,9 +294,37 @@ class PenilaiankaryawanController extends Controller
     public function store(Request $request)
     {
 
-        $ValidateData = $request->validate([
-            'id',
-            'nip' => 'unique:penilaians,nip',
+
+
+        if (Penilaian::where('nip', $request->nip) == null) {
+            $ValidateData = $request->validate([
+                'id',
+                'nip' => 'unique:penilaians,nip',
+                's1' => 'nullable',
+                's2' => 'nullable',
+                's3' => 'nullable',
+                's4' => 'nullable',
+                's5' => 'nullable',
+                's6' => 'nullable',
+                's7' => 'nullable',
+                's8' => 'nullable',
+                's9' => 'nullable',
+                's10' => 'nullable',
+                's11' => 'nullable',
+                's12' => 'nullable',
+                's13' => 'nullable',
+                's14' => 'nullable',
+                's15' => 'nullable',
+                's16' => 'nullable',
+                's17' => 'nullable',
+                's18' => 'nullable',
+                's19' => 'nullable',
+                's20' => 'nullable',
+            ]);
+            Penilaian::create($ValidateData);
+        }
+        $rules = [
+            'nip' => 'required',
             's1' => 'nullable',
             's2' => 'nullable',
             's3' => 'nullable',
@@ -317,10 +345,10 @@ class PenilaiankaryawanController extends Controller
             's18' => 'nullable',
             's19' => 'nullable',
             's20' => 'nullable',
-        ]);
+        ];
 
-
-        Penilaian::create($ValidateData);
+        $ValidateData = $request->validate($rules);
+        Penilaian::where('nip', $request->nip)->update($ValidateData);
         return redirect('/formPK')->with('success', 'Data berhasil di tambah kan');
     }
 
