@@ -66,7 +66,7 @@ class ProfileController extends Controller
             $saw[$key]['peringkat'] = $peringkat++;
         }
 
-        //dd($saw);
+        dd($saw);
 
         $data = [
             "title" => "Nilai",

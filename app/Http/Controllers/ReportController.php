@@ -399,13 +399,14 @@ class ReportController extends Controller
         }
 
         usort($data, function ($a, $b) {
-            return $b['skor'] - $a['skor'];
+            return $b['skor'] > $a['skor'];
         });
 
         $peringkat = 1;
         foreach ($data as $key => $item) {
             $data[$key]['peringkat'] = $peringkat++;
         }
+
         return $data;
     }
 
