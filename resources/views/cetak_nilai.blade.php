@@ -160,8 +160,10 @@
         </thead>
         <tbody>
             <tr>
-                <td class="text-center">3</td>
+                @foreach ($peringkat as $pr)                    
+                <td class="text-center">{{ $pr['peringkat'] }}</td>
                 <td class="text-center">219</td>
+                @endforeach
             </tr>
         </tbody>
     </table>

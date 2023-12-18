@@ -406,7 +406,6 @@ class ReportController extends Controller
         foreach ($data as $key => $item) {
             $data[$key]['peringkat'] = $peringkat++;
         }
-
         return $data;
     }
 

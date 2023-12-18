@@ -66,13 +66,27 @@ class ProfileController extends Controller
             $saw[$key]['peringkat'] = $peringkat++;
         }
 
-        dd($saw);
+
+        // Kondisi yang akan digunakan pada klausa WHERE
+        $condition = ['nip' => 200376];
+
+        // Fungsi untuk menyaring data berdasarkan kondisi
+        $filteredData = array_filter($saw, function ($item) use ($condition) {
+            foreach ($condition as $key => $value) {
+                if ($item[$key] != $value) {
+                    return false;
+                }
+            }
+            return true;
+        });
+
 
         $data = [
             "title" => "Nilai",
             "profile" => $profile,
             "absen" => $absen,
-            "nilai" => $nilai
+            "nilai" => $nilai,
+            "peringkat" => $filteredData
         ];
 
         $pdf = PDF::loadView('cetak_nilai', $data);
