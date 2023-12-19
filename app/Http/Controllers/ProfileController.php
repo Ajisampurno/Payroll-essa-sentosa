@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Profile;
+use App\Models\Nilai;
 use App\Models\Penilaian;
+
 
 use App\Exports\ProfilesExport;
 use App\Imports\ProfilesImport;
@@ -11,12 +13,15 @@ use Maatwebsite\Excel\Facades\Excel;
 
 use App\Http\Controllers\Controller;
 
+use Yajra\DataTables\DataTables;
 //use App\Http\Requests\StoreProfileRequest;
 //use App\Http\Requests\UpdateProfileRequest;
 use Illuminate\Auth\Events\Validated;
 //use GuzzleHttp\Psr7\Request;
 use Illuminate\Http\Request;
 //use Illuminate\Support\Facades\Redirect;
+
+use PDF;
 
 
 class ProfileController extends Controller
@@ -26,9 +31,9 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-
         $profile = Profile::latest();
 
         if (request('search')) {
@@ -41,6 +46,51 @@ class ProfileController extends Controller
             "title" => "Data karyawan",
             "profiles" => $profile->get()->sortBy('id')
         ]);
+    }
+
+    public function cetaknilai($id)
+    {
+
+        $saw = ReportController::getSaw();
+
+        $profile = Profile::find($id);
+        $absen = Nilai::where('nip', $id)->get();
+        $nilai = Penilaian::where('nip', $id)->get();
+
+        usort($saw, function ($a, $b) {
+            return $b['skor'] - $a['skor'];
+        });
+
+        $peringkat = 1;
+        foreach ($saw as $key => $item) {
+            $saw[$key]['peringkat'] = $peringkat++;
+        }
+
+
+        // Kondisi yang akan digunakan pada klausa WHERE
+        $condition = ['nip' => 200376];
+
+        // Fungsi untuk menyaring data berdasarkan kondisi
+        $filteredData = array_filter($saw, function ($item) use ($condition) {
+            foreach ($condition as $key => $value) {
+                if ($item[$key] != $value) {
+                    return false;
+                }
+            }
+            return true;
+        });
+
+
+        $data = [
+            "title" => "Nilai",
+            "profile" => $profile,
+            "absen" => $absen,
+            "nilai" => $nilai,
+            "peringkat" => $filteredData
+        ];
+
+        $pdf = PDF::loadView('cetak_nilai', $data);
+        return $pdf->stream('slip_gaji.pdf');
     }
 
     public function tambah()

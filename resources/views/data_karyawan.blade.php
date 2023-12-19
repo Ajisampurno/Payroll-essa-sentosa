@@ -88,7 +88,7 @@
                       @endforeach
                   </tbody>
               </table>
-              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -123,4 +123,28 @@
 </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript">
+//      $(document).ready(function () {
+//          $('#datatable').DataTable({
+//              processing: true,
+//              searching: true,
+//              serverSide: true,
+//              paging: true,
+//              dom: 'Bfrtip',
+//        title: '',
+//              ajax: {
+//                        url:'{{ url('/data') }}',
+//                    },
+//              columns: [
+//                  {data: 'id', name: 'id'},
+//                  {data: 'nama_ktp', name: 'nama_ktp'},
+//                  {data: 'aksi', name: 'aksi'},
+//              ],
+//          });
+//      });
+//  </script>
+//
 @endsection

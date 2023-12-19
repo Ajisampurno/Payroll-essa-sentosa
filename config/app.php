@@ -163,6 +163,9 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
 
+        // Yajra data table
+        Yajra\DataTables\DataTablesServiceProvider::class,
+
         /*
          * Package Service Providers...
          */
@@ -233,7 +236,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Excel' => \Maatwebsite\Excel\Facades\Excel::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
-
+        // Yajra data tables
+        'DataTables' => Yajra\DataTables\Facades\DataTables::class,
     ],
 
 ];
