@@ -379,7 +379,7 @@ class PenilaiankaryawanController extends Controller
             "title" => "Form penilaian",
             "profiles" => $profile,
             "setting" => $setting,
-            "inputtypes" => $input
+            "inputtypes" => $inputtype
         ]);
     }
 
