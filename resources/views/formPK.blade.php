@@ -31,7 +31,7 @@
                                 <div class="card text-dark bg-light mb-3">
                                     <div class="card-header p-4">
                                         <h5 class="card-title text-center">{{ $set->a1 }}</h5>
-                                        <p class="text-bobot"> Bobot:{{ $set->bobot1 }}, Type:{{ $set->type1 }}</p>
+                                        <p class="text-bobot"> Bobot:{{ $set->bobot1 }}, Atribut:{{ $set->type1 }}</p>
                                     </div>
                                     <div class="card-body">
                                         @if ($inputtypes->inputtype1 == "Radio")
@@ -76,7 +76,7 @@
                                 <div class="card text-dark bg-light mb-3">
                                     <div class="card-header p-4">
                                         <h5 class="card-title text-center">{{ $set->a2 }}</h5>
-                                        <p class="text-bobot"> Bobot:{{ $set->bobot2 }}, Type:{{ $set->type2 }}</p>
+                                        <p class="text-bobot"> Bobot:{{ $set->bobot2 }}, Atribut:{{ $set->type2 }}</p>
                                     </div>
                                     <div class="card-body">
                                         @if ($inputtypes->inputtype2 == "Radio")
@@ -121,7 +121,7 @@
                                 <div class="card text-dark bg-light mb-3">
                                     <div class="card-header p-4">
                                         <h5 class="card-title text-center">{{ $set->a3 }}</h5>
-                                        <p class="text-bobot"> Bobot:{{ $set->bobot3 }}, Type:{{ $set->type3 }}</p>
+                                        <p class="text-bobot"> Bobot:{{ $set->bobot3 }}, Atribut:{{ $set->type3 }}</p>
                                     </div>
                                     <div class="card-body">
                                         @if ($inputtypes->inputtype3 == "Radio")
@@ -166,7 +166,7 @@
                                 <div class="card text-dark bg-light mb-3">
                                     <div class="card-header p-4">
                                         <h5 class="card-title text-center">{{ $set->a4 }}</h5>
-                                        <p class="text-bobot"> Bobot:{{ $set->bobot4 }}, Type:{{ $set->type4 }}</p>
+                                        <p class="text-bobot"> Bobot:{{ $set->bobot4 }}, Atribut:{{ $set->type4 }}</p>
                                     </div>
                                     <div class="card-body">
                                          @if ($inputtypes->inputtype4 == "Radio")
@@ -211,7 +211,7 @@
                                 <div class="card text-dark bg-light mb-3">
                                     <div class="card-header p-4">
                                         <h5 class="card-title text-center">{{ $set->a5 }}</h5>
-                                        <p class="text-bobot"> Bobot:{{ $set->bobot5 }}, Type:{{ $set->type5 }}</p>
+                                        <p class="text-bobot"> Bobot:{{ $set->bobot5 }}, Atribut:{{ $set->type5 }}</p>
                                     </div>
                                     <div class="card-body">
                                          @if ($inputtypes->inputtype5 == "Radio")
@@ -256,7 +256,7 @@
                                 <div class="card text-dark bg-light mb-3">
                                     <div class="card-header p-4">
                                         <h6 class="card-title text-center">{{ $set->a6 }}</h6>
-                                        <p class="text-bobot"> Bobot:{{ $set->bobot6 }}, Type:{{ $set->type6 }}</p>
+                                        <p class="text-bobot"> Bobot:{{ $set->bobot6 }}, Atribut:{{ $set->type6 }}</p>
                                     </div>
                                     <div class="card-body">
                                          @if ($inputtypes->inputtype6 == "Radio")
@@ -301,7 +301,7 @@
                                 <div class="card text-dark bg-light mb-3">
                                     <div class="card-header p-4">
                                         <h5 class="card-title text-center">{{ $set->a7 }}</h5>
-                                        <p class="text-bobot"> Bobot:{{ $set->bobot7 }}, Type:{{ $set->type7 }}</p>
+                                        <p class="text-bobot"> Bobot:{{ $set->bobot7 }}, Atribut:{{ $set->type7 }}</p>
                                     </div>
                                     <div class="card-body">
                                          @if ($inputtypes->inputtype7 == "Radio")
@@ -346,7 +346,7 @@
                                 <div class="card text-dark bg-light mb-3">
                                     <div class="card-header p-4">
                                         <h5 class="card-title text-center">{{ $set->a8 }}</h5>
-                                        <p class="text-bobot"> Bobot:{{ $set->bobot8 }}, Type:{{ $set->type8 }}</p>
+                                        <p class="text-bobot"> Bobot:{{ $set->bobot8 }}, Atribut:{{ $set->type8 }}</p>
                                     </div>
                                     <div class="card-body">
                                          @if ($inputtypes->inputtype8 == "Radio")
@@ -391,7 +391,7 @@
                                 <div class="card text-dark bg-light mb-3">
                                     <div class="card-header p-4">
                                         <h5 class="card-title text-center">{{ $set->a9 }}</h5>
-                                        <p class="text-bobot"> Bobot:{{ $set->bobot9 }}, Type:{{ $set->type9 }}</p>
+                                        <p class="text-bobot"> Bobot:{{ $set->bobot9 }}, Atribut:{{ $set->type9 }}</p>
                                     </div>
                                     <div class="card-body">
                                          @if ($inputtypes->inputtype9 == "Radio")
@@ -436,7 +436,7 @@
                                 <div class="card text-dark bg-light mb-3">
                                     <div class="card-header p-4">
                                         <h5 class="card-title text-center">{{ $set->a10 }}</h5>
-                                        <p class="text-bobot"> Bobot:{{ $set->bobot10 }}, Type:{{ $set->type10 }}</p>
+                                        <p class="text-bobot"> Bobot:{{ $set->bobot10 }}, Atribut:{{ $set->type10 }}</p>
                                     </div>
                                     <div class="card-body">
                                          @if ($inputtypes->inputtype10 == "Radio")
@@ -481,7 +481,7 @@
                                 <div class="card text-dark bg-light mb-3">
                                     <div class="card-header p-4">
                                         <h5 class="card-title text-center">{{ $set->a11 }}</h5>
-                                        <p class="text-bobot"> Bobot:{{ $set->bobot11 }}, Type:{{ $set->type11 }}</p>
+                                        <p class="text-bobot"> Bobot:{{ $set->bobot11 }}, Atribut:{{ $set->type11 }}</p>
                                     </div>
                                     <div class="card-body">
                                          @if ($inputtypes->inputtype11 == "Radio")
@@ -526,7 +526,7 @@
                                 <div class="card text-dark bg-light mb-3">
                                     <div class="card-header p-4">
                                         <h5 class="card-title text-center">{{ $set->a12 }}</h5>
-                                        <p class="text-bobot"> Bobot:{{ $set->bobot12 }}, Type:{{ $set->type12 }}</p>
+                                        <p class="text-bobot"> Bobot:{{ $set->bobot12 }}, Atribut:{{ $set->type12 }}</p>
                                     </div>
                                     <div class="card-body">
                                          @if ($inputtypes->inputtype12 == "Radio")
@@ -571,7 +571,7 @@
                                 <div class="card text-dark bg-light mb-3">
                                     <div class="card-header p-4">
                                         <h5 class="card-title text-center">{{ $set->a13 }}</h5>
-                                        <p class="text-bobot"> Bobot:{{ $set->bobot13 }}, Type:{{ $set->type13 }}</p>
+                                        <p class="text-bobot"> Bobot:{{ $set->bobot13 }}, Atribut:{{ $set->type13 }}</p>
                                     </div>
                                     <div class="card-body">
                                          @if ($inputtypes->inputtype13 == "Radio")
@@ -616,7 +616,7 @@
                                 <div class="card text-dark bg-light mb-3">
                                     <div class="card-header p-4">
                                         <h5 class="card-title text-center">{{ $set->a14 }}</h5>
-                                        <p class="text-bobot"> Bobot:{{ $set->bobot14 }}, Type:{{ $set->type14 }}</p>
+                                        <p class="text-bobot"> Bobot:{{ $set->bobot14 }}, Atribut:{{ $set->type14 }}</p>
                                     </div>
                                     <div class="card-body">
                                          @if ($inputtypes->inputtype14 == "Radio")
@@ -661,7 +661,7 @@
                                 <div class="card text-dark bg-light mb-3">
                                     <div class="card-header p-4">
                                         <h5 class="card-title text-center">{{ $set->a15 }}</h5>
-                                        <p class="text-bobot"> Bobot:{{ $set->bobot15 }}, Type:{{ $set->type15 }}</p>
+                                        <p class="text-bobot"> Bobot:{{ $set->bobot15 }}, Atribut:{{ $set->type15 }}</p>
                                     </div>
                                     <div class="card-body">
                                          @if ($inputtypes->inputtype15 == "Radio")
@@ -706,7 +706,7 @@
                                 <div class="card text-dark bg-light mb-3">
                                     <div class="card-header p-4">
                                         <h5 class="card-title text-center">{{ $set->a16 }}</h5>
-                                        <p class="text-bobot"> Bobot:{{ $set->bobot16 }}, Type:{{ $set->type16 }}</p>
+                                        <p class="text-bobot"> Bobot:{{ $set->bobot16 }}, Atribut:{{ $set->type16 }}</p>
                                     </div>
                                     <div class="card-body">
                                          @if ($inputtypes->inputtype16 == "Radio")
@@ -751,7 +751,7 @@
                                 <div class="card text-dark bg-light mb-3">
                                     <div class="card-header p-4">
                                         <h5 class="card-title text-center">{{ $set->a17 }}</h5>
-                                        <p class="text-bobot"> Bobot:{{ $set->bobot17 }}, Type:{{ $set->type17 }}</p>
+                                        <p class="text-bobot"> Bobot:{{ $set->bobot17 }}, Atribut:{{ $set->type17 }}</p>
                                     </div>
                                     <div class="card-body">
                                          @if ($inputtypes->inputtype17 == "Radio")
@@ -796,7 +796,7 @@
                                 <div class="card text-dark bg-light mb-3">
                                     <div class="card-header p-4">
                                         <h5 class="card-title text-center">{{ $set->a18 }}</h5>
-                                        <p class="text-bobot"> Bobot:{{ $set->bobot18 }}, Type:{{ $set->type18 }}</p>
+                                        <p class="text-bobot"> Bobot:{{ $set->bobot18 }}, Atribut:{{ $set->type18 }}</p>
                                     </div>
                                     <div class="card-body">
                                          @if ($inputtypes->inputtype18 == "Radio")
@@ -841,7 +841,7 @@
                                 <div class="card text-dark bg-light mb-3">
                                     <div class="card-header p-4">
                                         <h5 class="card-title text-center">{{ $set->a19 }}</h5>
-                                        <p class="text-bobot"> Bobot:{{ $set->bobot19 }}, Type:{{ $set->type19 }}</p>
+                                        <p class="text-bobot"> Bobot:{{ $set->bobot19 }}, Atribut:{{ $set->type19 }}</p>
                                     </div>
                                     <div class="card-body">
                                          @if ($inputtypes->inputtype19 == "Radio")
@@ -886,7 +886,7 @@
                                 <div class="card text-dark bg-light mb-3">
                                     <div class="card-header p-4">
                                         <h5 class="card-title text-center">{{ $set->a20 }}</h5>
-                                        <p class="text-bobot"> Bobot:{{ $set->bobot20 }}, Type:{{ $set->type20 }}</p>
+                                        <p class="text-bobot"> Bobot:{{ $set->bobot20 }}, Atribut:{{ $set->type20 }}</p>
                                     </div>
                                     <div class="card-body">
                                          @if ($inputtypes->inputtype20 == "Radio")

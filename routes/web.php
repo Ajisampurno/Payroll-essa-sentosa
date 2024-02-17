@@ -40,31 +40,13 @@ Route::get('/logout', function () {
     return redirect('/');
 });
 
-Route::group(['middleware' => ['auth', 'ceklevel:manager']], function () {
-    //TAMPILAN MANAGE USERS
-    Route::get('/manageuser', [UserController::class, 'index'])->name('manageuser');
-    //TAMPILAN REGISTRASI USER
-    Route::get('/registrasi', [UserController::class, 'registrasi'])->name('registrasi');
-    //HALAMAN TAMBAH DATA USER
-    Route::post('/simpanregistrasi', [UserController::class, 'simpan']);
-    //HALAMAN HAPUS DATA USER
-    Route::get('/user/hapus/{id}', [UserController::class, 'hapus']);
-    //HALAMAN UPDATE USER
-    Route::get('/edituser/{id}', [UserController::class, 'edit']);
-    //HFUNGSI UPDATE USER
-    Route::post('/edituser/update/{id}', [UserController::class, 'update']);
-    //TAMPILAN REPORT
-    Route::get('/report', [ReportController::class, 'index'])->name('report');
-});
-
-
-Route::group(['middleware' => ['auth', 'ceklevel:pic,hrd,manager,karyawan']], function () {
+Route::group(['middleware' => ['auth', 'ceklevel:admin,user']], function () {
     //TAMPILAN DASHBOARD
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
     //TAMPILASN DASHBOARD PENILAIAN KARYAWAN
     Route::get('/rangkingboard', [PenilaiankaryawanController::class, 'rangkingboard']);
-    //HALAMAN HAPUS DATA KARYAWAN
-    Route::get('/rangkingboard/hapus/{id}', [PenilaiankaryawanController::class, 'hapus']);
+
     //TAMPILAN ABSEN
     Route::get('/absen', [AbsenController::class, 'index'])->name('absen');
     //HALAMAN TAMBAH data absen
@@ -82,8 +64,12 @@ Route::group(['middleware' => ['auth', 'ceklevel:pic,hrd,manager,karyawan']], fu
     Route::post('/approve/update/{id}', [PengajuanController::class, 'approve']);
 });
 
-Route::group(['middleware' => ['auth', 'ceklevel:hrd,manager']], function () {
+Route::group(['middleware' => ['auth', 'ceklevel:admin']], function () {
+
+    //API DATA KARYAWAN
     Route::get('data', [ProfileController::class, 'data']);
+
+    //DATA KARYAWAN
     //TAMPILAN DATA KARYAWAN
     Route::get('/data_karyawan', [ProfileController::class, 'index'])->name('data_karyawan');
     //SHOW DATA KARYAWAM
@@ -103,15 +89,14 @@ Route::group(['middleware' => ['auth', 'ceklevel:hrd,manager']], function () {
     //FUNCTION IMPORT EXCEL
     Route::post('/import_profiles', [ProfileController::class, 'ProfilesImport']);
 
-    //GROUP SETTING NILAI
+    //KONFIGURASI BOBOT
     //TAMPILASN SETTING NILAI
     Route::get('/settingnilai', [SettingnilaiController::class, 'index']);
     //FUNGSI SIMPAN SETTING
     Route::post('simpansetting', [SettingnilaiController::class, 'store']);
-});
 
-Route::group(['middleware' => ['auth', 'ceklevel:pic,manager']], function () {
-    //TAMPILASN DASHBOARD PENILAIAN KARYAWAN
+    //FORM PENILAIAN
+    //TAMPILASN REPORT PENILAIAN KARYAWAN
     Route::get('/raport', [PenilaiankaryawanController::class, 'index']);
     //TAMPILASN FORM PENILAIAN PEGAWAI
     Route::get('/formPK', [PenilaiankaryawanController::class, 'form']);
@@ -121,10 +106,24 @@ Route::group(['middleware' => ['auth', 'ceklevel:pic,manager']], function () {
     Route::get('/update_nilai/{id}', [PenilaiankaryawanController::class, 'edit']);
     //HFUNGSI UPDATE NILAI KAEYAWAN
     Route::post('/update_nilai/update/{id}', [PenilaiankaryawanController::class, 'update']);
-});
 
-Route::group(['middleware' => ['auth', 'ceklevel:hrd,manager']], function () {
-    //HALAMAN CETAK SLIP GAJI
+    //MANAGE USER
+    //TAMPILAN MANAGE USERS
+    Route::get('/manageuser', [UserController::class, 'index'])->name('manageuser');
+    //TAMPILAN REGISTRASI USER
+    Route::get('/registrasi', [UserController::class, 'registrasi'])->name('registrasi');
+    //HALAMAN TAMBAH DATA USER
+    Route::post('/simpanregistrasi', [UserController::class, 'simpan']);
+    //HALAMAN HAPUS DATA USER
+    Route::get('/user/hapus/{id}', [UserController::class, 'hapus']);
+    //HALAMAN UPDATE USER
+    Route::get('/edituser/{id}', [UserController::class, 'edit']);
+    //HFUNGSI UPDATE USER
+    Route::post('/edituser/update/{id}', [UserController::class, 'update']);
+    //TAMPILAN REPORT
+    Route::get('/report', [ReportController::class, 'index'])->name('report');
+
+    //CETAK SLIP GAJI
     //TAMPIL SLIP
     Route::get('/cetak_slip_gaji/{id}', [UpotController::class, 'cetakslip']);
     //TAMPIL SLIP 2
@@ -133,7 +132,6 @@ Route::group(['middleware' => ['auth', 'ceklevel:hrd,manager']], function () {
     //TAMPIL Nilai
     Route::get('/cetak_nilai/{id}', [ProfileController::class, 'cetaknilai']);
 });
-
 
 
 

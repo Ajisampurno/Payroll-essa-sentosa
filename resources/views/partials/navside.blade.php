@@ -20,13 +20,10 @@
                     <a class="{{ ($title === "Dashboard")?'active':'' }}" href="/dashboard"><span class="icon" data-feather="home" aria-hidden="true"></span>Dashboard</a>
                 </li>
                 <!-- Jika yg buka adalah manager -->
-                @if (auth()->user()->ceklevel=="pic")
-                  <li>
-                      <a class="{{ ($title === "Form penilaian")?'active':'' }}" href="/formPK"><span class="icon" data-feather="file-text" aria-hidden="true"></span>Form Penilaian</a>
-                  </li>
+                @if (auth()->user()->ceklevel=="user")
                   <li>
                       <a class="{{ ($title === "Rangking Board")?'active':'' }}" href="/rangkingboard"><span data-feather="award" class="icon" aria-hidden="true"></span>Rangking Board</a>
-                  </li>
+                  </li>  
                   <li>
                     <a class="show-cat-btn" href="##">
                         <span class="icon folder" aria-hidden="true"></span>Pengajuan
@@ -44,33 +41,6 @@
                       </li>
                     </ul>
                   </li> 
-                @elseif (auth()->user()->ceklevel=="hrd")
-                    <li>
-                      <a class="{{ ($title === "Data karyawan")?'active':'' }}" href="/data_karyawan"><span data-feather="clipboard" class="icon" aria-hidden="true"></span>Data Karyawan</a>
-                    </li>
-                    <li>
-                      <a class="{{ ($title === "Rangking Board")?'active':'' }}" href="/rangkingboard"><span data-feather="award" class="icon" aria-hidden="true"></span>Rangking Board</a>
-                    </li>
-                    <li>
-                      <a class="{{ ($title === "Setting Nilai")?'active':'' }}" href="/settingnilai"><span data-feather="settings" class="icon" aria-hidden="true"></span>Setting</a>
-                    </li>
-                    <li>
-                      <a class="show-cat-btn" href="##">
-                          <span class="icon folder" aria-hidden="true"></span>Pengajuan
-                          <span class="category__btn transparent-btn" title="Open list">
-                              <span class="sr-only">Open list</span>
-                              <span class="icon arrow-down" aria-hidden="true"></span>
-                          </span>
-                      </a>
-                      <ul class="cat-sub-menu">
-                        <li>
-                            <a href="/pengajuan">Mengajukan</a>
-                        </li>
-                        <li>
-                          <a href="/show_pengajuan">Pengajuan Saya</a>
-                        </li>
-                      </ul>
-                    </li>
                 @else
                   <li>
                       <a class="{{ ($title === "Report")?'active':'' }}" href="/report"><span data-feather="pie-chart" class="icon" aria-hidden="true"></span>Report</a>
