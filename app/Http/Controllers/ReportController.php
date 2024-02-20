@@ -21,11 +21,11 @@ class ReportController extends Controller
     public static function getSaw()
     {
         $sakit = Pengajuan::where('nip', Auth::user()->nip)
-            ->where('aproval', 'aprove')
+            ->where('aproval', 'setuju')
             ->where('alasan', 'sakit')->get()->count();
 
         $cuti = Pengajuan::where('nip', Auth::user()->nip)
-            ->where('aproval', 'aprove')
+            ->where('aproval', 'setuju')
             ->where('alasan', 'cuti')->get()->count();
 
         $nilai = Nilai::where('nip', Auth::user()->nip)->get();

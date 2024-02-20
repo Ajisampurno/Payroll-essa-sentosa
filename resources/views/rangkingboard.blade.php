@@ -28,7 +28,7 @@
                                     <th>NIP</th>
                                     <th>NAMA</th>
                                     <th>SKOR</th>
-                                    @if (auth()->user()->ceklevel=="manager")
+                                    @if (auth()->user()->ceklevel=="admin")
                                         <th>AKSI</th>
                                     @endif
                                 </tr>
@@ -44,7 +44,7 @@
                                         <td class="text-center">{{ $i->nip }}</td>
                                         <td >{{ $i->nama_ktp }}</td>
                                         <td class="text-center">{{ $i['skor'] }}</td>
-                                        @if (auth()->user()->ceklevel=="manager"||auth()->user()->ceklevel=="pic")
+                                        @if (auth()->user()->ceklevel=="admin")
                                         <td class="text-center">
                                             <span class="p-relative">
                                                 <button class="dropdown-btn transparent-btn" type="button" title="More info">

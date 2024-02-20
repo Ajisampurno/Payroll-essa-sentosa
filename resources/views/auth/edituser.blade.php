@@ -44,16 +44,12 @@
 
                             <div class="col-md-6">
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="ceklevel" name="ceklevel" class="custom-control-input" value="manager" {{ ($users->ceklevel === "manager")?'checked':'' }}>
-                                    <label class="custom-control-label" for="ceklevel1">Manager</label>
+                                    <input type="radio" id="ceklevel" name="ceklevel" class="custom-control-input" value="admin" {{ ($users->ceklevel === "manager")?'checked':'' }}>
+                                    <label class="custom-control-label" for="ceklevel1">Admin</label>
                                 </div>
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="ceklevel" name="ceklevel" class="custom-control-input" value="hrd" {{ ($users->ceklevel === "hrd")?'checked':'' }}>
-                                    <label class="custom-control-label" for="ceklevel2">HRD</label>
-                                </div>
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="ceklevel" name="ceklevel" class="custom-control-input" value="pic" {{ ($users->ceklevel === "manager")?'pic':'' }}>
-                                    <label class="custom-control-label" for="ceklevel3">PIC</label>
+                                    <input type="radio" id="ceklevel" name="ceklevel" class="custom-control-input" value="user" {{ ($users->ceklevel === "hrd")?'checked':'' }}>
+                                    <label class="custom-control-label" for="ceklevel2">User</label>
                                 </div>
                                 @error('ceklevel')
                                     <span class="invalid-feedback" role="alert">

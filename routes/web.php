@@ -41,6 +41,11 @@ Route::get('/logout', function () {
 });
 
 Route::group(['middleware' => ['auth', 'ceklevel:admin,user']], function () {
+
+
+    //API DATA KARYAWAN
+    Route::get('/api/saw', [App\Http\Controllers\ReportController::class, 'getSaw']);
+
     //TAMPILAN DASHBOARD
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
@@ -58,10 +63,13 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin,user']], function () {
     //FUNGSI TAMBAH DATA PENGAJUAN
     Route::post('pengajuan/store', [PengajuanController::class, 'store']);
     //SHOW PENGAJUAN
-    Route::get('/show_pengajuan', [PengajuanController::class, 'pengajuansaya']);
+    Route::get('/pengajuan_saya', [PengajuanController::class, 'pengajuansaya']);
+    Route::get('/show_pengajuan/{id}', [PengajuanController::class, 'show']);
+
     //FUNGSI UPDATE APPROVE 
     Route::post('/cancel/update/{id}', [PengajuanController::class, 'cancel']);
     Route::post('/approve/update/{id}', [PengajuanController::class, 'approve']);
+    Route::get('/request_karyawan', [PengajuanController::class, 'request_karyawan']);
 });
 
 Route::group(['middleware' => ['auth', 'ceklevel:admin']], function () {

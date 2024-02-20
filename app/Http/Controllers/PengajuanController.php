@@ -7,18 +7,9 @@ use Illuminate\Http\Request;
 
 class PengajuanController extends Controller
 {
-    public function index()
-    {
-        return view('/pengajuan', [
-            'title' => 'Pengajuan'
-        ]);
-    }
-
 
     public function store(Request $request)
     {
-
-
         $ValidateData = $request->validate([
             'nip' => 'required',
             'nama_ktp' => 'required',
@@ -43,12 +34,13 @@ class PengajuanController extends Controller
             'aproval' => 'Menunggu',
         ]);
 
-        return redirect('pengajuan')->with('success', 'pengajuan telah selesai di simpan dan menunggu aproval');
+        return redirect('pengajuan_saya')->with('success', 'pengajuan telah selesai di simpan dan menunggu aproval');
     }
 
     public function request_karyawan()
     {
         $request_karyawan = Pengajuan::latest();
+        $pengajuan = Pengajuan::all()->sortDesc();
 
         if (request('search')) {
             $request_karyawan->where('nip', 'like', '%' . request('search') . '%')
@@ -58,6 +50,7 @@ class PengajuanController extends Controller
 
         return view('request_karyawan', [
             "title" => "Request karyawan | ES",
+            "pengajuan" => $pengajuan,
             "request_karyawan" => $request_karyawan->get()->sortDesc()
         ]);
     }
@@ -67,24 +60,34 @@ class PengajuanController extends Controller
         $target = auth()->user()->nip;
         $pengajuan = Pengajuan::where('nip', $target);
 
-        return view('show_pengajuan', [
+        return view('pengajuan_saya', [
             "title" => "pengajuan saya",
             "pengajuan" => $pengajuan->get()->sortDesc()
+        ]);
+    }
+
+    public function show($id)
+    {
+        $show_pengajuan = Pengajuan::find($id);
+
+        return view('show_pengajuan', [
+            "title" => "pengajuan saya",
+            "show_pengajuan" => $show_pengajuan
         ]);
     }
 
     public function cancel($id)
     {
         Pengajuan::find($id)->update([
-            'aproval' => 'Di cancel'
+            'aproval' => 'cancel'
         ]);
-        return redirect('/show_pengajuan')->with('success', 'Data berhasil di cancel');
+        return redirect('/request_karyawan')->with('success', 'Data berhasil dikembalikan');
     }
     public function approve($id)
     {
         Pengajuan::find($id)->update([
-            'aproval' => 'Di Approve'
+            'aproval' => 'setuju'
         ]);
-        return redirect('/request_karyawan')->with('success', 'Data berhasil di cancel');
+        return redirect('/request_karyawan')->with('success', 'Data berhasil disetujui');
     }
 }
