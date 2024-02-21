@@ -38,7 +38,7 @@
                                 @php
                                     $n=1;
                                 @endphp
-                                @foreach ($fixnilai as $i)
+                                @foreach ($saw as $i)
                                     <tr>
                                         <td class="text-center">{{ $n++ }}</td>
                                         <td class="text-center">{{ $i->nip }}</td>

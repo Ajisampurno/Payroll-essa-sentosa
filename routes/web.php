@@ -50,7 +50,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin,user']], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     //TAMPILASN DASHBOARD PENILAIAN KARYAWAN
-    Route::get('/rangkingboard', [PenilaiankaryawanController::class, 'rangkingboard']);
+    Route::get('/rangkingboard', [ReportController::class, 'rangkingboard']);
 
     //TAMPILAN ABSEN
     Route::get('/absen', [AbsenController::class, 'index'])->name('absen');

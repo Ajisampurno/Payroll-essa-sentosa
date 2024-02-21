@@ -421,4 +421,16 @@ class ReportController extends Controller
             'settingnilai' => $settingnilai
         ]);
     }
+
+    public function rangkingboard()
+    {
+        $data = ReportController::getSaw();
+        $settingnilai = Settingnilai::get();
+
+        return view('/report', [
+            'title' => 'Rangkingboard',
+            'saw' => $data,
+            'settingnilai' => $settingnilai
+        ]);
+    }
 }
