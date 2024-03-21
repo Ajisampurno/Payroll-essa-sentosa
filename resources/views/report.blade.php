@@ -18,34 +18,30 @@ use App\Models\Saw;
                                 <tr>
                                     <th class="text-center">Rank</th>
                                     <th class="text-center">NIP</th>
-                                    <th class="text-center">DA</th>
-                                    <th class="text-center">DO</th>
                                     <th class="text-center">DT</th>
                                     <th class="text-center">PA</th>
-                                    <th class="text-center">PO</th>
-                                    <th class="text-center">PT</th>
                                     <th class="text-center">Sakit</th>
                                     <th class="text-center">Cuti</th>
-                                    <th class="text-center">A1</th>
-                                    <th class="text-center">A2</th>
-                                    <th class="text-center">A3</th>
-                                    <th class="text-center">A4</th>
-                                    <th class="text-center">A5</th>
-                                    <th class="text-center">A6</th>
-                                    <th class="text-center">A7</th>
-                                    <th class="text-center">A8</th>
-                                    <th class="text-center">A9</th>
-                                    <th class="text-center">A10</th>
-                                    <th class="text-center">A11</th>
-                                    <th class="text-center">A13</th>
-                                    <th class="text-center">A13</th>
-                                    <th class="text-center">A14</th>
-                                    <th class="text-center">A15</th>
-                                    <th class="text-center">A16</th>
-                                    <th class="text-center">A17</th>
-                                    <th class="text-center">A18</th>
-                                    <th class="text-center">A19</th>
-                                    <th class="text-center">A20</th>
+                                    <th class="text-center">C1</th>
+                                    <th class="text-center">C2</th>
+                                    <th class="text-center">C3</th>
+                                    <th class="text-center">C4</th>
+                                    <th class="text-center">C5</th>
+                                    <th class="text-center">C6</th>
+                                    <th class="text-center">C7</th>
+                                    <th class="text-center">C8</th>
+                                    <th class="text-center">C9</th>
+                                    <th class="text-center">C10</th>
+                                    <th class="text-center">C11</th>
+                                    <th class="text-center">C13</th>
+                                    <th class="text-center">C13</th>
+                                    <th class="text-center">C14</th>
+                                    <th class="text-center">C15</th>
+                                    <th class="text-center">C16</th>
+                                    <th class="text-center">C17</th>
+                                    <th class="text-center">C18</th>
+                                    <th class="text-center">C19</th>
+                                    <th class="text-center">C20</th>
                                     <th class="text-center">Skor</th>
                                 </tr>
                             </thead>
@@ -58,12 +54,8 @@ use App\Models\Saw;
                                 <tr>
                                     <th class="text-center">{{ $rank++ }}</th>
                                     <td class="text-center">{{ $s['nip']}}</td>
-                                    <td class="text-center">{{ $s['datangawal']}}</td>
-                                    <td class="text-center">{{ $s['ontimemasuk']}}</td>
                                     <td class="text-center">{{ $s['datangtelat']}}</td>
                                     <td class="text-center">{{ $s['pulangawal']}}</td>
-                                    <td class="text-center">{{ $s['ontimepulang']}}</td>
-                                    <td class="text-center">{{ $s['pulangtelat']}}</td>
                                     <td class="text-center">{{ $s['sakit'] }}</td>
                                     <td class="text-center">{{ $s['cuti'] }}</td>
                                     <td class="text-center">{{ $s['nilai1']}}</td>

@@ -20,7 +20,7 @@ class CreatePengajuansTable extends Migration
             $table->string('tgl_mulai')->required();
             $table->string('tgl_sampai')->required();
             $table->string('alasan')->required();
-            $table->string('foto')->required();
+            $table->string('foto')->nullable();
             $table->string('aproval')->nullable();
             $table->timestamps();
         });

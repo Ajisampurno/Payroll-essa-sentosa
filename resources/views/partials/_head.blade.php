@@ -16,6 +16,6 @@
     <link rel="stylesheet" href="/css/style-rate.css">
     <link rel="stylesheet" href="/css/style-settingnilai.css">
     <link rel="stylesheet" href="/css/style-formpk.css">
-
+    <link rel="stylesheet" href="/css/style-camera.css">
     <title>ES | {{ $title }}</title>
   </head>

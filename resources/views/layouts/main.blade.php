@@ -24,7 +24,6 @@
     <script src="/plugins/feather.min.js"></script>
     <!-- Custom scripts -->
     <script src="/js/script.js"></script>
-    <script src="/js/camera.js"></script>
-
+    </style>
   </body>
 </html>

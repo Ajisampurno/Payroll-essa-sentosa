@@ -1,0 +1,19 @@
+    .d-flex {
+        display: flex;
+    }
+
+    .justify-content-center {
+        justify-content: center;
+    }
+
+    .align-items-center {
+        align-items: center;
+    }
+
+    .preview,
+    .output,
+    .result {
+        width: 100%;
+        height: auto;
+        margin: auto;
+    }

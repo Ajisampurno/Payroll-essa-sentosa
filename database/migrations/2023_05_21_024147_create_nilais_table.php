@@ -16,12 +16,10 @@ class CreateNilaisTable extends Migration
         Schema::create('nilais', function (Blueprint $table) {
             $table->id();
             $table->integer('nip');
-            $table->integer('datangawal')->nullable();
-            $table->integer('ontimemasuk')->nullable();
             $table->integer('datangtelat')->nullable();
             $table->integer('pulangawal')->nullable();
-            $table->integer('ontimepulang')->nullable();
-            $table->integer('pulangtelat')->nullable();
+            $table->integer('off')->nullable();
+            $table->integer('alpa')->nullable();
             $table->integer('sakit')->nullable();
             $table->integer('cuti')->nullable();
             $table->timestamps();

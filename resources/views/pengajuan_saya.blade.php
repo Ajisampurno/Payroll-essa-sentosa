@@ -105,6 +105,8 @@
                             <option selected>Pilih Alasan</option>
                             <option value="cuti">Cuti</option>
                             <option value="sakit">Sakit</option>
+                            <option value="off">Off</option>
+                            <option value="alpa">Alpa</option>
                         </select>
                         @error('alasan')
                             <div class="invalid-feedback">
@@ -126,10 +128,6 @@
                     </div>
                 </form>
             </div>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Understood</button>
         </div>
         </div>
     </div>

@@ -30,35 +30,23 @@ class ReportController extends Controller
 
         $nilai = Nilai::where('nip', Auth::user()->nip)->get();
 
-        $countdatangawal = In::where('nip', Auth::user()->nip)->where('status', 'LIKE', "%datang awal%")->count();
-        $countontimemasuk = In::where('nip', Auth::user()->nip)->where('status', 'LIKE', "%ontime masuk%")->count();
         $countdatangtelat = In::where('nip', Auth::user()->nip)->where('status', 'LIKE', "%datang telat%")->count();
         $countpulangawal = Out::where('nip', Auth::user()->nip)->where('status', 'LIKE', "%pulang awal%")->count();
-        $countontimepulang = Out::where('nip', Auth::user()->nip)->where('status', 'LIKE', "%ontime pulang%")->count();
-        $countpulangtelat = Out::where('nip', Auth::user()->nip)->where('status', 'LIKE', "%pulang telat%")->count();
 
         if ($nilai->toarray() != null) {
             Nilai::where('nip', Auth::user()->nip)
                 ->update([
                     'nip' => Auth::user()->nip,
-                    'datangawal' => $countdatangawal,
-                    'ontimemasuk' => $countontimemasuk,
                     'datangtelat' => $countdatangtelat,
                     'pulangawal' => $countpulangawal,
-                    'ontimepulang' => $countontimepulang,
-                    'pulangtelat' => $countpulangtelat,
                     'sakit' => $sakit,
                     'cuti' => $cuti,
                 ]);
         } else {
             Nilai::create([
                 'nip' => Auth::user()->nip,
-                'datangawal' => $countdatangawal,
-                'ontimemasuk' => $countontimemasuk,
                 'datangtelat' => $countdatangtelat,
                 'pulangawal' => $countpulangawal,
-                'ontimepulang' => $countontimepulang,
-                'pulangtelat' => $countpulangtelat,
                 'sakit' => $sakit,
                 'cuti' => $cuti,
             ]);
@@ -70,30 +58,14 @@ class ReportController extends Controller
         $cekcount = Penilaian::get()->toarray();
         $settingnilai = Settingnilai::get();
 
-        $bobotdatangawal = 0.1;
-        $bobotontimemasuk = 0.1;
         $bobotdatangtelat = 0.1;
         $bobotpulangawal = 0.1;
-        $bobotontimepulang = 0.1;
-        $bobotpulangtelat = 0.1;
         $bobotcuti = 0.1;
         $bobotsakit = 0.1;
 
         if ($cekcount != null) {
             foreach ($settingnilai as $set) {
                 foreach ($countnilai as $key => $nl) {
-
-                    if ($nl->datangawal != null) {
-                        $nilaidatangawal = $nl->datangawal / Nilai::max('datangawal') * $bobotdatangawal;
-                    } else {
-                        $nilaidatangawal = 0;
-                    }
-
-                    if ($nl->ontimemasuk != null) {
-                        $nilaiontimmasuk = $nl->ontimemasuk / Nilai::max('ontimemasuk') * $bobotontimemasuk;
-                    } else {
-                        $nilaiontimmasuk = 0;
-                    }
 
                     if ($nl->datangtelat != null) {
                         $nilaidatangtelat = $nl->datangtelat / Nilai::max('datangtelat') * $bobotdatangtelat;
@@ -107,22 +79,12 @@ class ReportController extends Controller
                         $nilaipulangawal = 0;
                     }
 
-                    if ($nl->ontimepulang) {
-                        $nilaiontimepulang = $nl->ontimepulang / Nilai::max('ontimepulang') * $bobotontimepulang;
-                    } else {
-                        $nilaiontimepulang = 0;
-                    }
-
-                    if ($nl->pulangtelat != null) {
-                        $nilaipulangtelat = $nl->pulangtelat / Nilai::max('pulangtelat') * $bobotpulangtelat;
-                    } else {
-                        $nilaipulangtelat = 0;
-                    }
                     if ($sakit != null) {
                         $nilaisakit = $sakit / Nilai::max('sakit') * $bobotsakit;
                     } else {
                         $nilaisakit = 0;
                     }
+
                     if ($cuti != null) {
                         $nilaicuti = $cuti / Nilai::max('cuti') * $bobotcuti;
                     } else {
@@ -332,12 +294,9 @@ class ReportController extends Controller
                         $nl20 = 0;
                     }
 
-                    $skor = $nilaidatangawal +
-                        $nilaiontimmasuk +
+                    $skor =
                         $nilaidatangtelat +
                         $nilaipulangawal +
-                        $nilaiontimepulang +
-                        $nilaipulangtelat +
                         $nilaisakit +
                         $nilaicuti +
                         $nl1 +
@@ -364,12 +323,8 @@ class ReportController extends Controller
                     // Bungkus ke variabel cnilai
                     $data[$key] = [
                         'nip' => $nl->nip,
-                        'datangawal' => $nilaidatangawal,
-                        'ontimemasuk' => $nilaiontimmasuk,
                         'datangtelat' => $nilaidatangtelat,
                         'pulangawal' => $nilaipulangawal,
-                        'ontimepulang' => $nilaiontimepulang,
-                        'pulangtelat' => $nilaipulangtelat,
                         'sakit' => $nilaisakit,
                         'cuti' => $nilaicuti,
                         'nilai1' => $nl1,

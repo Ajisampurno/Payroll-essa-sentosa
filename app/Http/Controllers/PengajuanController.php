@@ -22,6 +22,8 @@ class PengajuanController extends Controller
 
         if ($request->file('foto')) {
             $ValidateData['foto'] = $request->file('foto')->store('foto-pengajuan');
+        } else {
+            $ValidateData['foto'] = 'alpa/off';
         }
 
         Pengajuan::create([

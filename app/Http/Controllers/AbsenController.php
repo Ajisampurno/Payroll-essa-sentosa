@@ -44,23 +44,19 @@ class AbsenController extends Controller
         //imagejpeg($image, "gambar.jpg");
 
         date_default_timezone_set('Asia/Jakarta');
-        $setjam = date('H');
+        $setjam = date('Hi');
         $setmenit = date('i');
         $time = date('H:i');
         $date = date('d-m-Y');
 
-        if ($setjam == 8 && $setmenit == 0) {
-            $status = "ontime masuk";
-        } elseif ($setjam < 8) {
-            $status = "datang awal";
-        } elseif ($setjam <= 9) {
+        if ($setjam <= 800) {
+            $status = "in";
+        } elseif ($setjam <= 900) {
             $status = "datang telat";
-        } elseif ($setjam < 16) {
+        } elseif ($setjam <= 1559) {
             $status = "pulang awal";
-        } elseif ($setjam == 16) {
-            $status = "ontime pulang";
         } else {
-            $status = "pulang telat";
+            $status = "out";
         }
 
         $id = date('dmy') . Auth::user()->nip;
